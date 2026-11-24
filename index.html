@@ -287,51 +287,51 @@
     }
 
     /* =========================================================================
-       4. CABECERA EDITORIAL Y BLOQUE DIDÁCTICO INICIAL
+       4. CABECERA EDITORIAL, EXPLICACIÓN RESUMIDA Y GUÍA RÁPIDA
        ========================================================================= */
     .hero {
-      padding: 52px 0 36px;
+      padding: 36px 0 26px;
       border-bottom: 1px solid var(--border-light);
       background: linear-gradient(180deg, #ffffff 0%, var(--bg-page) 100%);
     }
 
     .hero-kicker {
       display: inline-block;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--accent-primary);
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .hero h1 {
       font-family: var(--font-serif);
-      font-size: clamp(2rem, 4.5vw, 3.1rem);
+      font-size: clamp(1.75rem, 4.2vw, 2.75rem);
       font-weight: 700;
       letter-spacing: -0.015em;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .hero-tagline {
       font-family: var(--font-serif);
-      font-size: clamp(1.1rem, 2vw, 1.32rem);
+      font-size: clamp(1.04rem, 1.9vw, 1.24rem);
       color: var(--ink-primary);
-      margin-bottom: 10px;
-      max-width: 760px;
+      margin-bottom: 8px;
+      max-width: 740px;
     }
 
     .hero-subtitle {
-      font-size: 1.02rem;
+      font-size: 0.96rem;
       color: var(--ink-secondary);
-      max-width: 760px;
-      margin-bottom: 28px;
+      max-width: 720px;
+      margin-bottom: 20px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     /* Botones reutilizables */
@@ -341,7 +341,7 @@
       justify-content: center;
       gap: 8px;
       padding: 10px 16px;
-      min-height: 42px;
+      min-height: 44px;
       border-radius: var(--radius-sm);
       border: 1px solid transparent;
       font-size: 0.92rem;
@@ -393,16 +393,80 @@
       background: #dce7f2;
     }
 
-    /* Sección didáctica */
+    /* Sección didáctica resumida y desplegable */
     .didactic-section {
-      padding: 40px 0 44px;
+      padding: 20px 0 18px;
       border-bottom: 1px solid var(--border-light);
+    }
+
+    .concept-summary-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 18px 22px;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .concept-summary-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .concept-summary-copy {
+      flex: 1 1 360px;
+    }
+
+    .concept-quote {
+      border-left: 3px solid var(--accent-primary);
+      padding: 2px 0 2px 14px;
+      font-size: 0.98rem;
+      color: var(--ink-primary);
+      margin: 0;
+    }
+
+    .collapsible-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 9px 15px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-medium);
+      background: var(--bg-page);
+      color: var(--accent-primary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: background var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .collapsible-toggle-btn:hover {
+      background: var(--accent-primary-soft);
+      border-color: var(--accent-primary);
+    }
+
+    .collapsible-toggle-btn .toggle-chevron {
+      transition: transform var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .collapsible-toggle-btn[aria-expanded="true"] .toggle-chevron {
+      transform: rotate(180deg);
+    }
+
+    .didactic-expandable {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
     }
 
     .didactic-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
-      gap: 28px;
+      gap: 24px;
       align-items: start;
     }
 
@@ -410,296 +474,151 @@
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
-      padding: 26px;
+      padding: 22px;
       box-shadow: var(--shadow-xs);
     }
 
+    .didactic-expandable .editorial-box {
+      background: var(--bg-page);
+      box-shadow: none;
+    }
+
     .section-eyebrow {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--ink-tertiary);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .editorial-box h2 {
+    .editorial-box h2,
+    .editorial-box h3 {
       font-family: var(--font-serif);
-      font-size: 1.45rem;
-      margin-bottom: 14px;
-    }
-
-    .concept-quote {
-      border-left: 3px solid var(--accent-primary);
-      padding: 4px 0 4px 16px;
-      font-size: 1.02rem;
-      color: var(--ink-primary);
-      margin-bottom: 20px;
-    }
-
-    .resource-pillars {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .pillar-item {
-      background: var(--bg-page);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      padding: 11px 12px;
-    }
-
-    .pillar-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--ink-primary);
-      margin-bottom: 2px;
-    }
-
-    .pillar-desc {
-      font-size: 0.8rem;
-      color: var(--ink-secondary);
-      line-height: 1.4;
-    }
-
-    /* Mini-experiencia interactiva cotidiana */
-    .scenario-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
+      font-size: 1.28rem;
       margin-bottom: 12px;
     }
 
-    .scenario-time-tag {
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: var(--ink-secondary);
-      background: var(--bg-subtle);
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      white-space: nowrap;
+    /* Guía rápida de 3 pasos (muy compacta antes del explorador) */
+    .quick-guide-section {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--bg-page);
     }
 
-    .scenario-prompt {
-      font-size: 0.95rem;
-      color: var(--ink-secondary);
-      margin-bottom: 16px;
-    }
-
-    .scenario-options {
+    .quick-guide-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
-      margin-bottom: 16px;
     }
 
-    .scenario-btn {
-      text-align: left;
-      background: var(--bg-page);
-      border: 1.5px solid var(--border-medium);
-      border-radius: var(--radius-md);
-      padding: 13px 12px;
+    .quick-guide-item {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-      transition: all var(--transition-fast);
-    }
-
-    .scenario-btn:hover {
-      border-color: var(--accent-primary);
+      align-items: center;
+      gap: 10px;
       background: var(--bg-surface);
-    }
-
-    .scenario-btn[aria-pressed="true"] {
-      background: var(--accent-primary-soft);
-      border-color: var(--accent-primary);
-      box-shadow: 0 0 0 1px var(--accent-primary);
-    }
-
-    .scenario-btn-title {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--ink-primary);
-      line-height: 1.3;
-    }
-
-    .scenario-btn-sub {
-      font-size: 0.8rem;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      font-size: 0.86rem;
       color: var(--ink-secondary);
       line-height: 1.35;
     }
 
-    .scenario-result {
-      background: var(--bg-page);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      min-height: 124px;
-    }
-
-    .scenario-placeholder {
-      color: var(--ink-tertiary);
-      font-size: 0.92rem;
-      display: flex;
-      align-items: center;
-      min-height: 92px;
-    }
-
-    .scenario-columns {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .scenario-col {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-    }
-
-    .scenario-col-label {
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent-primary);
-      margin-bottom: 6px;
-    }
-
-    .scenario-col--tradeoff .scenario-col-label {
-      color: var(--lvl-alto-text);
-    }
-
-    .scenario-col p {
-      font-size: 0.88rem;
-      color: var(--ink-primary);
-      line-height: 1.48;
-      margin: 0;
-    }
-
-    .scenario-takeaway {
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 1px solid var(--border-light);
-      font-size: 0.84rem;
-      color: var(--ink-secondary);
-    }
-
-    /* =========================================================================
-       5. RESPALDO DE CARGA LOCAL Y AVISOS DE VALIDACIÓN
-       ========================================================================= */
-    .loader-section {
-      padding: 44px 0;
-    }
-
-    .loader-card {
-      background: var(--bg-surface);
-      border: 2px dashed var(--border-medium);
-      border-radius: var(--radius-lg);
-      padding: 36px 28px;
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto;
-      transition: border-color var(--transition-fast), background var(--transition-fast);
-    }
-
-    .loader-card.drag-over {
-      border-color: var(--accent-primary);
-      background: var(--accent-primary-soft);
-    }
-
-    .loader-icon {
-      width: 48px;
-      height: 48px;
+    .quick-guide-step {
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
-      background: var(--bg-subtle);
+      background: var(--accent-primary-soft);
       color: var(--accent-primary);
+      font-size: 0.78rem;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 14px;
+      flex-shrink: 0;
     }
 
-    .loader-card h2 {
-      font-family: var(--font-serif);
-      font-size: 1.45rem;
-      margin-bottom: 10px;
+    .quick-guide-item strong {
+      color: var(--ink-primary);
+      font-weight: 600;
     }
 
-    .loader-card p {
-      color: var(--ink-secondary);
-      max-width: 560px;
-      margin: 0 auto 18px;
-      font-size: 0.95rem;
-    }
-
-    .loader-file-input {
-      display: none;
-    }
-
-    .loader-note {
-      font-size: 0.82rem;
-      color: var(--ink-tertiary);
-      margin-top: 14px !important;
-      margin-bottom: 0 !important;
-    }
-
-    .loader-error {
-      margin-top: 14px;
-      padding: 10px 14px;
-      border-radius: var(--radius-sm);
-      background: var(--notice-bg);
-      border: 1px solid var(--notice-border);
-      color: var(--notice-text);
-      font-size: 0.88rem;
-      text-align: left;
-    }
-
-    .validation-banner {
-      background: var(--notice-bg);
-      border: 1px solid var(--notice-border);
-      border-radius: var(--radius-md);
-      padding: 16px 20px;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .validation-banner-content {
-      flex: 1;
-      min-width: 240px;
-    }
-
-    .validation-banner-title {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--notice-text);
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .validation-banner-list {
-      margin: 6px 0 0;
-      padding-left: 18px;
-      font-size: 0.87rem;
-      color: var(--notice-text);
-    }
-
+    .resource-pillars {
+/* ... existing code ... -->
     /* =========================================================================
-       5B. SECCIÓN COMPARATIVA: PERFIL RELATIVO POR PARTIDO
+       5B. SECCIÓN COMPARATIVA OPCIONAL: PERFIL RELATIVO POR PARTIDO
        ========================================================================= */
     .profile-section {
-      padding: 40px 0 44px;
-      border-bottom: 1px solid var(--border-light);
+      padding: 32px 0 44px;
+      border-top: 1px solid var(--border-light);
+      background: var(--bg-page);
+    }
+
+    .profile-accordion-shell {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xs);
+      overflow: hidden;
+    }
+
+    .profile-accordion-trigger {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 20px 24px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: background var(--transition-fast);
+    }
+
+    .profile-accordion-trigger:hover {
+      background: var(--bg-page);
+    }
+
+    .profile-accordion-heading h2 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    .profile-accordion-heading p {
+      font-size: 0.9rem;
+      color: var(--ink-secondary);
+      margin: 0;
+      max-width: 720px;
+    }
+
+    .profile-accordion-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-medium);
+      background: var(--bg-page);
+      color: var(--accent-primary);
+      font-size: 0.86rem;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .profile-accordion-trigger[aria-expanded="true"] .toggle-chevron {
+      transform: rotate(180deg);
+    }
+
+    .profile-collapsible-content {
+      padding: 20px 24px 24px;
+      border-top: 1px solid var(--border-light);
       background: var(--bg-page);
     }
 
@@ -712,358 +631,16 @@
       margin-bottom: 20px;
     }
 
-    .profile-header h2 {
+    .profile-header h3 {
       font-family: var(--font-serif);
-      font-size: 1.75rem;
+      font-size: 1.5rem;
     }
-
-    .profile-sub {
-      color: var(--ink-secondary);
-      font-size: 0.96rem;
-      margin-top: 6px;
-      max-width: 760px;
-    }
-
-    .profile-controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .profile-theme-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .profile-tab-btn {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-pill);
-      padding: 8px 14px;
-      min-height: 38px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--ink-secondary);
-      transition: all var(--transition-fast);
-    }
-
-    .profile-tab-btn:hover {
-      border-color: var(--accent-primary);
-      color: var(--ink-primary);
-    }
-
-    .profile-tab-btn[aria-pressed="true"] {
-      background: var(--accent-primary);
-      border-color: var(--accent-primary);
-      color: var(--ink-inverse);
-    }
-
-    .profile-chart-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow-xs);
-      margin-bottom: 20px;
-    }
-
-    .profile-chart-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .profile-legend {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      font-size: 0.84rem;
-      color: var(--ink-secondary);
-    }
-
-    .legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-weight: 600;
-    }
-
-    .legend-swatch {
-      width: 14px;
-      height: 14px;
-      border-radius: 3px;
-      border: 1px solid rgba(26, 29, 33, 0.14);
-      flex-shrink: 0;
-    }
-
-    .legend-swatch--bajo { background: var(--bar-bajo-bg); }
-    .legend-swatch--medio { background: var(--bar-medio-bg); }
-    .legend-swatch--alto { background: var(--bar-alto-bg); }
-    .legend-swatch--muy-alto { background: var(--bar-muyalto-bg); }
-    .legend-swatch--sin-clasificar { background: var(--bar-unclassified-bg); }
-
-    .profile-bars-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .profile-bar-row {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .profile-bar-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .profile-party-meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .profile-party-name {
-      font-weight: 700;
-      font-size: 0.98rem;
-      color: var(--ink-primary);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .profile-denom {
-      font-size: 0.83rem;
-      color: var(--ink-tertiary);
-      font-weight: 500;
-    }
-
-    .small-sample-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.76rem;
-      font-weight: 700;
-      background: var(--notice-bg);
-      color: var(--notice-text);
-      border: 1px solid var(--notice-border);
-      padding: 2px 9px;
-      border-radius: var(--radius-pill);
-    }
-
-    .profile-agg-summary {
-      font-size: 0.84rem;
-      color: var(--ink-secondary);
-    }
-
-    .profile-agg-summary strong {
-      color: var(--ink-primary);
-    }
-
-    .stacked-bar {
-      width: 100%;
-      height: 36px;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      display: flex;
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-light);
-    }
-
-    .stacked-seg {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      padding: 0 4px;
-      border-right: 1px solid rgba(255, 255, 255, 0.55);
-      transition: width 260ms ease, filter var(--transition-fast);
-    }
-
-    .stacked-seg:last-child {
-      border-right: none;
-    }
-
-    .stacked-seg--bajo { background: var(--bar-bajo-bg); color: var(--bar-bajo-ink); }
-    .stacked-seg--medio { background: var(--bar-medio-bg); color: var(--bar-medio-ink); }
-    .stacked-seg--alto { background: var(--bar-alto-bg); color: var(--bar-alto-ink); }
-    .stacked-seg--muy-alto { background: var(--bar-muyalto-bg); color: var(--bar-muyalto-ink); }
-    .stacked-seg--sin-clasificar { background: var(--bar-unclassified-bg); color: var(--bar-unclassified-ink); }
-
-    .profile-seg-details {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 14px;
-      font-size: 0.8rem;
-      color: var(--ink-secondary);
-    }
-
-    .profile-seg-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .profile-seg-chip strong {
-      color: var(--ink-primary);
-    }
-
-    .profile-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-bottom: 22px;
-    }
-
-    .profile-party-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      border-left: 4px solid var(--party-default);
-      border-radius: var(--radius-md);
-      padding: 18px 20px;
-      box-shadow: var(--shadow-xs);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .profile-party-card[data-party="Partido Popular"] { border-left-color: var(--party-pp); }
-    .profile-party-card[data-party="PSOE"] { border-left-color: var(--party-psoe); }
-    .profile-party-card[data-party="VOX"] { border-left-color: var(--party-vox); }
-    .profile-party-card[data-party="Frente Amplio"] { border-left-color: var(--party-fa); }
-
-    .profile-card-stats {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .profile-stat-box {
-      background: var(--bg-page);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-    }
-
-    .profile-stat-label {
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--ink-tertiary);
-      margin-bottom: 3px;
-    }
-
-    .profile-stat-value {
-      font-size: 1.12rem;
-      font-weight: 700;
-      color: var(--ink-primary);
-      line-height: 1.2;
-    }
-
-    .profile-stat-sub {
-      font-size: 0.79rem;
-      color: var(--ink-secondary);
-      margin-top: 2px;
-    }
-
-    .profile-card-desc {
-      font-size: 0.89rem;
-      color: var(--ink-secondary);
-      line-height: 1.52;
-      margin: 0;
-    }
-
-    .profile-card-footer {
-      margin-top: auto;
-      padding-top: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
-      font-size: 0.8rem;
-      color: var(--ink-tertiary);
-    }
-
-    /* Caja obligatoria de advertencias metodológicas de la comparación */
-    .profile-warnings-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-lg);
-      padding: 20px 24px;
-    }
-
-    .profile-warnings-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
-    .profile-warnings-header h3 {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .profile-warnings-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 20px;
-      margin: 0;
-      padding-left: 20px;
-      font-size: 0.87rem;
-      color: var(--ink-secondary);
-      line-height: 1.5;
-    }
-
-    .profile-warnings-grid li {
-      padding-left: 2px;
-    }
-
-    .card-coincidence-note {
-      font-size: 0.78rem;
-      color: var(--ink-tertiary);
-      line-height: 1.4;
-      margin: 0;
-    }
-
-    .matrix-cell-diff {
-      background: var(--notice-bg);
-      color: var(--notice-text);
-      font-weight: 700;
-    }
-
+/* ... existing code ... -->
     /* =========================================================================
-       6. EXPLORADOR: TEMÁTICAS RÁPIDAS Y BARRA DE FILTROS
+       6. EXPLORADOR: TEMÁTICAS RÁPIDAS Y BARRA DE FILTROS SIMPLIFICADA
        ========================================================================= */
     .explorer-section {
-      padding: 40px 0 64px;
+      padding: 28px 0 48px;
     }
 
     .explorer-header {
@@ -1072,17 +649,17 @@
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .explorer-header h2 {
       font-family: var(--font-serif);
-      font-size: 1.75rem;
+      font-size: clamp(1.4rem, 2.8vw, 1.75rem);
     }
 
     .explorer-sub {
       color: var(--ink-secondary);
-      font-size: 0.94rem;
+      font-size: 0.92rem;
       margin-top: 4px;
     }
 
@@ -1090,21 +667,21 @@
     .theme-cards {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 10px;
+      margin-bottom: 18px;
     }
 
     .theme-card {
       background: var(--bg-surface);
       border: 1.5px solid var(--border-light);
       border-radius: var(--radius-md);
-      padding: 14px 16px;
+      padding: 12px 14px;
       text-align: left;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 8px;
-      min-height: 88px;
+      gap: 6px;
+      min-height: 76px;
       transition: all var(--transition-fast);
       box-shadow: var(--shadow-xs);
     }
@@ -1122,12 +699,12 @@
 
     .theme-card-name {
       font-weight: 700;
-      font-size: 0.93rem;
+      font-size: 0.9rem;
       line-height: 1.25;
     }
 
     .theme-card-count {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--ink-tertiary);
       font-weight: 500;
     }
@@ -1136,19 +713,79 @@
       color: rgba(255, 255, 255, 0.84);
     }
 
-    /* Panel de filtros combinables */
+    /* Panel de filtros simplificado (Buscador visible + "Afinar búsqueda" plegable) */
     .filters-panel {
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
-      padding: 20px;
-      margin-bottom: 20px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
       box-shadow: var(--shadow-xs);
     }
 
-    .filters-grid {
+    .filters-primary-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filters-primary-row .filter-group--search {
+      flex: 1 1 320px;
+    }
+
+    .refine-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 8px 15px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-medium);
+      background: var(--bg-page);
+      color: var(--ink-primary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .refine-toggle-btn:hover {
+      background: var(--bg-subtle);
+      border-color: var(--accent-primary);
+    }
+
+    .refine-toggle-btn[aria-expanded="true"] {
+      background: var(--accent-primary-soft);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    .refine-toggle-btn[aria-expanded="true"] .toggle-chevron {
+      transform: rotate(180deg);
+    }
+
+    .refine-active-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-primary);
+      color: var(--ink-inverse);
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .refine-panel {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-light);
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
       align-items: end;
     }
@@ -1159,10 +796,6 @@
       gap: 6px;
     }
 
-    .filter-group--search {
-      grid-column: span 2;
-    }
-
     .filter-label-row {
       display: flex;
       align-items: center;
@@ -1171,7 +804,7 @@
     }
 
     .filter-label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -1184,7 +817,7 @@
       color: var(--accent-primary);
       font-size: 0.78rem;
       font-weight: 600;
-      padding: 2px 6px;
+      padding: 4px 6px;
       border-radius: var(--radius-sm);
       display: inline-flex;
       align-items: center;
@@ -1199,13 +832,13 @@
 
     .filter-control {
       width: 100%;
-      min-height: 42px;
+      min-height: 44px;
       padding: 8px 12px;
       border: 1px solid var(--border-medium);
       border-radius: var(--radius-sm);
       background: var(--bg-page);
       color: var(--ink-primary);
-      font-size: 0.92rem;
+      font-size: 0.94rem;
     }
 
     .filter-control:focus {
@@ -1221,7 +854,7 @@
 
     .search-input-wrap .filter-control {
       padding-left: 36px;
-      padding-right: 36px;
+      padding-right: 40px;
     }
 
     .search-icon {
@@ -1233,9 +866,9 @@
 
     .search-clear-btn {
       position: absolute;
-      right: 6px;
-      width: 30px;
-      height: 30px;
+      right: 4px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       border: none;
       background: transparent;
@@ -1251,8 +884,8 @@
     }
 
     .filters-footer {
-      margin-top: 16px;
-      padding-top: 14px;
+      margin-top: 14px;
+      padding-top: 12px;
       border-top: 1px solid var(--border-light);
       display: flex;
       align-items: center;
@@ -1262,7 +895,7 @@
     }
 
     .results-summary {
-      font-size: 0.94rem;
+      font-size: 0.92rem;
       color: var(--ink-secondary);
     }
 
@@ -1277,40 +910,33 @@
       flex-wrap: wrap;
     }
 
-    .sort-wrap {
-      display: inline-flex;
+    .alternation-note {
+      font-size: 0.83rem;
+      color: var(--ink-tertiary);
+      margin: 0 0 14px;
+      display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.86rem;
-      color: var(--ink-secondary);
-    }
-
-    .sort-select {
-      min-height: 38px;
-      padding: 6px 10px;
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-sm);
-      background: var(--bg-page);
-      font-size: 0.88rem;
+      gap: 7px;
+      line-height: 1.45;
     }
 
     /* =========================================================================
-       7. TARJETAS DE MEDIDAS
+       7. TARJETAS DE MEDIDAS (ALIGERADAS)
        ========================================================================= */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(min(100%, 345px), 1fr));
-      gap: 18px;
+      gap: 16px;
     }
 
     .measure-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
-      padding: 18px 20px;
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       box-shadow: var(--shadow-xs);
       position: relative;
       border-left: 4px solid var(--party-default);
@@ -1338,7 +964,7 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      font-size: 0.82rem;
+      font-size: 0.81rem;
       font-weight: 700;
       color: var(--ink-primary);
       background: var(--bg-page);
@@ -1361,11 +987,11 @@
     .party-dot[data-party="Frente Amplio"] { background: var(--party-fa); }
 
     .card-theme-page {
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       color: var(--ink-tertiary);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       flex-wrap: wrap;
     }
 
@@ -1378,22 +1004,22 @@
       border-radius: 4px;
     }
 
-    /* Fila de nivel cualitativo y etiquetas de transparencia */
+    /* Fila de nivel cualitativo y etiquetas discretas */
     .card-badges-row {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
     .level-pill {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 4px 10px;
+      gap: 6px;
+      padding: 3px 9px;
       border-radius: var(--radius-pill);
       border: 1px solid var(--border-medium);
-      font-size: 0.79rem;
+      font-size: 0.77rem;
       font-weight: 700;
       background: var(--bg-subtle);
       color: var(--ink-primary);
@@ -1444,8 +1070,9 @@
     .level-help-btn {
       background: transparent;
       border: none;
-      padding: 2px 4px;
-      font-size: 0.75rem;
+      padding: 4px 5px;
+      min-height: 28px;
+      font-size: 0.74rem;
       color: var(--ink-tertiary);
       display: inline-flex;
       align-items: center;
@@ -1461,617 +1088,80 @@
     .transparency-tag {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      font-size: 0.75rem;
+      gap: 4px;
+      font-size: 0.73rem;
       font-weight: 600;
       color: var(--ink-secondary);
       background: var(--bg-subtle);
       border: 1px solid var(--border-light);
-      padding: 3px 8px;
+      padding: 2px 7px;
       border-radius: var(--radius-sm);
+      max-width: 100%;
     }
 
     .card-measure-text {
-      font-size: 0.96rem;
-      line-height: 1.52;
+      font-size: 0.99rem;
+      line-height: 1.48;
       color: var(--ink-primary);
-      font-weight: 500;
+      font-weight: 600;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      overflow-wrap: break-word;
     }
 
     .card-summary-box {
       background: var(--bg-page);
       border: 1px solid var(--border-light);
+      border-left: 3px solid var(--border-medium);
       border-radius: var(--radius-sm);
-      padding: 11px 13px;
+      padding: 10px 12px;
       margin-top: auto;
     }
 
     .card-summary-label {
-      font-size: 0.72rem;
+      font-size: 0.71rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--ink-tertiary);
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .card-summary-text {
-      font-size: 0.88rem;
+      font-size: 0.89rem;
       line-height: 1.48;
       color: var(--ink-secondary);
       margin: 0;
+      overflow-wrap: break-word;
     }
 
     .card-actions {
       display: flex;
       gap: 8px;
-      padding-top: 6px;
-      flex-wrap: wrap;
+      padding-top: 4px;
     }
 
-    .card-actions .btn {
-      flex: 1 1 140px;
+    .card-actions .btn-detail {
+      flex: 1 1 auto;
+      font-size: 0.88rem;
+      padding: 8px 14px;
+      min-height: 44px;
+    }
+
+    .card-actions .btn-save-compact {
+      flex: 0 0 auto;
       font-size: 0.86rem;
-      padding: 8px 12px;
-      min-height: 40px;
+      padding: 8px 13px;
+      min-height: 44px;
+      white-space: nowrap;
     }
 
     /* Paginación */
-    .pagination-bar {
-      margin-top: 28px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .pagination-meta {
-      font-size: 0.88rem;
-      color: var(--ink-tertiary);
-    }
-
-    .empty-state {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 44px 24px;
-      text-align: center;
-    }
-
-    .empty-state h3 {
-      font-family: var(--font-serif);
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-    }
-
-    .empty-state p {
-      color: var(--ink-secondary);
-      max-width: 460px;
-      margin: 0 auto 18px;
-    }
-
+/* ... existing code ... -->
     /* =========================================================================
-       8. MODALES Y PANEL LATERAL (MI SELECCIÓN)
-       ========================================================================= */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(20, 25, 32, 0.56);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity var(--transition-fast);
-    }
-
-    .modal-backdrop.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-dialog {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      width: 100%;
-      max-width: 780px;
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      transform: translateY(8px);
-      transition: transform var(--transition-fast);
-    }
-
-    .modal-backdrop.open .modal-dialog {
-      transform: translateY(0);
-    }
-
-    .modal-header {
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border-light);
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      background: var(--bg-surface);
-    }
-
-    .modal-header h2 {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-    }
-
-    .modal-close-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-light);
-      background: var(--bg-page);
-      color: var(--ink-primary);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .modal-close-btn:hover {
-      background: var(--bg-muted);
-    }
-
-    .modal-body {
-      padding: 22px 24px;
-      overflow-y: auto;
-      flex: 1;
-    }
-
-    .modal-footer {
-      padding: 14px 24px;
-      border-top: 1px solid var(--border-light);
-      background: var(--bg-page);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* Bloques internos de la ficha desplegada */
-    .detail-meta-bar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .detail-alert-box {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      padding: 11px 14px;
-      font-size: 0.86rem;
-      color: var(--ink-secondary);
-      margin-bottom: 16px;
-    }
-
-    .detail-alert-box strong {
-      color: var(--ink-primary);
-    }
-
-    .related-link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      margin-top: 6px;
-      margin-right: 8px;
-      padding: 4px 10px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-pill);
-      color: var(--accent-primary);
-    }
-
-    .related-link-btn:hover {
-      background: var(--accent-primary-soft);
-    }
-
-    .detail-section {
-      padding: 16px 18px;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      margin-bottom: 14px;
-      background: var(--bg-surface);
-    }
-
-    .detail-section--core {
-      background: #f5f7fa;
-      border-color: #c5d3e2;
-      border-left: 4px solid var(--accent-primary);
-    }
-
-    .detail-section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-    }
-
-    .detail-step {
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent-primary);
-    }
-
-    .detail-question {
-      font-size: 0.84rem;
-      color: var(--ink-tertiary);
-      font-style: italic;
-    }
-
-    .detail-text {
-      font-size: 0.98rem;
-      line-height: 1.62;
-      color: var(--ink-primary);
-      max-width: 68ch;
-    }
-
-    .detail-citation {
-      margin-top: 10px;
-      font-size: 0.82rem;
-      color: var(--ink-tertiary);
-    }
-
-    .detail-note {
-      margin-top: 10px;
-      padding: 8px 12px;
-      border-radius: var(--radius-sm);
-      background: var(--bg-page);
-      border: 1px solid var(--border-light);
-      font-size: 0.82rem;
-      color: var(--ink-secondary);
-    }
-
-    .detail-summary-strip {
-      background: var(--bg-subtle);
-      border-radius: var(--radius-md);
-      padding: 14px 18px;
-      margin-top: 6px;
-    }
-
-    /* Panel lateral (Drawer) para "Mi selección de medidas" */
-    .drawer-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(20, 25, 32, 0.52);
-      display: flex;
-      justify-content: flex-end;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity var(--transition-fast);
-    }
-
-    .drawer-backdrop.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .drawer-panel {
-      background: var(--bg-surface);
-      width: 100%;
-      max-width: 560px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow-lg);
-      transform: translateX(100%);
-      transition: transform 200ms ease;
-    }
-
-    .drawer-backdrop.open .drawer-panel {
-      transform: translateX(0);
-    }
-
-    .selection-disclaimer {
-      background: var(--notice-bg);
-      border: 1px solid var(--notice-border);
-      border-radius: var(--radius-md);
-      padding: 12px 14px;
-      font-size: 0.85rem;
-      color: var(--notice-text);
-      margin-bottom: 16px;
-    }
-
-    .selection-alert {
-      background: var(--accent-primary-soft);
-      border: 1px solid #b8cce0;
-      border-radius: var(--radius-md);
-      padding: 12px 14px;
-      font-size: 0.86rem;
-      color: var(--accent-primary);
-      margin-bottom: 16px;
-    }
-
-    .selection-alert ul {
-      margin: 6px 0 0;
-      padding-left: 18px;
-    }
-
-    .planes-card {
-      background: var(--bg-page);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-      margin-bottom: 18px;
-    }
-
-    .planes-card h3 {
-      font-size: 0.9rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .planes-sub {
-      font-size: 0.8rem;
-      color: var(--ink-tertiary);
-      margin-bottom: 12px;
-    }
-
-    .plane-row {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 6px 12px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .plane-row:last-child {
-      margin-bottom: 0;
-    }
-
-    .plane-name {
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--ink-primary);
-    }
-
-    .plane-count {
-      font-size: 0.8rem;
-      color: var(--ink-secondary);
-      font-weight: 600;
-    }
-
-    .plane-bar-track {
-      grid-column: 1 / -1;
-      height: 7px;
-      background: var(--bg-muted);
-      border-radius: var(--radius-pill);
-      overflow: hidden;
-    }
-
-    .plane-bar-fill {
-      height: 100%;
-      background: var(--accent-primary);
-      border-radius: var(--radius-pill);
-      transition: width 220ms ease;
-    }
-
-    .saved-item {
-      border: 1px solid var(--border-light);
-      border-left: 4px solid var(--party-default);
-      border-radius: var(--radius-md);
-      padding: 14px;
-      margin-bottom: 12px;
-      background: var(--bg-surface);
-    }
-
-    .saved-item[data-party="Partido Popular"] { border-left-color: var(--party-pp); }
-    .saved-item[data-party="PSOE"] { border-left-color: var(--party-psoe); }
-    .saved-item[data-party="VOX"] { border-left-color: var(--party-vox); }
-    .saved-item[data-party="Frente Amplio"] { border-left-color: var(--party-fa); }
-
-    .saved-item-measure {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin: 8px 0;
-      line-height: 1.45;
-    }
-
-    .saved-item-tradeoff {
-      font-size: 0.84rem;
-      color: var(--ink-secondary);
-      background: var(--bg-page);
-      padding: 9px 11px;
-      border-radius: var(--radius-sm);
-      margin-bottom: 8px;
-      line-height: 1.45;
-    }
-
-    .saved-item-planes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-
-    .plane-chip {
-      font-size: 0.73rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: var(--radius-pill);
-      background: var(--bg-subtle);
-      color: var(--ink-secondary);
-      border: 1px solid var(--border-light);
-    }
-
-    .saved-item-actions {
-      display: flex;
-      gap: 8px;
-      justify-content: flex-end;
-    }
-
-    /* Tablas en modales (Metodología y Diagnóstico) */
-    .dimensions-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin: 16px 0;
-    }
-
-    .dimension-card {
-      background: var(--bg-page);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-    }
-
-    .dimension-card h4 {
-      font-size: 0.9rem;
-      margin-bottom: 4px;
-    }
-
-    .dimension-card p {
-      font-size: 0.84rem;
-      color: var(--ink-secondary);
-      margin: 0;
-    }
-
-    .diag-table-wrap {
-      overflow-x: auto;
-      margin: 12px 0 18px;
-    }
-
-    .diag-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-    }
-
-    .diag-table th, .diag-table td {
-      text-align: left;
-      padding: 8px 10px;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .diag-table th {
-      background: var(--bg-page);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--ink-secondary);
-    }
-
-    .status-pill {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: var(--radius-pill);
-      font-size: 0.76rem;
-      font-weight: 700;
-      background: var(--bg-subtle);
-      color: var(--ink-primary);
-    }
-
-    .status-pill--diff {
-      background: var(--notice-bg);
-      color: var(--notice-text);
-      border: 1px solid var(--notice-border);
-    }
-
-    /* =========================================================================
-       9. PIE DE PÁGINA TRANSPARENTE Y TOAST ACCESIBLE
-       ========================================================================= */
-    .site-footer {
-      background: var(--bg-surface);
-      border-top: 1px solid var(--border-light);
-      padding: 36px 0 44px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-      gap: 28px;
-      align-items: start;
-    }
-
-    .footer-title {
-      font-family: var(--font-serif);
-      font-size: 1.05rem;
-      margin-bottom: 10px;
-    }
-
-    .footer-note {
-      font-size: 0.88rem;
-      color: var(--ink-secondary);
-      line-height: 1.6;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .footer-link-btn {
-      background: var(--bg-page);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      padding: 8px 12px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--ink-secondary);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .footer-link-btn:hover {
-      background: var(--bg-subtle);
-      color: var(--ink-primary);
-    }
-
-    .toast-region {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1200;
-      pointer-events: none;
-    }
-
-    .toast-msg {
-      background: var(--ink-primary);
-      color: var(--ink-inverse);
-      padding: 10px 18px;
-      border-radius: var(--radius-pill);
-      font-size: 0.88rem;
-      font-weight: 500;
-      box-shadow: var(--shadow-md);
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 180ms ease, transform 180ms ease;
-    }
-
-    .toast-msg.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    /* =========================================================================
-       10. ADAPTACIÓN RESPONSIVA (MÓVIL Y TABLET)
+       10. ADAPTACIÓN RESPONSIVA (TABLET Y MÓVIL: 360, 375, 390, 414, 430 px)
        ========================================================================= */
     @media (max-width: 980px) {
       .didactic-grid {
@@ -2087,28 +1177,206 @@
       }
 
       .theme-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .theme-card:last-child {
-        grid-column: span 2;
-      }
-
-      .filters-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .filter-group--search {
-        grid-column: span 1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .dimensions-grid {
         grid-template-columns: 1fr;
       }
 
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-link--hide-mobile {
+        display: none;
+      }
+
+      .quick-guide-list {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .scenario-options {
+        grid-template-columns: 1fr;
+      }
+
+      .scenario-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .refine-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .theme-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .theme-card:last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 14px;
+      }
+
+      .topbar-inner {
+        min-height: 56px;
+        gap: 10px;
+        flex-wrap: nowrap;
+      }
+
+      .topbar-nav {
+        flex-wrap: nowrap;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+
+      .nav-link--hide-sm {
+        display: none;
+      }
+
+      .brand {
+        min-width: 0;
+        gap: 8px;
+      }
+
+      .brand-mark {
+        width: 28px;
+        height: 28px;
+      }
+
+      .brand-title {
+        font-size: 0.93rem;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+      }
+
+      .selection-trigger {
+        min-height: 44px;
+        padding: 8px 12px;
+        font-size: 0.84rem;
+        gap: 6px;
+        white-space: nowrap;
+      }
+
+      .hero {
+        padding: 24px 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .hero-tagline {
+        font-size: 1.02rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.92rem;
+        margin-bottom: 16px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .concept-summary-card {
+        padding: 15px 14px;
+      }
+
+      .concept-summary-top {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .collapsible-toggle-btn {
+        width: 100%;
+      }
+
+      .editorial-box {
+        padding: 16px 14px;
+      }
+
+      .explorer-section {
+        padding: 22px 0 36px;
+      }
+
+      .theme-cards {
+        gap: 8px;
+      }
+
+      .theme-card {
+        padding: 11px 12px;
+        min-height: 66px;
+      }
+
+      .theme-card-name {
+        font-size: 0.86rem;
+      }
+
+      .theme-card-count {
+        font-size: 0.77rem;
+      }
+
+      .filters-panel {
+        padding: 14px;
+      }
+
+      .filters-primary-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .filters-primary-row .filter-group--search {
+        flex: 1 1 auto;
+        width: 100%;
+      }
+
+      .refine-toggle-btn {
+        width: 100%;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .measure-card {
+        padding: 15px 14px;
+      }
+
+      .profile-accordion-trigger {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px 14px;
+        gap: 12px;
+      }
+
+      .profile-accordion-pill {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .profile-collapsible-content {
+        padding: 16px 14px;
+      }
+
       .profile-chart-card,
       .profile-warnings-box {
-        padding: 16px;
+        padding: 15px 14px;
       }
 
       .profile-card-stats {
@@ -2116,12 +1384,78 @@
       }
 
       .modal-backdrop {
-        padding: 8px;
+        padding: 0;
+        align-items: flex-end;
+      }
+
+      .modal-dialog {
+        max-width: 100%;
+        max-height: 94vh;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
       }
 
       .modal-header, .modal-body, .modal-footer {
         padding-left: 16px;
         padding-right: 16px;
+      }
+
+      .modal-close-btn {
+        width: 44px;
+        height: 44px;
+      }
+
+      .modal-footer .btn {
+        min-height: 44px;
+      }
+
+      .drawer-panel {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .container {
+        padding: 0 12px;
+      }
+
+      .brand-title {
+        font-size: 0.87rem;
+      }
+
+      .selection-trigger {
+        padding: 8px 10px;
+        font-size: 0.81rem;
+      }
+
+      .resource-pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-section {
+        padding: 14px 13px;
+      }
+
+      .detail-text {
+        font-size: 0.94rem;
+        overflow-wrap: break-word;
+      }
+
+      .profile-tab-btn {
+        font-size: 0.82rem;
+        padding: 7px 11px;
+        min-height: 40px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
@@ -2131,6 +1465,464 @@
 
   <!-- =======================================================================
        BARRA SUPERIOR
+       ======================================================================= -->
+  <header class="topbar" role="banner">
+    <div class="container topbar-inner">
+      <a href="#inicio" class="brand" aria-label="El Coste de Elegir, inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18"></path>
+            <path d="M5 7h14"></path>
+            <path d="M4 14l3-7 3 7a3 3 0 0 1-6 0z"></path>
+            <path d="M14 14l3-7 3 7a3 3 0 0 1-6 0z"></path>
+          </svg>
+        </span>
+        <span class="brand-title">EL COSTE DE ELEGIR</span>
+      </a>
+
+      <nav class="topbar-nav" aria-label="Navegación principal">
+        <a href="#que-es" class="nav-link nav-link--hide-mobile">¿Qué es?</a>
+        <a href="#explorador" class="nav-link nav-link--hide-mobile">Explorar medidas</a>
+        <a href="#perfil-comparativo" class="nav-link nav-link--hide-mobile" id="nav-link-profile">Perfil por partido</a>
+        <button type="button" class="nav-link nav-link--hide-sm" id="btn-open-methodology-nav">Metodología</button>
+        <button type="button" class="selection-trigger" id="btn-open-selection" aria-haspopup="dialog" aria-controls="drawer-selection">
+          <span>Mi selección</span>
+          <span class="selection-badge" id="selection-count-badge">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+    <!-- =====================================================================
+         1. CABECERA Y PRESENTACIÓN BREVE
+         ===================================================================== -->
+    <section id="inicio" class="hero">
+      <div class="container">
+        <span class="hero-kicker">Herramienta pública de educación económica</span>
+        <h1>EL COSTE DE ELEGIR</h1>
+        <p class="hero-tagline">«Cada decisión tiene un precio. Descubre qué se consigue y a qué se renuncia.»</p>
+        <p class="hero-subtitle">
+          Cada decisión económica implica renunciar a otra alternativa. Explora qué prometen los programas electorales y qué puede quedar fuera cuando se elige una política pública.
+        </p>
+        <div class="hero-actions">
+          <a href="#explorador" class="btn btn-primary">Explorar medidas de los programas</a>
+          <button type="button" class="btn btn-secondary" id="btn-hero-example">Entenderlo con un ejemplo de 30 segundos</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         2. EXPLICACIÓN RESUMIDA DEL COSTE DE OPORTUNIDAD (EJEMPLO PLEGABLE)
+         ===================================================================== -->
+    <section id="que-es" class="didactic-section" aria-labelledby="heading-concepto">
+      <div class="container">
+        <div class="concept-summary-card">
+          <div class="concept-summary-top">
+            <div class="concept-summary-copy">
+              <div class="section-eyebrow" id="heading-concepto">¿Qué es el coste de oportunidad?</div>
+              <p class="concept-quote">
+                El coste de oportunidad es el valor de la mejor alternativa a la que renunciamos cuando elegimos una opción en lugar de otra.
+              </p>
+            </div>
+            <button
+              type="button"
+              class="collapsible-toggle-btn"
+              id="btn-toggle-didactic"
+              aria-expanded="false"
+              aria-controls="didactic-expandable"
+            >
+              <span>Entenderlo con un ejemplo de 30 segundos</span>
+              <svg class="toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <div id="didactic-expandable" class="didactic-expandable hidden">
+            <div class="didactic-grid">
+              <!-- Explicación ampliada y 4 pilares -->
+              <article class="editorial-box">
+                <div class="section-eyebrow">Concepto clave</div>
+                <h3>Por qué toda decisión implica renuncias</h3>
+                <p style="font-size: 0.93rem; color: var(--ink-secondary);">
+                  El coste de oportunidad opera en dinero, tiempo, suelo o capacidad administrativa. No significa que una medida sea «buena» o «mala»: significa que los recursos públicos son limitados y toda política pública desplaza otros usos posibles o altera incentivos.
+                </p>
+                <div class="resource-pillars" aria-label="Planos de recursos limitados">
+                  <div class="pillar-item">
+                    <div class="pillar-title">Dinero y recaudación</div>
+                    <div class="pillar-desc">Presupuesto gastado o impuestos que dejan de recaudarse.</div>
+                  </div>
+                  <div class="pillar-item">
+                    <div class="pillar-title">Suelo y espacio</div>
+                    <div class="pillar-desc">Parcelas públicas o usos urbanos que excluyen otros destinos.</div>
+                  </div>
+                  <div class="pillar-item">
+                    <div class="pillar-title">Capacidad administrativa</div>
+                    <div class="pillar-desc">Inspectores, juzgados, plazos de gestión y coordinación.</div>
+                  </div>
+                  <div class="pillar-item">
+                    <div class="pillar-title">Reglas e incentivos</div>
+                    <div class="pillar-desc">Cómo reaccionan familias, empresas y mercados ante una norma.</div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Mini-experiencia interactiva no política -->
+              <article class="editorial-box" aria-labelledby="heading-mini-exp">
+                <div class="scenario-header">
+                  <div>
+                    <div class="section-eyebrow">Ejemplo cotidiano sin política</div>
+                    <h3 id="heading-mini-exp">Un solar municipal, un presupuesto cerrado</h3>
+                  </div>
+                  <span class="scenario-time-tag">Menos de 30 seg.</span>
+                </div>
+                <p class="scenario-prompt">
+                  Imagina un pueblo pequeño que dispone de <strong>un único solar céntrico</strong> y <strong>un presupuesto cerrado</strong> para este año. Solo puede ejecutar un proyecto ahora mismo. Selecciona una opción para ver el coste de oportunidad inmediato:
+                </p>
+
+                <div class="scenario-options" role="group" aria-label="Opciones del solar municipal">
+                  <button type="button" class="scenario-btn" data-scenario="salud" aria-pressed="false">
+                    <span class="scenario-btn-title">Ampliar el centro de salud</span>
+                    <span class="scenario-btn-sub">Más consultas médicas locales</span>
+                  </button>
+                  <button type="button" class="scenario-btn" data-scenario="escuela" aria-pressed="false">
+                    <span class="scenario-btn-title">Escuela infantil (0–3 años)</span>
+                    <span class="scenario-btn-sub">Plazas cercanas para familias</span>
+                  </button>
+                  <button type="button" class="scenario-btn" data-scenario="parque" aria-pressed="false">
+                    <span class="scenario-btn-title">Parque con arbolado y deporte</span>
+                    <span class="scenario-btn-sub">Espacio abierto para todas las edades</span>
+                  </button>
+                </div>
+
+                <div class="scenario-result" id="scenario-result" aria-live="polite">
+                  <div class="scenario-placeholder">
+                    Pulsa una de las tres opciones superiores para descubrir qué se consigue y qué alternativas quedan sacrificadas al instante.
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. GUÍA RÁPIDA DE UTILIZACIÓN (3 PASOS BREVES)
+         ===================================================================== -->
+    <section id="guia-rapida" class="quick-guide-section" aria-label="Guía rápida de utilización">
+      <div class="container">
+        <ol class="quick-guide-list">
+          <li class="quick-guide-item">
+            <span class="quick-guide-step" aria-hidden="true">1</span>
+            <span><strong>Elige el tema</strong> que te interesa.</span>
+          </li>
+          <li class="quick-guide-item">
+            <span class="quick-guide-step" aria-hidden="true">2</span>
+            <span><strong>Abre una medida</strong> y descubre a qué se renuncia.</span>
+          </li>
+          <li class="quick-guide-item">
+            <span class="quick-guide-step" aria-hidden="true">3</span>
+            <span><strong>Guarda las que quieras</strong> revisar después.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         RESPALDO DE CARGA LOCAL DE datos.txt (SI fetch('./datos.txt') FALLA)
+         ===================================================================== -->
+    <section id="loader-fallback" class="loader-section hidden" aria-labelledby="heading-loader">
+      <div class="container">
+        <div class="loader-card" id="dropzone-card">
+          <div class="loader-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="12" y1="18" x2="12" y2="12"></line>
+              <polyline points="9 15 12 12 15 15"></polyline>
+            </svg>
+          </div>
+          <h2 id="heading-loader">Carga el archivo <code>datos.txt</code> para explorar las fichas</h2>
+          <p>
+            No se ha podido leer automáticamente <code>./datos.txt</code> (algo habitual al abrir <code>index.html</code> directamente en local o en un entorno de previsualización aislado). Selecciona tu archivo <code>datos.txt</code> desde tu ordenador o arrástralo aquí para usar la aplicación al completo.
+          </p>
+          <input type="file" id="file-input-datos" class="loader-file-input" accept=".txt,text/plain" />
+          <label for="file-input-datos" class="btn btn-primary" role="button" tabindex="0" id="btn-trigger-file">
+            Seleccionar datos.txt desde mi ordenador
+          </label>
+          <p class="loader-note">
+            Procesamiento 100 % local en tu navegador mediante FileReader. El archivo no se envía a ningún servidor externo.
+          </p>
+          <div id="loader-error-box" class="loader-error hidden" role="alert"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estado inicial de carga mientras fetch intenta leer ./datos.txt -->
+    <section id="loading-indicator" class="loader-section" aria-live="polite">
+      <div class="container" style="text-align: center; color: var(--ink-secondary);">
+        <p>Cargando archivo <code>datos.txt</code>...</p>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. EXPLORADOR DE MEDIDAS (PROTAGONISTA)
+         ===================================================================== -->
+    <section id="explorador" class="explorer-section hidden" aria-labelledby="heading-explorador">
+      <div class="container">
+        <!-- Aviso técnico automático solo si hay discrepancias de validación -->
+        <div id="validation-banner" class="validation-banner hidden" role="status">
+          <div class="validation-banner-content">
+            <div class="validation-banner-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <span>Aviso técnico de integridad de datos</span>
+            </div>
+            <p style="font-size: 0.87rem; margin: 0; color: var(--notice-text);">
+              Se han detectado diferencias respecto a los recuentos esperados o campos incompletos. Todas las fichas cargadas se muestran sin ocultar ni eliminar ninguna.
+            </p>
+            <ul id="validation-banner-list" class="validation-banner-list"></ul>
+          </div>
+          <button type="button" class="btn btn-secondary" id="btn-banner-diagnostics">Ver diagnóstico completo</button>
+        </div>
+
+        <div class="explorer-header">
+          <div>
+            <div class="section-eyebrow">Base documental</div>
+            <h2 id="heading-explorador">Explora las medidas y sus renuncias</h2>
+            <p class="explorer-sub">
+              Empieza eligiendo un tema o buscando una palabra clave. Sin puntuaciones globales ni rankings de partidos.
+            </p>
+          </div>
+        </div>
+
+        <!-- A. Acceso rápido a las 5 temáticas con contador real -->
+        <div class="theme-cards" id="theme-quick-cards" role="group" aria-label="Acceso rápido por áreas temáticas"></div>
+
+        <!-- B y C. Buscador siempre visible + "Afinar búsqueda" plegable -->
+        <div class="filters-panel" aria-label="Filtros de búsqueda">
+          <div class="filters-primary-row">
+            <div class="filter-group filter-group--search">
+              <label for="filter-search" class="filter-label">Buscar en medida, resumen, objetivo o coste</label>
+              <div class="search-input-wrap">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="search"
+                  id="filter-search"
+                  class="filter-control"
+                  placeholder="Ej.: alquiler, IRPF, cotizaciones, suelo, autónomos..."
+                  autocomplete="off"
+                />
+                <button type="button" id="btn-clear-search" class="search-clear-btn hidden" aria-label="Limpiar búsqueda">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              id="btn-toggle-refine"
+              class="refine-toggle-btn"
+              aria-expanded="false"
+              aria-controls="refine-panel"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+                <line x1="1" y1="14" x2="7" y2="14"></line>
+                <line x1="9" y1="8" x2="15" y2="8"></line>
+                <line x1="17" y1="16" x2="23" y2="16"></line>
+              </svg>
+              <span>Afinar búsqueda</span>
+              <span id="refine-active-badge" class="refine-active-badge hidden" aria-hidden="true">0</span>
+              <svg class="toggle-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Panel plegable: Partido y Nivel orientativo (y selector temático sincronizado para accesibilidad) -->
+          <div id="refine-panel" class="refine-panel hidden">
+            <div class="filter-group">
+              <label for="filter-party" class="filter-label">Partido</label>
+              <select id="filter-party" class="filter-control">
+                <option value="">Todos los partidos</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <div class="filter-label-row">
+                <label for="filter-level" class="filter-label">Nivel orientativo</label>
+                <button type="button" class="info-inline-btn" id="btn-open-methodology-filter">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                  ¿Qué mide?
+                </button>
+              </div>
+              <select id="filter-level" class="filter-control">
+                <option value="">Todos los niveles</option>
+                <option value="Bajo">Bajo</option>
+                <option value="Medio">Medio</option>
+                <option value="Alto">Alto</option>
+                <option value="Muy alto">Muy alto</option>
+              </select>
+            </div>
+
+            <div class="filter-group hidden" aria-hidden="true">
+              <label for="filter-theme" class="filter-label">Temática</label>
+              <select id="filter-theme" class="filter-control" tabindex="-1">
+                <option value="">Todas las temáticas</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filters-footer">
+            <div class="results-summary" id="results-counter" aria-live="polite">
+              Mostrando <strong>0</strong> de <strong>0</strong> fichas
+            </div>
+
+            <div class="filters-footer-right">
+              <button type="button" id="btn-reset-filters" class="btn btn-secondary" style="min-height: 40px; padding: 6px 14px; font-size: 0.86rem;">
+                Borrar filtros
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nota discreta de orden alternado equilibrado -->
+        <p id="alternation-note" class="alternation-note hidden">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="flex-shrink: 0;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span>Las medidas se muestran alternando los partidos para facilitar una exploración equilibrada. El orden no constituye una clasificación.</span>
+        </p>
+
+        <!-- Rejilla de tarjetas -->
+        <div id="cards-grid" class="cards-grid" aria-live="polite"></div>
+
+        <!-- Estado vacío cuando ningún filtro coincide -->
+        <div id="empty-state" class="empty-state hidden">
+          <h3>Ninguna ficha coincide con estos criterios</h3>
+          <p>Prueba a ampliar la búsqueda, quitar alguno de los filtros activos o revisar la ortografía de los términos introducidos.</p>
+          <button type="button" class="btn btn-primary" id="btn-empty-reset">Borrar todos los filtros</button>
+        </div>
+
+        <!-- Paginación de 24 en 24 -->
+        <div id="pagination-bar" class="pagination-bar hidden">
+          <div id="pagination-meta" class="pagination-meta"></div>
+          <button type="button" id="btn-load-more" class="btn btn-secondary">Mostrar más fichas</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. COMPARACIÓN RELATIVA DE PERFILES DE PARTIDOS (OPCIONAL Y PLEGABLE)
+         ===================================================================== -->
+    <section id="perfil-comparativo" class="profile-section hidden" aria-labelledby="heading-perfil-accordion">
+      <div class="container">
+        <div class="profile-accordion-shell">
+          <button
+            type="button"
+            class="profile-accordion-trigger"
+            id="btn-toggle-profile"
+            aria-expanded="false"
+            aria-controls="profile-collapsible-content"
+          >
+            <div class="profile-accordion-heading">
+              <div class="section-eyebrow">Comparación relativa (en porcentajes)</div>
+              <h2 id="heading-perfil-accordion">Comparación de perfiles de los partidos (opcional)</h2>
+              <p>
+                Consulta cómo se distribuyen los niveles orientativos de coste de oportunidad entre las medidas analizadas de cada partido.
+              </p>
+            </div>
+            <span class="profile-accordion-pill">
+              <span id="profile-toggle-label">Ver comparación</span>
+              <svg class="toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+
+          <div id="profile-collapsible-content" class="profile-collapsible-content hidden">
+            <div class="profile-header">
+              <div>
+                <h3 id="heading-perfil">¿Qué perfil de coste de oportunidad tiene cada partido?</h3>
+                <p class="profile-sub">
+                  Compara qué proporción de las medidas analizadas de cada partido presenta un coste de oportunidad bajo, medio, alto o muy alto.
+                </p>
+              </div>
+              <a href="#advertencias-comparacion" class="info-inline-btn" style="font-size: 0.85rem;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Cómo leer esta comparación
+              </a>
+            </div>
+
+            <div class="profile-controls">
+              <div class="profile-theme-tabs" id="profile-theme-tabs" role="group" aria-label="Filtrar comparación relativa por temática"></div>
+              <a href="#explorador" class="btn btn-secondary" style="min-height: 40px; padding: 6px 12px; font-size: 0.86rem;">
+                Volver al explorador de medidas ↑
+              </a>
+            </div>
+
+            <div class="profile-chart-card" id="profile-chart-card" aria-live="polite"></div>
+
+            <div class="profile-cards-grid" id="profile-party-cards" aria-live="polite"></div>
+
+            <aside id="advertencias-comparacion" class="profile-warnings-box" aria-labelledby="heading-advertencias-comparacion">
+              <div class="profile-warnings-header">
+                <h3 id="heading-advertencias-comparacion">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                  Advertencias metodológicas para interpretar esta comparación
+                </h3>
+                <button type="button" class="info-inline-btn" data-open-methodology="true">Ver las 6 dimensiones del nivel</button>
+              </div>
+              <ol class="profile-warnings-grid">
+                <li>Los porcentajes se calculan sobre el total de fichas analizadas de <strong>cada partido</strong>, evitando comparaciones engañosas basadas en números absolutos entre partidos con distinto volumen de fichas.</li>
+                <li>El análisis abarca exclusivamente <strong>cinco temáticas</strong> (Vivienda, Impuestos y Fiscalidad, Pensiones, Empleo y Salarios e Inmigración) y no representa necesariamente la totalidad de los programas electorales.</li>
+                <li>Una misma propuesta puede aparecer en varias fichas si se analiza desde perspectivas temáticas diferentes; por tanto, los porcentajes corresponden a <strong>fichas analíticas</strong> y no necesariamente a políticas únicas independientes.</li>
+                <li>Las categorías <em>Bajo</em>, <em>Medio</em>, <em>Alto</em> y <em>Muy alto</em> son <strong>valoraciones cualitativas orientativas</strong> de los análisis recopilados, no mediciones oficiales ni magnitudes económicas exactas.</li>
+                <li>Un coste de oportunidad <em>Alto</em> o <em>Muy alto</em> <strong>no significa</strong> que una medida sea utópica, inviable, negativa o indeseable.</li>
+                <li>Una medida con coste <em>Bajo</em> o <em>Medio</em> <strong>tampoco garantiza</strong> que sea fácil de implementar, legalmente viable o eficaz.</li>
+                <li>Una política puede tener un coste de oportunidad elevado y estar justificada si los beneficios sociales que genera compensan las alternativas sacrificadas.</li>
+                <li>El análisis de coste de oportunidad <strong>no equivale</strong> a un análisis completo de coste-beneficio, viabilidad jurídica, impacto presupuestario o probabilidad de ejecución.</li>
+              </ol>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================================
+       6. PIE DE PÁGINA CON NOTA METODOLÓGICA TRANSPARENTE
        ======================================================================= -->
   <header class="topbar" role="banner">
     <div class="container topbar-inner">
@@ -2874,12 +2666,15 @@
         sourceInfo: '',
         validation: null,
         profileTheme: '',
+        sessionPartyOrder: [],
+        didacticExpanded: false,
+        refineExpanded: false,
+        profileExpanded: false,
         filters: {
           party: '',
           theme: '',
           level: '',
-          search: '',
-          sort: 'document'
+          search: ''
         },
         selectedIds: new Set(),
         activeDetailId: null,
@@ -2890,710 +2685,71 @@
       /* =======================================================================
          2. UTILIDADES DE TEXTO, FORMATO Y ALMACENAMIENTO SEGURO
          ======================================================================= */
-      function stripAccents(str) {
-        return String(str || '')
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '');
-      }
-
-      function normalizeKey(str) {
-        return stripAccents(str)
-          .replace(/\s+/g, ' ')
-          .trim()
-          .toUpperCase();
-      }
-
-      function normalizeSearch(str) {
-        return stripAccents(str)
-          .toLowerCase()
-          .replace(/\s+/g, ' ')
-          .trim();
-      }
-
-      function escapeHtml(str) {
-        return String(str || '')
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#39;');
+      /**
+       * Baraja una copia de un array una sola vez por sesión (Fisher-Yates)
+       * para rotar el partido inicial de la alternancia sin crear rankings.
+       */
+      function shuffleArrayOnce(items) {
+        const arr = items.slice();
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const tmp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = tmp;
+        }
+        return arr;
       }
 
       /**
-       * Renderiza texto fielmente: escapa HTML, preserva saltos de línea
-       * y aplica cursiva editorial segura cuando el original usa *término*.
+       * Intercala las fichas filtradas por turnos entre partidos respetando el
+       * orden original (docIndex) dentro de cada partido y el orden de inicio
+       * fijado para la sesión actual.
        */
-      function formatEditorialText(str) {
-        const escaped = escapeHtml(str || '');
-        const withItalics = escaped.replace(/\*([^*\n]{2,90})\*/g, '<em>$1</em>');
-        return withItalics.replace(/\n/g, '<br>');
-      }
-
-      function extractFirstPageNumber(paginaStr) {
-        const match = String(paginaStr || '').match(/\d+/);
-        return match ? parseInt(match[0], 10) : 99999;
-      }
-
-      function extractAllPageNumbers(paginaStr) {
-        const matches = String(paginaStr || '').match(/\d+/g);
-        return matches ? new Set(matches.map(Number)) : new Set();
-      }
-
-      function loadSavedSelection() {
-        try {
-          const raw = window.localStorage.getItem(STORAGE_KEY);
-          if (!raw) return;
-          const parsed = JSON.parse(raw);
-          if (Array.isArray(parsed)) {
-            state.selectedIds = new Set(parsed.filter(Boolean));
-          }
-        } catch (err) {
-          /* En entornos con localStorage restringido continuamos en memoria */
-        }
-      }
-
-      function persistSelection() {
-        try {
-          window.localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(state.selectedIds)));
-        } catch (err) {
-          /* Ignorar silenciosamente si localStorage no está disponible */
-        }
-      }
-
-      let toastTimer = null;
-      function showToast(message) {
-        const toastEl = document.getElementById('toast-msg');
-        if (!toastEl) return;
-        toastEl.textContent = message;
-        toastEl.classList.add('visible');
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => {
-          toastEl.classList.remove('visible');
-        }, 2600);
-      }
-
-      /* =======================================================================
-         3. NORMALIZADORES Y PARSER ROBUSTO DE datos.txt
-         ======================================================================= */
-      function normalizePartyName(raw) {
-        const cleaned = String(raw || '').replace(/\s+/g, ' ').trim();
-        const key = normalizeKey(cleaned).replace(/\.$/, '');
-        if (key === 'PP' || key === 'PARTIDO POPULAR') return 'Partido Popular';
-        if (key === 'PSOE' || key === 'PARTIDO SOCIALISTA OBRERO ESPANOL') return 'PSOE';
-        if (key === 'VOX') return 'VOX';
-        if (key === 'FRENTE AMPLIO') return 'Frente Amplio';
-        return cleaned || 'Sin especificar';
-      }
-
-      function normalizeThemeName(raw) {
-        const cleaned = String(raw || '').replace(/\s+/g, ' ').trim();
-        const key = normalizeKey(cleaned).replace(/\.$/, '');
-        if (key === 'VIVIENDA') return 'Vivienda';
-        if (key === 'IMPUESTOS Y FISCALIDAD') return 'Impuestos y Fiscalidad';
-        if (key === 'PENSIONES') return 'Pensiones';
-        if (key === 'EMPLEO Y SALARIOS') return 'Empleo y Salarios';
-        if (key === 'INMIGRACION') return 'Inmigración';
-        return cleaned || 'Sin especificar';
-      }
-
-      function normalizeLevel(raw) {
-        const cleaned = String(raw || '')
-          .replace(/[\s.·;:]+$/g, '')
-          .replace(/^[\s.·;:]+/g, '')
-          .replace(/\s+/g, ' ')
-          .trim();
-        const key = normalizeKey(cleaned);
-        if (key === 'BAJO') return 'Bajo';
-        if (key === 'MEDIO') return 'Medio';
-        if (key === 'ALTO') return 'Alto';
-        if (key === 'MUY ALTO') return 'Muy alto';
-        return cleaned || 'Sin especificar';
-      }
-
-      function makeCodeSlug(name, fallbackPrefix) {
-        const cleaned = normalizeKey(name).replace(/[^A-Z0-9]/g, '');
-        return cleaned.slice(0, 3) || fallbackPrefix;
-      }
-
-      function createEmptyRawRecord() {
-        return {
-          partidoOriginal: '',
-          temaOriginal: '',
-          pagina: '',
-          medida: '',
-          objetivo: '',
-          costeOportunidad: '',
-          efectosSegundoOrden: '',
-          evidenciaEmpirica: '',
-          nivelOriginal: '',
-          enResumen: ''
-        };
-      }
-
-      function hasAnyContent(rec) {
-        return REQUIRED_FIELDS.some(f => Boolean(rec[f.key] && rec[f.key].trim()));
-      }
-
-      /**
-       * Parsea datos.txt de forma íntegra y no destructiva:
-       * - Elimina BOM inicial y normaliza saltos de línea (\r\n y \r -> \n).
-       * - Separa fichas por líneas "---" y también protege contra transiciones
-       *   sin "---" cuando aparece una nueva línea "PARTIDO:" estando ya en ficha.
-       * - Permite saltos de línea y signos de dos puntos dentro de cada campo.
-       */
-      function parseDatosTxt(rawText) {
-        const cleanText = String(rawText || '')
-          .replace(/^\uFEFF/, '')
-          .replace(/\r\n/g, '\n')
-          .replace(/\r/g, '\n');
-
-        const lines = cleanText.split('\n');
-        const rawRecords = [];
-        let current = null;
-        let activeField = null;
-
-        function flushCurrent() {
-          if (current && hasAnyContent(current)) {
-            REQUIRED_FIELDS.forEach(f => {
-              current[f.key] = current[f.key].trim();
-            });
-            rawRecords.push(current);
-          }
-          current = null;
-          activeField = null;
-        }
-
-        for (let i = 0; i < lines.length; i++) {
-          const line = lines[i];
-
-          /* Separador explícito de ficha */
-          if (/^\s*-{3,}\s*$/.test(line)) {
-            flushCurrent();
-            continue;
-          }
-
-          /* Comprobar si la línea inicia uno de los 10 campos reconocidos */
-          const headerMatch = line.match(/^\s*([^:\n]{2,45}):(.*)$/);
-          if (headerMatch) {
-            const candidateKey = normalizeKey(headerMatch[1]);
-            const mappedField = FIELD_HEADER_MAP[candidateKey];
-            if (mappedField) {
-              /* Si aparece un nuevo PARTIDO cuando la ficha actual ya tiene PARTIDO,
-                 cerramos la anterior para evitar fusiones si falta un "---". */
-              if (mappedField === 'partidoOriginal' && current && current.partidoOriginal.trim()) {
-                flushCurrent();
-              }
-              if (!current) {
-                current = createEmptyRawRecord();
-              }
-              activeField = mappedField;
-              const valuePart = headerMatch[2].trim();
-              if (current[activeField]) {
-                current[activeField] += (valuePart ? '\n' + valuePart : '');
-              } else {
-                current[activeField] = valuePart;
-              }
-              continue;
-            }
-          }
-
-          /* Contenido multilínea (puede contener signos de dos puntos) */
-          if (current && activeField) {
-            if (line.trim() === '') {
-              if (current[activeField] && !current[activeField].endsWith('\n')) {
-                current[activeField] += '\n';
-              }
-            } else {
-              current[activeField] += (current[activeField] ? '\n' : '') + line.trim();
-            }
-          }
-        }
-        flushCurrent();
-
-        /* Enriquecer cada ficha sin modificar los textos originales */
-        const idCounters = new Map();
-        const records = rawRecords.map((raw, index) => {
-          const partido = normalizePartyName(raw.partidoOriginal);
-          const tema = normalizeThemeName(raw.temaOriginal);
-          const nivel = normalizeLevel(raw.nivelOriginal);
-
-          const pCode = PARTY_CODES[partido] || makeCodeSlug(partido, 'PAR');
-          const tCode = THEME_CODES[tema] || makeCodeSlug(tema, 'TEM');
-          const counterKey = `${pCode}-${tCode}`;
-          const nextNum = (idCounters.get(counterKey) || 0) + 1;
-          idCounters.set(counterKey, nextNum);
-          const id = `${pCode}-${tCode}-${String(nextNum).padStart(3, '0')}`;
-
-          const missingFields = REQUIRED_FIELDS
-            .filter(f => !raw[f.key] || !raw[f.key].trim())
-            .map(f => f.label);
-
-          const searchBlob = normalizeSearch(
-            `${raw.medida} ${raw.enResumen} ${raw.objetivo} ${raw.costeOportunidad} ${partido} ${tema} ${raw.pagina} ${id}`
-          );
-
-          return {
-            id,
-            docIndex: index,
-            partidoOriginal: raw.partidoOriginal,
-            partido,
-            temaOriginal: raw.temaOriginal,
-            tema,
-            pagina: raw.pagina,
-            firstPage: extractFirstPageNumber(raw.pagina),
-            pageNumbers: extractAllPageNumbers(raw.pagina),
-            medida: raw.medida,
-            objetivo: raw.objetivo,
-            costeOportunidad: raw.costeOportunidad,
-            efectosSegundoOrden: raw.efectosSegundoOrden,
-            evidenciaEmpirica: raw.evidenciaEmpirica,
-            nivelOriginal: raw.nivelOriginal,
-            nivel,
-            enResumen: raw.enResumen,
-            missingFields,
-            esPaquete: detectMeasurePackage(raw.medida),
-            requiereVerificacionBiblio: detectGeneralEvidenceReference(raw.evidenciaEmpirica),
-            planosRenuncia: classifyTradeoffPlanes(raw.costeOportunidad, raw.enResumen, tema),
-            posiblesRepeticiones: [],
-            searchBlob
-          };
-        });
-
-        /* Detección no destructiva de posibles repeticiones entre temáticas del mismo partido */
-        detectCrossThemeRepetitions(records);
-
-        return records;
-      }
-
-      /* =======================================================================
-         4. HEURÍSTICAS DE TRANSPARENCIA (NO DESTRUCTIVAS)
-         ======================================================================= */
-
-      /**
-       * Detecta si el texto de la medida agrupa múltiples actuaciones diferenciadas
-       * (paquete de medidas) con posibles costes de oportunidad distintos.
-       */
-      function detectMeasurePackage(medidaText) {
-        const text = String(medidaText || '').trim();
-        if (!text) return false;
-
-        /* 1. Cláusulas separadas por punto y coma */
-        const semicolonParts = text.split(';').filter(p => p.trim().length > 15);
-        if (semicolonParts.length >= 2) return true;
-
-        /* 2. Múltiples oraciones completas (excluyendo abreviaturas frecuentes) */
-        const cleanAbbrev = text.replace(/\b(?:EE\.?\s*UU\.|art\.|pág\.|núm\.|etc\.|S\.A\.|S\.L\.|LO|RD)\b/gi, '');
-        const sentences = cleanAbbrev.split(/\.\s+(?=[A-ZÁÉÍÓÚÑ«¿])/).filter(s => s.trim().length > 20);
-        if (sentences.length >= 2) return true;
-
-        /* 3. Enumeración extensa de actuaciones compuestas */
-        const commaCount = (text.match(/,/g) || []).length;
-        const policyVerbPattern = /\b(crear|aprobar|modificar|reformar|reducir|aumentar|ampliar|eliminar|prohibir|garantizar|aplicar|eximir|bonificar|reforzar|impulsar|fijar|regular|suprimir|derogar|desarrollar|implantar|exigir|obligar|reconocer|extender|limitar|revisar|habilitar|establecer|tipificar|anular|endurecer|elevar|bajar|reestructurar|condicionar|recuperar|integrar|dotar|blindar|reemplazar|sustituir|equiparar|excluir|retirar|perseguir)\b/gi;
-        const normText = stripAccents(text).toLowerCase();
-        const verbMatches = normText.match(policyVerbPattern) || [];
-        const uniqueVerbs = new Set(verbMatches);
-
-        if (uniqueVerbs.size >= 3 && text.length >= 145) return true;
-        if (commaCount >= 3 && uniqueVerbs.size >= 2 && text.length >= 175) return true;
-        if (/\b(?:así como|además de|junto con|junto a|y también)\b/i.test(text) && uniqueVerbs.size >= 2 && text.length >= 165) {
-          return true;
-        }
-
-        return false;
-      }
-
-      /**
-       * Detecta posibles fichas duplicadas dentro del mismo partido que describen
-       * la misma actuación en temáticas distintas mediante similitud léxica.
-       */
-      function tokenizeForSimilarity(text) {
-        const clean = stripAccents(text)
-          .toLowerCase()
-          .replace(/[^a-z0-9\s]/g, ' ');
-        const tokens = clean.split(/\s+/).filter(w => w.length >= 4 && !STOPWORDS.has(w));
-        return new Set(tokens);
-      }
-
-      function detectCrossThemeRepetitions(records) {
-        const tokenCache = records.map(r => tokenizeForSimilarity(r.medida));
+      function interleaveRecordsByParty(records) {
         const byParty = new Map();
-
-        records.forEach((rec, idx) => {
+        records.forEach(rec => {
           if (!byParty.has(rec.partido)) byParty.set(rec.partido, []);
-          byParty.get(rec.partido).push(idx);
+          byParty.get(rec.partido).push(rec);
         });
 
-        byParty.forEach(indices => {
-          for (let i = 0; i < indices.length; i++) {
-            const idxA = indices[i];
-            const recA = records[idxA];
-            const setA = tokenCache[idxA];
-            if (setA.size < 3) continue;
+        byParty.forEach(list => {
+          list.sort((a, b) => a.docIndex - b.docIndex);
+        });
 
-            for (let j = i + 1; j < indices.length; j++) {
-              const idxB = indices[j];
-              const recB = records[idxB];
-              if (recA.tema === recB.tema) continue;
+        const baseOrder = state.sessionPartyOrder.length > 0
+          ? state.sessionPartyOrder
+          : CANONICAL_PARTIES;
 
-              const setB = tokenCache[idxB];
-              if (setB.size < 3) continue;
+        const activeParties = baseOrder.filter(p => byParty.has(p));
+        byParty.forEach((_, p) => {
+          if (!activeParties.includes(p)) activeParties.push(p);
+        });
 
-              let intersection = 0;
-              setA.forEach(token => {
-                if (setB.has(token)) intersection++;
-              });
-              if (intersection < 3) continue;
-
-              const union = setA.size + setB.size - intersection;
-              const jaccard = intersection / union;
-              const overlap = intersection / Math.min(setA.size, setB.size);
-
-              let sharedPage = false;
-              recA.pageNumbers.forEach(p => {
-                if (recB.pageNumbers.has(p)) sharedPage = true;
-              });
-
-              const isLikelyDuplicate =
-                jaccard >= 0.46 ||
-                (overlap >= 0.65 && Math.min(setA.size, setB.size) >= 4 && sharedPage) ||
-                (jaccard >= 0.33 && intersection >= 4 && sharedPage);
-
-              if (isLikelyDuplicate) {
-                recA.posiblesRepeticiones.push({
-                  id: recB.id,
-                  tema: recB.tema,
-                  pagina: recB.pagina
-                });
-                recB.posiblesRepeticiones.push({
-                  id: recA.id,
-                  tema: recA.tema,
-                  pagina: recA.pagina
-                });
-              }
+        const interleaved = [];
+        let turn = 0;
+        let added = true;
+        while (added) {
+          added = false;
+          for (let i = 0; i < activeParties.length; i++) {
+            const list = byParty.get(activeParties[i]);
+            if (turn < list.length) {
+              interleaved.push(list[turn]);
+              added = true;
             }
           }
-        });
-      }
-
-      /**
-       * Regla de transparencia para Evidencia Empírica:
-       * Si menciona instituciones, estudios o antecedentes de forma general sin
-       * incluir enlace o cita verificable completa (autor/año/publicación),
-       * activa la nota discreta de verificación bibliográfica.
-       */
-      function detectGeneralEvidenceReference(text) {
-        const raw = String(text || '').trim();
-        if (!raw) return false;
-
-        const hasUrlOrDoi = /https?:\/\/|doi\.org|\bDOI:/i.test(raw);
-        if (hasUrlOrDoi) return false;
-
-        const mentionsSourceOrStudy = /\b(OCDE|Banco de España|AIReF|Fedea|FMI|Fondo Monetario|Banco Mundial|Comisión Europea|Eurostat|OIT|OMS|CNMC|BCE|Banco Central Europeo|Frontex|Tribunal de Cuentas|Instituto de Estudios Fiscales|Ministerio|OTAN|UNICEF|Defensor del Pueblo|Consejo de Europa|estudios|informes|evaluaciones|literatura|análisis|investigaciones|datos oficiales|evidencia|precedentes|experiencias|según)\b/i.test(raw);
-        if (!mentionsSourceOrStudy) return false;
-
-        /* Incluso si cita un apellido y año (p. ej. "et al., 2020"), comprobar si
-           carece de título de publicación y enlace verificable completo. */
-        const hasAuthorYear = /[A-ZÁÉÍÓÚ][a-záéíóúñ-]+(?:\s+(?:y|&)\s+[A-ZÁÉÍÓÚ][a-záéíóúñ-]+|\s+et\s+al\.)?(?:,\s*|\s*\()(?:19|20)\d{2}\)?/.test(raw);
-        const hasNamedPublication = /\*[^*]{6,}\*/.test(raw);
-
-        /* Solo omitir el aviso si incluye a la vez autor+año Y publicación explícita */
-        return !(hasAuthorYear && hasNamedPublication);
-      }
-
-      /**
-       * Clasificación visual orientativa de los planos en los que opera la renuncia
-       * para "Mi selección de medidas". Una misma medida puede operar en varios planos.
-       */
-      function classifyTradeoffPlanes(costeText, resumenText, tema) {
-        const norm = normalizeSearch(`${costeText} ${resumenText}`);
-        const matched = [];
-
-        TRADEOFF_PLANES.forEach(plane => {
-          const hit = plane.keywords.some(kw => norm.includes(kw));
-          if (hit) matched.push(plane.id);
-        });
-
-        /* Respaldo orientativo por temática si el texto fuese muy breve */
-        if (matched.length === 0) {
-          if (tema === 'Impuestos y Fiscalidad' || tema === 'Pensiones') matched.push('fiscal');
-          else if (tema === 'Vivienda') matched.push('mercado');
-          else if (tema === 'Empleo y Salarios') matched.push('social');
-          else matched.push('administrativa');
+          turn++;
         }
-        return matched;
+        return interleaved;
       }
 
-      /* =======================================================================
-         5. VALIDACIÓN AUTOMÁTICA DE RECUENTOS E INTEGRIDAD
-         ======================================================================= */
-      function validateDataset(records) {
-        const partyCounts = {};
-        const themeCounts = {};
-        const levelCounts = {};
-        const matrixCounts = {};
-        const incomplete = [];
-
-        CANONICAL_PARTIES.forEach(p => {
-          partyCounts[p] = 0;
-          matrixCounts[p] = {};
-          CANONICAL_THEMES.forEach(t => {
-            matrixCounts[p][t] = 0;
-          });
-        });
-        CANONICAL_THEMES.forEach(t => { themeCounts[t] = 0; });
-        CANONICAL_LEVELS.forEach(l => { levelCounts[l] = 0; });
-
-        records.forEach(r => {
-          partyCounts[r.partido] = (partyCounts[r.partido] || 0) + 1;
-          themeCounts[r.tema] = (themeCounts[r.tema] || 0) + 1;
-          levelCounts[r.nivel] = (levelCounts[r.nivel] || 0) + 1;
-
-          if (!matrixCounts[r.partido]) matrixCounts[r.partido] = {};
-          matrixCounts[r.partido][r.tema] = (matrixCounts[r.partido][r.tema] || 0) + 1;
-
-          if (r.missingFields.length > 0) {
-            incomplete.push({ id: r.id, partido: r.partido, tema: r.tema, missing: r.missingFields });
-          }
-        });
-
-        const discrepancies = [];
-        const matrixDiscrepancies = [];
-
-        if (records.length !== EXPECTED_TOTAL) {
-          discrepancies.push(`Total de fichas cargadas: ${records.length} (esperado: ${EXPECTED_TOTAL}).`);
-        }
-
-        Object.keys(partyCounts).forEach(party => {
-          const expected = EXPECTED_PARTIES[party];
-          const actual = partyCounts[party];
-          if (expected === undefined) {
-            discrepancies.push(`Partido adicional detectado: «${party}» (${actual} fichas).`);
-          } else if (actual !== expected) {
-            discrepancies.push(`${party}: ${actual} fichas (esperado: ${expected}).`);
-          }
-        });
-
-        Object.keys(themeCounts).forEach(theme => {
-          const expected = EXPECTED_THEMES[theme];
-          const actual = themeCounts[theme];
-          if (expected === undefined) {
-            discrepancies.push(`Temática adicional detectada: «${theme}» (${actual} fichas).`);
-          } else if (actual !== expected) {
-            discrepancies.push(`${theme}: ${actual} fichas (esperado: ${expected}).`);
-          }
-        });
-
-        /* Control cruzado independiente de la matriz Partido × Temática */
-        const allMatrixParties = Array.from(new Set([...CANONICAL_PARTIES, ...Object.keys(matrixCounts)]));
-        const allMatrixThemes = Array.from(new Set([...CANONICAL_THEMES, ...Object.keys(themeCounts)]));
-
-        allMatrixParties.forEach(party => {
-          allMatrixThemes.forEach(theme => {
-            const actual = (matrixCounts[party] && matrixCounts[party][theme]) || 0;
-            const expected = EXPECTED_MATRIX[party] && EXPECTED_MATRIX[party][theme] !== undefined
-              ? EXPECTED_MATRIX[party][theme]
-              : 0;
-            if (actual !== expected) {
-              const detail = `Matriz (${party} × ${theme}): ${actual} fichas (esperado: ${expected}).`;
-              matrixDiscrepancies.push({ party, theme, actual, expected, detail });
-              discrepancies.push(detail);
-            }
-          });
-        });
-
-        if (incomplete.length > 0) {
-          discrepancies.push(`${incomplete.length} ficha(s) presentan campos vacíos o incompletos.`);
-        }
-
-        const unmappedLevels = Object.keys(levelCounts).filter(l => !CANONICAL_LEVELS.includes(l) && levelCounts[l] > 0);
-        if (unmappedLevels.length > 0) {
-          discrepancies.push(`Niveles no reconocidos detectados: ${unmappedLevels.join(', ')}.`);
-        }
-
-        const repetitionCardsCount = records.filter(r => r.posiblesRepeticiones.length > 0).length;
-        const packageCardsCount = records.filter(r => r.esPaquete).length;
-
-        return {
-          isPerfect: discrepancies.length === 0,
-          total: records.length,
-          partyCounts,
-          themeCounts,
-          levelCounts,
-          matrixCounts,
-          matrixDiscrepancies,
-          incomplete,
-          discrepancies,
-          repetitionCardsCount,
-          packageCardsCount
-        };
-      }
-
-      /* =======================================================================
-         6. INICIALIZACIÓN DE DATOS Y CARGA AUTOMÁTICA / LOCAL
-         ======================================================================= */
-      function hydrateAppWithText(text, sourceLabel) {
-        const records = parseDatosTxt(text);
-        if (records.length === 0) {
-          showLoaderFallback('El archivo seleccionado no contiene fichas válidas con el formato esperado (PARTIDO, TEMA, MEDIDA...).');
-          return;
-        }
-
-        state.records = records;
-        state.recordsById = new Map(records.map(r => [r.id, r]));
-        state.sourceInfo = sourceLabel;
-        state.validation = validateDataset(records);
-
-        /* Limpiar IDs guardados que ya no existan si se cargó otro archivo */
-        const cleanedSelection = new Set();
-        state.selectedIds.forEach(id => {
-          if (state.recordsById.has(id)) cleanedSelection.add(id);
-        });
-        state.selectedIds = cleanedSelection;
-        persistSelection();
-
-        document.getElementById('loading-indicator').classList.add('hidden');
-        document.getElementById('loader-fallback').classList.add('hidden');
-        document.getElementById('perfil-comparativo').classList.remove('hidden');
-        document.getElementById('explorador').classList.remove('hidden');
-
-        populateFilterOptions();
-        renderValidationBanner();
-        renderQuickThemeCards();
-        renderProfileComparison();
-        applyFiltersAndRender(true);
-        updateSelectionBadge();
-      }
-
-      function showLoaderFallback(errorMsg) {
-        document.getElementById('loading-indicator').classList.add('hidden');
-        document.getElementById('loader-fallback').classList.remove('hidden');
-        const errBox = document.getElementById('loader-error-box');
-        if (errorMsg) {
-          errBox.textContent = errorMsg;
-          errBox.classList.remove('hidden');
-        } else {
-          errBox.classList.add('hidden');
-        }
-      }
-
-      async function tryAutoFetchDatos() {
-        try {
-          const response = await fetch('./datos.txt', { cache: 'no-cache' });
-          if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-          }
-          const text = await response.text();
-          if (!text || !text.trim()) {
-            throw new Error('Archivo vacío');
-          }
-          hydrateAppWithText(text, 'Carga automática (./datos.txt)');
-        } catch (err) {
-          /* Respaldo amigable para apertura local o entorno aislado */
-          showLoaderFallback('');
-        }
-      }
-
-      function handleLocalFile(file) {
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function (ev) {
-          const content = ev.target && typeof ev.target.result === 'string' ? ev.target.result : '';
-          hydrateAppWithText(content, `Archivo local (${file.name})`);
-          closeModal('modal-diagnostics');
-          showToast(`Archivo «${file.name}» cargado correctamente (${state.records.length} fichas).`);
-        };
-        reader.onerror = function () {
-          showLoaderFallback('No se pudo leer el archivo seleccionado. Comprueba que sea un archivo de texto UTF-8 válido.');
-        };
-        reader.readAsText(file, 'UTF-8');
-      }
-
-      /* =======================================================================
-         7. RENDERIZADO DE CONTROLES, TARJETAS Y PAGINACIÓN
-         ======================================================================= */
-      function renderValidationBanner() {
-        const banner = document.getElementById('validation-banner');
-        const list = document.getElementById('validation-banner-list');
-        if (!state.validation || state.validation.isPerfect) {
-          banner.classList.add('hidden');
-          return;
-        }
-        list.innerHTML = state.validation.discrepancies
-          .slice(0, 6)
-          .map(msg => `<li>${escapeHtml(msg)}</li>`)
-          .join('');
-        if (state.validation.discrepancies.length > 6) {
-          list.innerHTML += `<li>Y ${state.validation.discrepancies.length - 6} detalle(s) adicional(es) en el diagnóstico completo.</li>`;
-        }
-        banner.classList.remove('hidden');
-      }
-
-      function populateFilterOptions() {
-        const partySelect = document.getElementById('filter-party');
-        const themeSelect = document.getElementById('filter-theme');
-
-        const partiesInOrder = [
-          ...CANONICAL_PARTIES.filter(p => (state.validation.partyCounts[p] || 0) > 0),
-          ...Object.keys(state.validation.partyCounts).filter(p => !CANONICAL_PARTIES.includes(p))
-        ];
-
-        partySelect.innerHTML = `<option value="">Todos los partidos (${state.records.length})</option>` +
-          partiesInOrder.map(p => `<option value="${escapeHtml(p)}">${escapeHtml(p)} (${state.validation.partyCounts[p]})</option>`).join('');
-
-        const themesInOrder = [
-          ...CANONICAL_THEMES.filter(t => (state.validation.themeCounts[t] || 0) > 0),
-          ...Object.keys(state.validation.themeCounts).filter(t => !CANONICAL_THEMES.includes(t))
-        ];
-
-        themeSelect.innerHTML = `<option value="">Todas las temáticas (${state.records.length})</option>` +
-          themesInOrder.map(t => `<option value="${escapeHtml(t)}">${escapeHtml(t)} (${state.validation.themeCounts[t]})</option>`).join('');
-      }
-
-      function renderQuickThemeCards() {
-        const container = document.getElementById('theme-quick-cards');
-        const themesToShow = CANONICAL_THEMES.concat(
-          Object.keys(state.validation.themeCounts).filter(t => !CANONICAL_THEMES.includes(t))
-        );
-
-        container.innerHTML = themesToShow.map(theme => {
-          const count = state.validation.themeCounts[theme] || 0;
-          const isActive = state.filters.theme === theme;
-          return `
-            <button type="button" class="theme-card" data-quick-theme="${escapeHtml(theme)}" aria-pressed="${isActive ? 'true' : 'false'}">
-              <span class="theme-card-name">${escapeHtml(theme)}</span>
-              <span class="theme-card-count">${count} ${count === 1 ? 'ficha' : 'fichas'}</span>
-            </button>
-          `;
-        }).join('');
-      }
-
-      function getLevelMeta(nivel) {
-        if (nivel === 'Bajo') return { cls: 'level-pill--bajo', dots: 1 };
-        if (nivel === 'Medio') return { cls: 'level-pill--medio', dots: 2 };
-        if (nivel === 'Alto') return { cls: 'level-pill--alto', dots: 3 };
-        if (nivel === 'Muy alto') return { cls: 'level-pill--muy-alto', dots: 4 };
-        return { cls: '', dots: 0 };
-      }
-
-      function renderLevelPill(nivel) {
-        const meta = getLevelMeta(nivel);
-        const dotsHtml = [1, 2, 3, 4]
-          .map(i => `<span class="level-dot ${i <= meta.dots ? 'filled' : ''}"></span>`)
-          .join('');
-        return `
-          <span class="level-pill ${meta.cls}" title="Nivel cualitativo orientativo de coste de oportunidad: ${escapeHtml(nivel)}">
-            <span class="level-dots" aria-hidden="true">${dotsHtml}</span>
-            <span>Coste: ${escapeHtml(nivel)}</span>
-          </span>
-        `;
-      }
-
+      function stripAccents(str) {
+// ... existing code ... -->
       function applyFiltersAndRender(resetPagination) {
         if (resetPagination) {
           state.visibleCount = PAGE_SIZE;
         }
 
-        const { party, theme, level, search, sort } = state.filters;
+        const { party, theme, level, search } = state.filters;
         const normQuery = normalizeSearch(search);
         const queryTerms = normQuery ? normQuery.split(' ').filter(Boolean) : [];
 
@@ -3609,24 +2765,57 @@
           return true;
         });
 
-        /* Ordenación estrictamente neutral (nunca clasifica partidos como mejores/peores) */
-        if (sort === 'theme') {
-          result = result.slice().sort((a, b) => {
-            const idxA = CANONICAL_THEMES.indexOf(a.tema);
-            const idxB = CANONICAL_THEMES.indexOf(b.tema);
-            if (idxA !== idxB) return (idxA === -1 ? 99 : idxA) - (idxB === -1 ? 99 : idxB);
-            return a.docIndex - b.docIndex;
-          });
-        } else if (sort === 'page') {
-          result = result.slice().sort((a, b) => {
-            if (a.firstPage !== b.firstPage) return a.firstPage - b.firstPage;
-            return a.docIndex - b.docIndex;
-          });
+        /* Si hay un único partido filtrado, respetar su orden original (docIndex).
+           Si no hay filtro de partido, intercalar equitativamente los cuatro partidos. */
+        if (party) {
+          result = result.slice().sort((a, b) => a.docIndex - b.docIndex);
+        } else {
+          result = interleaveRecordsByParty(result);
         }
 
         state.filtered = result;
+        updateRefineToggleUI();
         renderQuickThemeCards();
         renderCards();
+      }
+
+      function setDidacticExpanded(expanded) {
+        state.didacticExpanded = Boolean(expanded);
+        const btn = document.getElementById('btn-toggle-didactic');
+        const panel = document.getElementById('didactic-expandable');
+        if (!btn || !panel) return;
+        btn.setAttribute('aria-expanded', state.didacticExpanded ? 'true' : 'false');
+        panel.classList.toggle('hidden', !state.didacticExpanded);
+      }
+
+      function setRefineExpanded(expanded) {
+        state.refineExpanded = Boolean(expanded);
+        const btn = document.getElementById('btn-toggle-refine');
+        const panel = document.getElementById('refine-panel');
+        if (!btn || !panel) return;
+        btn.setAttribute('aria-expanded', state.refineExpanded ? 'true' : 'false');
+        panel.classList.toggle('hidden', !state.refineExpanded);
+      }
+
+      function updateRefineToggleUI() {
+        const badge = document.getElementById('refine-active-badge');
+        if (!badge) return;
+        const activeCount = (state.filters.party ? 1 : 0) + (state.filters.level ? 1 : 0);
+        badge.textContent = String(activeCount);
+        badge.classList.toggle('hidden', activeCount === 0);
+      }
+
+      function setProfileExpanded(expanded) {
+        state.profileExpanded = Boolean(expanded);
+        const btn = document.getElementById('btn-toggle-profile');
+        const panel = document.getElementById('profile-collapsible-content');
+        const label = document.getElementById('profile-toggle-label');
+        if (!btn || !panel) return;
+        btn.setAttribute('aria-expanded', state.profileExpanded ? 'true' : 'false');
+        panel.classList.toggle('hidden', !state.profileExpanded);
+        if (label) {
+          label.textContent = state.profileExpanded ? 'Ocultar comparación' : 'Ver comparación';
+        }
       }
 
       function renderCards() {
@@ -3636,12 +2825,17 @@
         const paginationMeta = document.getElementById('pagination-meta');
         const loadMoreBtn = document.getElementById('btn-load-more');
         const counter = document.getElementById('results-counter');
+        const altNote = document.getElementById('alternation-note');
 
         const totalAll = state.records.length;
         const totalFiltered = state.filtered.length;
         const slice = state.filtered.slice(0, state.visibleCount);
 
         counter.innerHTML = `Mostrando <strong>${totalFiltered}</strong> de <strong>${totalAll}</strong> fichas`;
+
+        if (altNote) {
+          altNote.classList.toggle('hidden', Boolean(state.filters.party) || totalFiltered === 0);
+        }
 
         if (totalFiltered === 0) {
           grid.innerHTML = '';
@@ -3655,6 +2849,12 @@
         grid.innerHTML = slice.map(rec => {
           const isSaved = state.selectedIds.has(rec.id);
           const repThemes = Array.from(new Set(rec.posiblesRepeticiones.map(r => r.tema)));
+          const repShortLabel = repThemes.length === 1
+            ? `También en ${repThemes[0]}`
+            : `Coincidencia (${repThemes.length} temas)`;
+          const bookmarkIcon = isSaved
+            ? `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>`
+            : `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>`;
 
           return `
             <article class="measure-card" data-party="${escapeHtml(rec.partido)}">
@@ -3663,48 +2863,35 @@
                   <span class="party-dot" data-party="${escapeHtml(rec.partido)}" aria-hidden="true"></span>
                   <span>${escapeHtml(rec.partido)}</span>
                 </span>
-                <span class="card-id" title="Identificador técnico estable">${escapeHtml(rec.id)}</span>
+                <span class="card-theme-page">
+                  <strong>${escapeHtml(rec.tema)}</strong>
+                  <span aria-hidden="true">·</span>
+                  <span>Pág. ${escapeHtml(rec.pagina || 's/d')}</span>
+                </span>
               </div>
 
-              <div class="card-theme-page">
-                <strong>${escapeHtml(rec.tema)}</strong>
-                <span aria-hidden="true">·</span>
-                <span>Pág. ${escapeHtml(rec.pagina || 's/d')}</span>
-              </div>
+              <div class="card-measure-text">${formatEditorialText(rec.medida)}</div>
 
               <div class="card-badges-row">
                 ${renderLevelPill(rec.nivel)}
-                <button type="button" class="level-help-btn" data-open-methodology="true" aria-label="Información sobre valoración orientativa">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <button type="button" class="level-help-btn" data-open-methodology="true" aria-label="Qué significa la valoración orientativa">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="12" y1="16" x2="12" y2="12"></line>
                     <line x1="12" y1="8" x2="12.01" y2="8"></line>
                   </svg>
-                  <span>Valoración orientativa</span>
                 </button>
-              </div>
-
-              ${(rec.esPaquete || repThemes.length > 0) ? `
-                <div class="card-badges-row">
-                  ${rec.esPaquete ? `
-                    <span class="transparency-tag" title="Agrupa varias actuaciones diferenciadas con posibles costes de oportunidad distintos">
-                      Paquete de medidas
-                    </span>
-                  ` : ''}
-                  ${repThemes.length > 0 ? `
-                    <span class="transparency-tag" title="Esta propuesta también aparece analizada desde otra perspectiva temática (${escapeHtml(repThemes.join(', '))}). Los análisis pueden abordar dimensiones económicas diferentes.">
-                      Coincidencia con otra temática (${escapeHtml(repThemes.join(', '))})
-                    </span>
-                  ` : ''}
-                </div>
-                ${repThemes.length > 0 ? `
-                  <p class="card-coincidence-note">
-                    Esta propuesta también aparece analizada desde otra perspectiva temática. Los análisis pueden abordar dimensiones económicas diferentes.
-                  </p>
+                ${rec.esPaquete ? `
+                  <span class="transparency-tag" title="Agrupa varias actuaciones diferenciadas con posibles costes de oportunidad distintos">
+                    Paquete de medidas
+                  </span>
                 ` : ''}
-              ` : ''}
-
-              <div class="card-measure-text">${formatEditorialText(rec.medida)}</div>
+                ${repThemes.length > 0 ? `
+                  <span class="transparency-tag" title="Esta propuesta también aparece analizada desde otra perspectiva temática (${escapeHtml(repThemes.join(', '))}). Los análisis pueden abordar dimensiones económicas diferentes.">
+                    ${escapeHtml(repShortLabel)}
+                  </span>
+                ` : ''}
+              </div>
 
               <div class="card-summary-box">
                 <div class="card-summary-label">En resumen</div>
@@ -3712,11 +2899,18 @@
               </div>
 
               <div class="card-actions">
-                <button type="button" class="btn btn-primary" data-view-detail="${escapeHtml(rec.id)}">
-                  Ver análisis completo
+                <button type="button" class="btn btn-primary btn-detail" data-view-detail="${escapeHtml(rec.id)}">
+                  Ver qué implica
                 </button>
-                <button type="button" class="btn ${isSaved ? 'btn-saved' : 'btn-secondary'}" data-toggle-save="${escapeHtml(rec.id)}" aria-pressed="${isSaved ? 'true' : 'false'}">
-                  ${isSaved ? '✓ En mi selección' : '+ Guardar en mi selección'}
+                <button
+                  type="button"
+                  class="btn ${isSaved ? 'btn-saved' : 'btn-secondary'} btn-save-compact"
+                  data-toggle-save="${escapeHtml(rec.id)}"
+                  aria-pressed="${isSaved ? 'true' : 'false'}"
+                  aria-label="${isSaved ? 'Quitar medida de Mi selección' : 'Guardar medida en Mi selección'}"
+                >
+                  ${bookmarkIcon}
+                  <span>${isSaved ? 'Guardada' : 'Guardar'}</span>
                 </button>
               </div>
             </article>
@@ -3733,885 +2927,55 @@
           paginationBar.classList.add('hidden');
         }
       }
-
-      /* =======================================================================
-         7B. PERFIL RELATIVO DE COSTE DE OPORTUNIDAD POR PARTIDO
-         ======================================================================= */
-      function formatPercentageEs(value) {
-        return value.toFixed(1).replace('.', ',') + ' %';
-      }
-
-      /**
-       * Calcula la distribución porcentual estrictamente relativa para cada partido
-       * usando como denominador exclusivamente las fichas de ese partido en el ámbito
-       * seleccionado (global o temática concreta). Incluye "Sin clasificar" si existiera.
-       */
-      function computeProfileStats(themeFilter) {
-        const subset = themeFilter
-          ? state.records.filter(r => r.tema === themeFilter)
-          : state.records;
-
-        let anyUnclassified = false;
-
-        /* Orden fijo y neutral: Partido Popular, PSOE, VOX, Frente Amplio */
-        const rows = CANONICAL_PARTIES.map(party => {
-          const partyRecords = subset.filter(r => r.partido === party);
-          const total = partyRecords.length;
-          const counts = {
-            'Bajo': 0,
-            'Medio': 0,
-            'Alto': 0,
-            'Muy alto': 0,
-            [UNCLASSIFIED_LEVEL]: 0
-          };
-
-          partyRecords.forEach(r => {
-            if (CANONICAL_LEVELS.includes(r.nivel)) {
-              counts[r.nivel]++;
-            } else {
-              counts[UNCLASSIFIED_LEVEL]++;
-              anyUnclassified = true;
-            }
-          });
-
-          const pct = {
-            'Bajo': total > 0 ? (counts['Bajo'] / total) * 100 : 0,
-            'Medio': total > 0 ? (counts['Medio'] / total) * 100 : 0,
-            'Alto': total > 0 ? (counts['Alto'] / total) * 100 : 0,
-            'Muy alto': total > 0 ? (counts['Muy alto'] / total) * 100 : 0,
-            [UNCLASSIFIED_LEVEL]: total > 0 ? (counts[UNCLASSIFIED_LEVEL] / total) * 100 : 0
-          };
-
-          const lowerCount = counts['Bajo'] + counts['Medio'];
-          const higherCount = counts['Alto'] + counts['Muy alto'];
-          const lowerPct = total > 0 ? (lowerCount / total) * 100 : 0;
-          const higherPct = total > 0 ? (higherCount / total) * 100 : 0;
-
-          return {
-            party,
-            total,
-            counts,
-            pct,
-            lowerCount,
-            higherCount,
-            lowerPct,
-            higherPct,
-            isSmallSample: total > 0 && total < SMALL_SAMPLE_THRESHOLD
-          };
-        });
-
-        return {
-          themeFilter,
-          scopeLabel: themeFilter || 'Todas las temáticas',
-          totalInScope: subset.length,
-          anyUnclassified,
-          rows
-        };
-      }
-
-      function renderProfileComparison() {
-        const tabsContainer = document.getElementById('profile-theme-tabs');
-        const chartCard = document.getElementById('profile-chart-card');
-        const cardsContainer = document.getElementById('profile-party-cards');
-        if (!tabsContainer || !chartCard || !cardsContainer) return;
-
-        const stats = computeProfileStats(state.profileTheme);
-
-        /* 1. Selector interactivo de temáticas (Todas + 5 temáticas) */
-        const tabOptions = [{ value: '', label: 'Todas las temáticas', count: state.records.length }]
-          .concat(CANONICAL_THEMES.map(t => ({
-            value: t,
-            label: t,
-            count: (state.validation && state.validation.themeCounts[t]) || 0
-          })));
-
-        tabsContainer.innerHTML = tabOptions.map(opt => {
-          const active = state.profileTheme === opt.value;
-          return `
-            <button type="button" class="profile-tab-btn" data-profile-theme="${escapeHtml(opt.value)}" aria-pressed="${active ? 'true' : 'false'}">
-              ${escapeHtml(opt.label)} (${opt.count})
-            </button>
-          `;
-        }).join('');
-
-        /* 2. Gráfico horizontal apilado al 100 % */
-        const levelsToDisplay = stats.anyUnclassified
-          ? [...CANONICAL_LEVELS, UNCLASSIFIED_LEVEL]
-          : CANONICAL_LEVELS;
-
-        const levelClassMap = {
-          'Bajo': 'bajo',
-          'Medio': 'medio',
-          'Alto': 'alto',
-          'Muy alto': 'muy-alto',
-          [UNCLASSIFIED_LEVEL]: 'sin-clasificar'
-        };
-
-        const legendHtml = levelsToDisplay.map(lvl => `
-          <span class="legend-item">
-            <span class="legend-swatch legend-swatch--${levelClassMap[lvl]}" aria-hidden="true"></span>
-            <span>${escapeHtml(lvl)}</span>
-          </span>
-        `).join('');
-
-        const barsHtml = stats.rows.map(row => {
-          const segmentsHtml = row.total === 0
-            ? `<div class="stacked-seg stacked-seg--sin-clasificar" style="width: 100%;">Sin fichas en esta temática (0)</div>`
-            : levelsToDisplay.map(lvl => {
-                const count = row.counts[lvl];
-                const pctVal = row.pct[lvl];
-                if (count === 0) return '';
-                const pctStr = formatPercentageEs(pctVal);
-                const showInlineLabel = pctVal >= 10;
-                const ariaDesc = `${row.party}, ${lvl}: ${pctStr} (${count} de ${row.total} fichas)`;
-                return `
-                  <div
-                    class="stacked-seg stacked-seg--${levelClassMap[lvl]}"
-                    style="width: ${pctVal.toFixed(4)}%;"
-                    title="${escapeHtml(ariaDesc)}"
-                    aria-label="${escapeHtml(ariaDesc)}"
-                  >
-                    ${showInlineLabel ? escapeHtml(pctStr) : ''}
-                  </div>
-                `;
-              }).join('');
-
-          const detailChipsHtml = levelsToDisplay.map(lvl => {
-            const count = row.counts[lvl];
-            const pctStr = formatPercentageEs(row.pct[lvl]);
-            return `
-              <span class="profile-seg-chip">
-                <span class="legend-swatch legend-swatch--${levelClassMap[lvl]}" style="width: 10px; height: 10px;" aria-hidden="true"></span>
-                <span>${escapeHtml(lvl)}: <strong>${escapeHtml(pctStr)}</strong> (${count})</span>
-              </span>
-            `;
-          }).join('');
-
-          return `
-            <div class="profile-bar-row">
-              <div class="profile-bar-header">
-                <div class="profile-party-meta">
-                  <span class="profile-party-name">
-                    <span class="party-dot" data-party="${escapeHtml(row.party)}" aria-hidden="true"></span>
-                    <span>${escapeHtml(row.party)}</span>
-                  </span>
-                  <span class="profile-denom">Base: ${row.total} ${row.total === 1 ? 'ficha' : 'fichas'} (${escapeHtml(stats.scopeLabel)})</span>
-                  ${row.isSmallSample ? `
-                    <span class="small-sample-badge" title="Menos de ${SMALL_SAMPLE_THRESHOLD} fichas en esta temática: base reducida no representativa del conjunto del programa">
-                      Muestra pequeña: interpretar con cautela
-                    </span>
-                  ` : ''}
-                </div>
-                <div class="profile-agg-summary">
-                  Alto o Muy alto: <strong>${escapeHtml(formatPercentageEs(row.higherPct))}</strong> (${row.higherCount}/${row.total})
-                </div>
-              </div>
-
-              <div class="stacked-bar" role="img" aria-label="Distribución de ${escapeHtml(row.party)} en ${escapeHtml(stats.scopeLabel)}: ${levelsToDisplay.map(l => `${l} ${formatPercentageEs(row.pct[l])} (${row.counts[l]})`).join(', ')}">
-                ${segmentsHtml}
-              </div>
-
-              <div class="profile-seg-details">
-                ${detailChipsHtml}
-              </div>
-            </div>
-          `;
-        }).join('');
-
-        chartCard.innerHTML = `
-          <div class="profile-chart-top">
-            <div>
-              <strong style="font-size: 0.96rem;">Distribución relativa al 100 % · ${escapeHtml(stats.scopeLabel)}</strong>
-              <span style="font-size: 0.84rem; color: var(--ink-tertiary); margin-left: 8px;">(${stats.totalInScope} fichas en este ámbito · orden fijo neutral)</span>
-            </div>
-            <div class="profile-legend" aria-label="Leyenda de niveles cualitativos">
-              ${legendHtml}
-            </div>
-          </div>
-          <div class="profile-bars-list">
-            ${barsHtml}
-          </div>
-        `;
-
-        /* 3. Tarjetas explicativas descriptivas individuales por partido (sin juicios ni rankings) */
-        cardsContainer.innerHTML = stats.rows.map(row => {
-          const scopePhrase = stats.themeFilter
-            ? `en el área de ${stats.themeFilter}`
-            : 'en el conjunto de las cinco temáticas analizadas';
-          const higherPctStr = formatPercentageEs(row.higherPct);
-          const lowerPctStr = formatPercentageEs(row.lowerPct);
-          const unclassifiedCount = row.counts[UNCLASSIFIED_LEVEL];
-          const unclassifiedSentence = unclassifiedCount > 0
-            ? ` Además, ${unclassifiedCount} de ${row.total} fichas (${formatPercentageEs(row.pct[UNCLASSIFIED_LEVEL])}) figuran sin clasificar.`
-            : '';
-
-          return `
-            <article class="profile-party-card" data-party="${escapeHtml(row.party)}">
-              <div class="card-meta-top">
-                <span class="party-tag">
-                  <span class="party-dot" data-party="${escapeHtml(row.party)}" aria-hidden="true"></span>
-                  <span>${escapeHtml(row.party)}</span>
-                </span>
-                <span class="transparency-tag">${escapeHtml(stats.scopeLabel)} · ${row.total} ${row.total === 1 ? 'ficha' : 'fichas'}</span>
-              </div>
-
-              ${row.isSmallSample ? `
-                <div class="detail-note" style="margin-top: 0; background: var(--notice-bg); border-color: var(--notice-border); color: var(--notice-text);">
-                  <strong>Muestra pequeña: interpretar con cautela.</strong> Solo hay ${row.total} ${row.total === 1 ? 'ficha' : 'fichas'} de ${escapeHtml(row.party)} en ${escapeHtml(stats.scopeLabel)}; una base reducida no representa el conjunto de su programa.
-                </div>
-              ` : ''}
-
-              <div class="profile-card-stats">
-                <div class="profile-stat-box">
-                  <div class="profile-stat-label">Menor coste cualitativo</div>
-                  <div class="profile-stat-value">${escapeHtml(lowerPctStr)}</div>
-                  <div class="profile-stat-sub">${row.lowerCount} de ${row.total} ${row.total === 1 ? 'ficha' : 'fichas'} (Bajo o Medio)</div>
-                </div>
-                <div class="profile-stat-box">
-                  <div class="profile-stat-label">Mayor coste cualitativo</div>
-                  <div class="profile-stat-value">${escapeHtml(higherPctStr)}</div>
-                  <div class="profile-stat-sub">${row.higherCount} de ${row.total} ${row.total === 1 ? 'ficha' : 'fichas'} (Alto o Muy alto)</div>
-                </div>
-              </div>
-
-              <p class="profile-card-desc">
-                En las fichas analizadas de <strong>${escapeHtml(row.party)}</strong> ${escapeHtml(scopePhrase)}, <strong>${row.higherCount} de ${row.total} fichas (${escapeHtml(higherPctStr)})</strong> presentan una valoración de coste de oportunidad Alto o Muy alto, mientras que <strong>${row.lowerCount} de ${row.total} fichas (${escapeHtml(lowerPctStr)})</strong> se sitúan en Bajo o Medio.${escapeHtml(unclassifiedSentence)}
-              </p>
-
-              <div class="profile-card-footer">
-                <span>Una mayor proporción de niveles Altos o Muy altos refleja mayor concentración relativa de fichas con renuncias de mayor entidad.</span>
-                <button
-                  type="button"
-                  class="info-inline-btn"
-                  data-jump-explorer-party="${escapeHtml(row.party)}"
-                  data-jump-explorer-theme="${escapeHtml(stats.themeFilter)}"
-                >
-                  Ver estas ${row.total} ${row.total === 1 ? 'ficha' : 'fichas'} →
-                </button>
-              </div>
-            </article>
-          `;
-        }).join('');
-      }
-
-      /* =======================================================================
-         8. FICHA DESPLEGADA DIDÁCTICA (MODAL DE ANÁLISIS COMPLETO)
-         ======================================================================= */
-      function openDetailModal(recordId) {
-        const rec = state.recordsById.get(recordId);
-        if (!rec) return;
-
-        state.activeDetailId = recordId;
-        const body = document.getElementById('detail-modal-body');
-        const eyebrow = document.getElementById('detail-modal-eyebrow');
-        const title = document.getElementById('detail-modal-title');
-        const saveBtn = document.getElementById('btn-detail-save');
-        const prevBtn = document.getElementById('btn-detail-prev');
-        const nextBtn = document.getElementById('btn-detail-next');
-
-        eyebrow.textContent = `${rec.partido} · ${rec.tema} · ${rec.id}`;
-        title.textContent = 'Análisis didáctico del coste de oportunidad';
-
-        const isSaved = state.selectedIds.has(rec.id);
-        saveBtn.textContent = isSaved ? '✓ Quitar de mi selección' : '+ Guardar en mi selección';
-        saveBtn.className = `btn ${isSaved ? 'btn-saved' : 'btn-primary'}`;
-
-        const idxInFiltered = state.filtered.findIndex(r => r.id === rec.id);
-        prevBtn.disabled = idxInFiltered <= 0;
-        nextBtn.disabled = idxInFiltered === -1 || idxInFiltered >= state.filtered.length - 1;
-        prevBtn.style.opacity = prevBtn.disabled ? '0.45' : '1';
-        nextBtn.style.opacity = nextBtn.disabled ? '0.45' : '1';
-
-        const repHtml = rec.posiblesRepeticiones.length > 0 ? `
-          <div class="detail-alert-box">
-            <strong>Coincidencia con otra temática (${escapeHtml(Array.from(new Set(rec.posiblesRepeticiones.map(r => r.tema))).join(', '))}):</strong> Esta propuesta también aparece analizada desde otra perspectiva temática. Los análisis pueden abordar dimensiones económicas diferentes.
-            <div>
-              ${rec.posiblesRepeticiones.map(rep => `
-                <button type="button" class="related-link-btn" data-view-detail="${escapeHtml(rep.id)}">
-                  Ver ficha en ${escapeHtml(rep.tema)} (Pág. ${escapeHtml(rep.pagina)}) →
-                </button>
-              `).join('')}
-            </div>
-          </div>
-        ` : '';
-
-        const pkgHtml = rec.esPaquete ? `
-          <div class="detail-alert-box">
-            <strong>Paquete de medidas:</strong> esta ficha agrupa varias actuaciones diferenciadas que pueden implicar costes de oportunidad y efectos distintos al aplicarse por separado o en conjunto.
-          </div>
-        ` : '';
-
-        const incompleteHtml = rec.missingFields.length > 0 ? `
-          <div class="detail-alert-box" style="background: var(--notice-bg); border-color: var(--notice-border); color: var(--notice-text);">
-            <strong>Aviso de integridad:</strong> esta ficha tiene campos vacíos en el archivo original (${escapeHtml(rec.missingFields.join(', '))}).
-          </div>
-        ` : '';
-
-        body.innerHTML = `
-          <div class="detail-meta-bar">
-            <span class="party-tag">
-              <span class="party-dot" data-party="${escapeHtml(rec.partido)}" aria-hidden="true"></span>
-              <span>${escapeHtml(rec.partido)}</span>
-            </span>
-            <span class="transparency-tag">${escapeHtml(rec.tema)}</span>
-            <span class="transparency-tag">Programa: pág. ${escapeHtml(rec.pagina || 's/d')}</span>
-            ${renderLevelPill(rec.nivel)}
-            <button type="button" class="level-help-btn" data-open-methodology="true">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-              <span>Valoración orientativa</span>
-            </button>
-          </div>
-
-          ${incompleteHtml}
-          ${pkgHtml}
-          ${repHtml}
-
-          <section class="detail-section">
-            <div class="detail-section-header">
-              <span class="detail-step">1. Propuesta del programa</span>
-              <span class="detail-question">— ¿Qué se quiere hacer?</span>
-            </div>
-            <div class="detail-text">${formatEditorialText(rec.medida || 'No consta en el archivo.')}</div>
-            <div class="detail-citation">
-              Fuente citada: Programa electoral de <strong>${escapeHtml(rec.partido)}</strong> (referencia original: ${escapeHtml(rec.partidoOriginal || rec.partido)}), página ${escapeHtml(rec.pagina || 'no especificada')}.
-            </div>
-          </section>
-
-          <section class="detail-section">
-            <div class="detail-section-header">
-              <span class="detail-step">2. Objetivo declarado</span>
-              <span class="detail-question">— ¿Qué se pretende conseguir?</span>
-            </div>
-            <div class="detail-text">${formatEditorialText(rec.objetivo || 'No consta en el archivo.')}</div>
-          </section>
-
-          <section class="detail-section detail-section--core">
-            <div class="detail-section-header">
-              <span class="detail-step">3. Análisis económico (coste de oportunidad)</span>
-              <span class="detail-question">— ¿Qué dejamos de hacer o a qué renunciamos?</span>
-            </div>
-            <div class="detail-text">${formatEditorialText(rec.costeOportunidad || 'No consta en el archivo.')}</div>
-          </section>
-
-          <section class="detail-section">
-            <div class="detail-section-header">
-              <span class="detail-step">4. Efectos posibles de segundo orden</span>
-              <span class="detail-question">— ¿Qué podría ocurrir después?</span>
-            </div>
-            <div class="detail-text">${formatEditorialText(rec.efectosSegundoOrden || 'No consta en el archivo.')}</div>
-            <div class="detail-note">
-              Nota: los efectos de segundo orden describen consecuencias condicionales según la teoría económica y el contexto de aplicación; no constituyen predicciones seguras.
-            </div>
-          </section>
-
-          <section class="detail-section">
-            <div class="detail-section-header">
-              <span class="detail-step">5. Evidencia y antecedentes citados</span>
-              <span class="detail-question">— ¿Qué antecedentes se mencionan?</span>
-            </div>
-            <div class="detail-text">${formatEditorialText(rec.evidenciaEmpirica || 'No consta en el archivo.')}</div>
-            ${rec.requiereVerificacionBiblio ? `
-              <div class="detail-note">
-                Referencia general mencionada en el análisis; requiere verificación bibliográfica completa.
-              </div>
-            ` : ''}
-          </section>
-
-          <div class="detail-summary-strip">
-            <div class="card-summary-label">En resumen</div>
-            <div class="detail-text" style="font-size: 0.94rem;">${formatEditorialText(rec.enResumen || 'No consta en el archivo.')}</div>
-          </div>
-        `;
-
-        body.scrollTop = 0;
-        openModal('modal-detail');
-      }
-
-      /* =======================================================================
-         9. "MI SELECCIÓN DE MEDIDAS" (PANEL LATERAL DE REFLEXIÓN)
-         ======================================================================= */
-      function toggleSelection(recordId) {
-        if (!state.recordsById.has(recordId)) return;
-
-        if (state.selectedIds.has(recordId)) {
-          state.selectedIds.delete(recordId);
-          showToast('Medida retirada de Mi selección.');
-        } else {
-          state.selectedIds.add(recordId);
-          showToast('Medida guardada en Mi selección.');
-        }
-
-        state.confirmingClearSelection = false;
-        persistSelection();
-        updateSelectionBadge();
-        renderCards();
-
-        if (state.activeDetailId === recordId && document.getElementById('modal-detail').classList.contains('open')) {
-          const saveBtn = document.getElementById('btn-detail-save');
-          const isSaved = state.selectedIds.has(recordId);
-          saveBtn.textContent = isSaved ? '✓ Quitar de mi selección' : '+ Guardar en mi selección';
-          saveBtn.className = `btn ${isSaved ? 'btn-saved' : 'btn-primary'}`;
-        }
-
-        if (document.getElementById('drawer-selection').classList.contains('open')) {
-          renderSelectionDrawer();
-        }
-      }
-
-      function updateSelectionBadge() {
-        document.getElementById('selection-count-badge').textContent = String(state.selectedIds.size);
-      }
-
-      function renderSelectionDrawer() {
-        const body = document.getElementById('selection-drawer-body');
-        const clearControls = document.getElementById('clear-selection-controls');
-        const savedRecords = Array.from(state.selectedIds)
-          .map(id => state.recordsById.get(id))
-          .filter(Boolean);
-
-        const disclaimerHtml = `
-          <div class="selection-disclaimer">
-            <strong>Ejercicio de reflexión, no presupuesto oficial:</strong> esta selección permite observar conjuntamente las decisiones y renuncias heterogéneas que te interesan. No suma niveles de coste de oportunidad, no inventa un importe total en euros ni calcula un presupuesto oficial.
-          </div>
-        `;
-
-        if (savedRecords.length === 0) {
-          body.innerHTML = disclaimerHtml + `
-            <div class="empty-state" style="padding: 28px 18px;">
-              <h3>Tu selección está vacía</h3>
-              <p style="font-size: 0.9rem;">Guarda medidas de cualquier partido o temática con el botón «+ Guardar en mi selección» para examinar sus renuncias en paralelo.</p>
-            </div>
-          `;
-          clearControls.innerHTML = '';
-          return;
-        }
-
-        /* 1. Detectar avisos de solapamiento o competencia por recursos */
-        const alerts = [];
-        const themeGroups = {};
-        savedRecords.forEach(r => {
-          themeGroups[r.tema] = (themeGroups[r.tema] || 0) + 1;
-        });
-
-        Object.entries(themeGroups).forEach(([tema, count]) => {
-          if (count >= 2) {
-            alerts.push(`Has guardado <strong>${count} medidas en ${escapeHtml(tema)}</strong>: actúan sobre un mismo ámbito y pueden solaparse, reforzarse o competir por recursos similares.`);
-          }
-        });
-
-        /* Comprobar si dos medidas seleccionadas tienen coincidencia temática entre sí */
-        const savedSet = state.selectedIds;
-        const crossPairs = new Set();
-        savedRecords.forEach(r => {
-          r.posiblesRepeticiones.forEach(rep => {
-            if (savedSet.has(rep.id)) {
-              const pairKey = [r.id, rep.id].sort().join('|');
-              if (!crossPairs.has(pairKey)) {
-                crossPairs.add(pairKey);
-                alerts.push(`Las fichas <strong>${escapeHtml(r.id)}</strong> y <strong>${escapeHtml(rep.id)}</strong> presentan una coincidencia con otra temática: analizan una propuesta relacionada desde dimensiones económicas distintas.`);
-              }
-            }
-          });
-        });
-
-        /* 2. Agrupación visual orientativa de las renuncias por naturaleza */
-        const planeCounts = {};
-        TRADEOFF_PLANES.forEach(p => { planeCounts[p.id] = 0; });
-        savedRecords.forEach(r => {
-          r.planosRenuncia.forEach(pid => {
-            planeCounts[pid] = (planeCounts[pid] || 0) + 1;
-          });
-        });
-
-        if (planeCounts.fiscal >= 3) {
-          alerts.push(`<strong>${planeCounts.fiscal} medidas</strong> de tu selección implican renuncias en el plano presupuestario o fiscal; aplicarlas simultáneamente exigiría priorizar partidas o compensar ingresos.`);
-        }
-
-        const alertsHtml = alerts.length > 0 ? `
-          <div class="selection-alert">
-            <strong>Avisos de solapamiento y competencia por recursos</strong>
-            <ul>${alerts.map(a => `<li>${a}</li>`).join('')}</ul>
-          </div>
-        ` : '';
-
-        const planesHtml = `
-          <div class="planes-card">
-            <h3>Naturaleza orientativa de las renuncias (${savedRecords.length} ${savedRecords.length === 1 ? 'medida' : 'medidas'})</h3>
-            <p class="planes-sub">
-              Las renuncias operan en planos distintos que no son sumables entre sí. Una misma medida puede incidir en varios planos.
-            </p>
-            ${TRADEOFF_PLANES.map(plane => {
-              const count = planeCounts[plane.id] || 0;
-              const pct = Math.round((count / savedRecords.length) * 100);
-              return `
-                <div class="plane-row">
-                  <span class="plane-name">${escapeHtml(plane.label)}</span>
-                  <span class="plane-count">${count} de ${savedRecords.length}</span>
-                  <div class="plane-bar-track" aria-hidden="true">
-                    <div class="plane-bar-fill" style="width: ${pct}%;"></div>
-                  </div>
-                </div>
-              `;
-            }).join('')}
-          </div>
-        `;
-
-        const planeLabelMap = new Map(TRADEOFF_PLANES.map(p => [p.id, p.label]));
-
-        const listHtml = savedRecords.map(rec => `
-          <article class="saved-item" data-party="${escapeHtml(rec.partido)}">
-            <div class="card-meta-top">
-              <span class="party-tag">
-                <span class="party-dot" data-party="${escapeHtml(rec.partido)}" aria-hidden="true"></span>
-                <span>${escapeHtml(rec.partido)}</span>
-              </span>
-              <span style="font-size: 0.78rem; color: var(--ink-tertiary);">${escapeHtml(rec.tema)} · Pág. ${escapeHtml(rec.pagina)}</span>
-            </div>
-            <div class="saved-item-measure">${formatEditorialText(rec.medida)}</div>
-            <div class="saved-item-tradeoff">
-              <strong>Renuncia asociada:</strong> ${formatEditorialText(rec.costeOportunidad)}
-            </div>
-            <div class="saved-item-planes">
-              ${renderLevelPill(rec.nivel)}
-              ${rec.planosRenuncia.map(pid => `<span class="plane-chip">${escapeHtml(planeLabelMap.get(pid) || pid)}</span>`).join('')}
-            </div>
-            <div class="saved-item-actions">
-              <button type="button" class="btn btn-secondary" style="min-height: 34px; padding: 5px 10px; font-size: 0.82rem;" data-view-detail="${escapeHtml(rec.id)}">
-                Ver análisis
-              </button>
-              <button type="button" class="btn btn-ghost" style="min-height: 34px; padding: 5px 10px; font-size: 0.82rem;" data-toggle-save="${escapeHtml(rec.id)}">
-                Quitar
-              </button>
-            </div>
-          </article>
-        `).join('');
-
-        body.innerHTML = disclaimerHtml + alertsHtml + planesHtml + listHtml;
-
-        /* Confirmación en dos pasos sin usar window.confirm() */
-        if (state.confirmingClearSelection) {
-          clearControls.innerHTML = `
-            <button type="button" class="btn btn-secondary" id="btn-confirm-clear-all" style="min-height: 38px; padding: 6px 12px; font-size: 0.84rem; border-color: var(--notice-border); background: var(--notice-bg); color: var(--notice-text);">
-              Confirmar vaciado (${savedRecords.length})
-            </button>
-            <button type="button" class="btn btn-ghost" id="btn-cancel-clear-all" style="min-height: 38px; padding: 6px 10px; font-size: 0.84rem;">
-              Cancelar
-            </button>
-          `;
-        } else {
-          clearControls.innerHTML = `
-            <button type="button" class="btn btn-secondary" id="btn-ask-clear-all" style="min-height: 38px; padding: 6px 12px; font-size: 0.84rem;">
-              Vaciar selección
-            </button>
-          `;
-        }
-      }
-
-      /* =======================================================================
-         10. MODAL DE DIAGNÓSTICO DE INTEGRIDAD DE DATOS
-         ======================================================================= */
-      function renderDiagnosticsModal() {
-        const body = document.getElementById('diagnostics-modal-body');
-        if (!state.validation) {
-          body.innerHTML = `
-            <p>Todavía no se ha cargado ningún archivo <code>datos.txt</code>. Puedes seleccionar uno usando el botón inferior.</p>
-          `;
-          return;
-        }
-
-        const v = state.validation;
-        const allParties = Array.from(new Set([...CANONICAL_PARTIES, ...Object.keys(v.partyCounts)]));
-        const allThemes = Array.from(new Set([...CANONICAL_THEMES, ...Object.keys(v.themeCounts)]));
-
-        body.innerHTML = `
-          <div class="detail-alert-box" style="${v.isPerfect ? '' : 'background: var(--notice-bg); border-color: var(--notice-border); color: var(--notice-text);'}">
-            <strong>Estado general:</strong> ${v.isPerfect ? 'Integridad verificada (coincidencia exacta con los recuentos esperados, matriz cruzada y campos completos).' : 'Se detectaron discrepancias respecto a los recuentos esperados, la matriz cruzada o campos incompletos (todas las fichas se muestran sin recortes).'}<br>
-            <strong>Origen de datos:</strong> ${escapeHtml(state.sourceInfo)}<br>
-            <strong>Total de fichas cargadas:</strong> ${v.total} (esperado: ${EXPECTED_TOTAL})<br>
-            <strong>Etiquetas automáticas de transparencia:</strong> ${v.packageCardsCount} fichas marcadas como «Paquete de medidas» · ${v.repetitionCardsCount} fichas marcadas con «Coincidencia con otra temática».
-          </div>
-
-          <h3 style="font-size: 0.96rem; margin-top: 14px;">Control cruzado Partido × Temática (cargado vs. referencia)</h3>
-          <p style="font-size: 0.83rem; color: var(--ink-secondary); margin: 4px 0 8px;">
-            ${v.matrixDiscrepancies.length === 0
-              ? 'Coincidencia exacta en las 20 celdas de la matriz Partido × Temática.'
-              : `Se han detectado ${v.matrixDiscrepancies.length} discrepancia(s) en la matriz (resaltadas abajo). No se ha ocultado ni eliminado ninguna ficha.`}
-          </p>
-          <div class="diag-table-wrap">
-            <table class="diag-table">
-              <thead>
-                <tr>
-                  <th>Partido</th>
-                  ${allThemes.map(t => `<th>${escapeHtml(t === 'Impuestos y Fiscalidad' ? 'Fiscalidad' : t === 'Empleo y Salarios' ? 'Empleo' : t)}</th>`).join('')}
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${allParties.map(p => {
-                  const rowTotal = v.partyCounts[p] || 0;
-                  const rowExp = EXPECTED_PARTIES[p];
-                  const rowMatch = rowExp !== undefined && rowTotal === rowExp;
-                  return `
-                    <tr>
-                      <td><strong>${escapeHtml(p)}</strong></td>
-                      ${allThemes.map(t => {
-                        const actual = (v.matrixCounts[p] && v.matrixCounts[p][t]) || 0;
-                        const exp = EXPECTED_MATRIX[p] && EXPECTED_MATRIX[p][t] !== undefined ? EXPECTED_MATRIX[p][t] : 0;
-                        const cellMatch = actual === exp;
-                        return `<td class="${cellMatch ? '' : 'matrix-cell-diff'}" title="Cargado: ${actual} · Esperado: ${exp}">${actual}${cellMatch ? '' : ` / ${exp}`}</td>`;
-                      }).join('')}
-                      <td class="${rowMatch ? '' : 'matrix-cell-diff'}"><strong>${rowTotal}</strong>${rowMatch ? '' : ` / ${rowExp !== undefined ? rowExp : '—'}`}</td>
-                    </tr>
-                  `;
-                }).join('')}
-                <tr>
-                  <td><strong>TOTAL</strong></td>
-                  ${allThemes.map(t => {
-                    const colActual = v.themeCounts[t] || 0;
-                    const colExp = EXPECTED_THEMES[t];
-                    const colMatch = colExp !== undefined && colActual === colExp;
-                    return `<td class="${colMatch ? '' : 'matrix-cell-diff'}"><strong>${colActual}</strong>${colMatch ? '' : ` / ${colExp !== undefined ? colExp : '—'}`}</td>`;
-                  }).join('')}
-                  <td class="${v.total === EXPECTED_TOTAL ? '' : 'matrix-cell-diff'}"><strong>${v.total}</strong>${v.total === EXPECTED_TOTAL ? '' : ` / ${EXPECTED_TOTAL}`}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3 style="font-size: 0.96rem; margin-top: 14px;">Recuento por partido</h3>
-          <div class="diag-table-wrap">
-            <table class="diag-table">
-              <thead>
-                <tr><th>Partido</th><th>Cargadas</th><th>Esperadas</th><th>Estado</th></tr>
-              </thead>
-              <tbody>
-                ${allParties.map(p => {
-                  const actual = v.partyCounts[p] || 0;
-                  const exp = EXPECTED_PARTIES[p];
-                  const match = exp !== undefined && actual === exp;
-                  return `
-                    <tr>
-                      <td>${escapeHtml(p)}</td>
-                      <td><strong>${actual}</strong></td>
-                      <td>${exp !== undefined ? exp : '—'}</td>
-                      <td><span class="status-pill ${match ? '' : 'status-pill--diff'}">${match ? 'Coincide' : 'Diferencia'}</span></td>
-                    </tr>
-                  `;
-                }).join('')}
-              </tbody>
-            </table>
-          </div>
-
-          <h3 style="font-size: 0.96rem; margin-top: 14px;">Recuento por área temática</h3>
-          <div class="diag-table-wrap">
-            <table class="diag-table">
-              <thead>
-                <tr><th>Temática</th><th>Cargadas</th><th>Esperadas</th><th>Estado</th></tr>
-              </thead>
-              <tbody>
-                ${allThemes.map(t => {
-                  const actual = v.themeCounts[t] || 0;
-                  const exp = EXPECTED_THEMES[t];
-                  const match = exp !== undefined && actual === exp;
-                  return `
-                    <tr>
-                      <td>${escapeHtml(t)}</td>
-                      <td><strong>${actual}</strong></td>
-                      <td>${exp !== undefined ? exp : '—'}</td>
-                      <td><span class="status-pill ${match ? '' : 'status-pill--diff'}">${match ? 'Coincide' : 'Diferencia'}</span></td>
-                    </tr>
-                  `;
-                }).join('')}
-              </tbody>
-            </table>
-          </div>
-
-          <h3 style="font-size: 0.96rem; margin-top: 14px;">Integridad de campos obligatorios (10 campos por ficha)</h3>
-          ${v.incomplete.length === 0 ? `
-            <p style="font-size: 0.88rem; color: var(--ink-secondary); margin-top: 6px;">Todas las fichas contienen los 10 campos requeridos completos.</p>
-          ` : `
-            <div class="diag-table-wrap">
-              <table class="diag-table">
-                <thead>
-                  <tr><th>ID</th><th>Partido</th><th>Temática</th><th>Campos ausentes</th></tr>
-                </thead>
-                <tbody>
-                  ${v.incomplete.map(item => `
-                    <tr>
-                      <td><code>${escapeHtml(item.id)}</code></td>
-                      <td>${escapeHtml(item.partido)}</td>
-                      <td>${escapeHtml(item.tema)}</td>
-                      <td>${escapeHtml(item.missing.join(', '))}</td>
-                    </tr>
-                  `).join('')}
-                </tbody>
-              </table>
-            </div>
-          `}
-        `;
-      }
-
-      /* =======================================================================
-         11. GESTIÓN ACCESIBLE DE MODALES Y PANELES (TECLA ESCAPE Y FOCO)
-         ======================================================================= */
-      const MODAL_IDS = ['modal-detail', 'modal-methodology', 'modal-diagnostics', 'drawer-selection'];
-
-      function openModal(modalId) {
-        const el = document.getElementById(modalId);
-        if (!el) return;
-
-        /* Guardar el foco previo si no había otro modal abierto */
-        const anyOpen = MODAL_IDS.some(id => document.getElementById(id).classList.contains('open'));
-        if (!anyOpen) {
-          state.lastFocusedElement = document.activeElement;
-        }
-
-        el.classList.add('open');
-        el.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        const closeBtn = el.querySelector('.modal-close-btn');
-        if (closeBtn) {
-          setTimeout(() => closeBtn.focus(), 20);
-        }
-      }
-
-      function closeModal(modalId) {
-        const el = document.getElementById(modalId);
-        if (!el || !el.classList.contains('open')) return;
-
-        el.classList.remove('open');
-        el.setAttribute('aria-hidden', 'true');
-
-        if (modalId === 'drawer-selection') {
-          state.confirmingClearSelection = false;
-        }
-
-        const stillOpen = MODAL_IDS.some(id => document.getElementById(id).classList.contains('open'));
-        if (!stillOpen) {
-          document.body.style.overflow = '';
-          if (state.lastFocusedElement && typeof state.lastFocusedElement.focus === 'function') {
-            state.lastFocusedElement.focus();
-          }
-          state.lastFocusedElement = null;
-        }
-      }
-
-      function closeTopmostModal() {
-        /* Priorizar cierre del modal superior si hay varios apilados (ej. Metodología sobre Ficha) */
-        const priorityOrder = ['modal-methodology', 'modal-diagnostics', 'modal-detail', 'drawer-selection'];
-        for (let i = 0; i < priorityOrder.length; i++) {
-          const el = document.getElementById(priorityOrder[i]);
-          if (el && el.classList.contains('open')) {
-            closeModal(priorityOrder[i]);
-            return;
-          }
-        }
-      }
-
-      /* =======================================================================
-         12. EVENTOS E INTERACCIONES
-         ======================================================================= */
+// ... existing code ... -->
       function bindEvents() {
+        /* Desplegable de explicación y ejemplo cotidiano de 30 segundos */
+        const btnToggleDidactic = document.getElementById('btn-toggle-didactic');
+        if (btnToggleDidactic) {
+          btnToggleDidactic.addEventListener('click', () => {
+            setDidacticExpanded(!state.didacticExpanded);
+          });
+        }
+
+        const btnHeroExample = document.getElementById('btn-hero-example');
+        if (btnHeroExample) {
+          btnHeroExample.addEventListener('click', () => {
+            setDidacticExpanded(true);
+            const sec = document.getElementById('que-es');
+            if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+
+        /* Desplegable "Afinar búsqueda" (partido y nivel orientativo) */
+        const btnToggleRefine = document.getElementById('btn-toggle-refine');
+        if (btnToggleRefine) {
+          btnToggleRefine.addEventListener('click', () => {
+            setRefineExpanded(!state.refineExpanded);
+          });
+        }
+
+        /* Desplegable opcional de comparación de perfiles por partido */
+        const btnToggleProfile = document.getElementById('btn-toggle-profile');
+        if (btnToggleProfile) {
+          btnToggleProfile.addEventListener('click', () => {
+            setProfileExpanded(!state.profileExpanded);
+          });
+        }
+
+        const navLinkProfile = document.getElementById('nav-link-profile');
+        if (navLinkProfile) {
+          navLinkProfile.addEventListener('click', ev => {
+            const sec = document.getElementById('perfil-comparativo');
+            if (!sec || sec.classList.contains('hidden')) return;
+            ev.preventDefault();
+            setProfileExpanded(true);
+            sec.scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+
         /* Mini-experiencia cotidiana */
         document.querySelectorAll('.scenario-btn').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const key = btn.getAttribute('data-scenario');
-            const data = SCENARIOS[key];
-            if (!data) return;
-
-            document.querySelectorAll('.scenario-btn').forEach(b => {
-              b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
-            });
-
-            const resultBox = document.getElementById('scenario-result');
-            resultBox.innerHTML = `
-              <div class="scenario-columns">
-                <div class="scenario-col">
-                  <div class="scenario-col-label">Qué se consigue · ${escapeHtml(data.title)}</div>
-                  <p>${escapeHtml(data.gain)}</p>
-                </div>
-                <div class="scenario-col scenario-col--tradeoff">
-                  <div class="scenario-col-label">A qué se renuncia (coste de oportunidad)</div>
-                  <p>${escapeHtml(data.tradeoff)}</p>
-                </div>
-              </div>
-              <div class="scenario-takeaway">${escapeHtml(data.takeaway)}</div>
-            `;
-          });
-        });
-
-        /* Carga local de datos.txt (input y drag & drop) */
-        const fileInput = document.getElementById('file-input-datos');
-        const fileReload = document.getElementById('file-input-reload');
-        const dropzone = document.getElementById('dropzone-card');
-
-        fileInput.addEventListener('change', ev => {
-          if (ev.target.files && ev.target.files[0]) {
-            handleLocalFile(ev.target.files[0]);
-            ev.target.value = '';
-          }
-        });
-
-        fileReload.addEventListener('change', ev => {
-          if (ev.target.files && ev.target.files[0]) {
-            handleLocalFile(ev.target.files[0]);
-            ev.target.value = '';
-          }
-        });
-
-        /* Permitir activar labels de input file con Enter o Espacio */
-        document.querySelectorAll('label[for="file-input-datos"], label[for="file-input-reload"]').forEach(lbl => {
-          lbl.addEventListener('keydown', ev => {
-            if (ev.key === 'Enter' || ev.key === ' ') {
-              ev.preventDefault();
-              const target = document.getElementById(lbl.getAttribute('for'));
-              if (target) target.click();
-            }
-          });
-        });
-
-        if (dropzone) {
-          ['dragenter', 'dragover'].forEach(evtName => {
-            dropzone.addEventListener(evtName, ev => {
-              ev.preventDefault();
-              dropzone.classList.add('drag-over');
-            });
-          });
-          ['dragleave', 'drop'].forEach(evtName => {
-            dropzone.addEventListener(evtName, ev => {
-              ev.preventDefault();
-              dropzone.classList.remove('drag-over');
-            });
-          });
-          dropzone.addEventListener('drop', ev => {
-            const file = ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0];
-            if (file) handleLocalFile(file);
-          });
-        }
-
-        /* Tarjetas rápidas de temática */
-        document.getElementById('theme-quick-cards').addEventListener('click', ev => {
-          const btn = ev.target.closest('[data-quick-theme]');
-          if (!btn) return;
-          const theme = btn.getAttribute('data-quick-theme');
-          state.filters.theme = state.filters.theme === theme ? '' : theme;
-          document.getElementById('filter-theme').value = state.filters.theme;
-          applyFiltersAndRender(true);
-        });
-
-        /* Selector temático de la sección comparativa "Perfil por partido" */
-        document.getElementById('profile-theme-tabs').addEventListener('click', ev => {
-          const btn = ev.target.closest('[data-profile-theme]');
-          if (!btn) return;
-          state.profileTheme = btn.getAttribute('data-profile-theme') || '';
-          renderProfileComparison();
-        });
-
+// ... existing code ... -->
         /* Enlace directo desde tarjetas de perfil al explorador filtrado */
         document.getElementById('profile-party-cards').addEventListener('click', ev => {
           const btn = ev.target.closest('[data-jump-explorer-party]');
@@ -4627,6 +2991,7 @@
           document.getElementById('filter-level').value = '';
           document.getElementById('filter-search').value = '';
           document.getElementById('btn-clear-search').classList.add('hidden');
+          if (party) setRefineExpanded(true);
           applyFiltersAndRender(true);
           const explorerEl = document.getElementById('explorador');
           if (explorerEl) explorerEl.scrollIntoView({ behavior: 'smooth' });
@@ -4645,11 +3010,6 @@
 
         document.getElementById('filter-level').addEventListener('change', ev => {
           state.filters.level = ev.target.value;
-          applyFiltersAndRender(true);
-        });
-
-        document.getElementById('filter-sort').addEventListener('change', ev => {
-          state.filters.sort = ev.target.value;
           applyFiltersAndRender(true);
         });
 
@@ -4676,128 +3036,22 @@
         });
 
         function resetAllFilters() {
-          state.filters = { party: '', theme: '', level: '', search: '', sort: 'document' };
+          state.filters = { party: '', theme: '', level: '', search: '' };
           document.getElementById('filter-party').value = '';
           document.getElementById('filter-theme').value = '';
           document.getElementById('filter-level').value = '';
-          document.getElementById('filter-sort').value = 'document';
           searchInput.value = '';
           clearSearchBtn.classList.add('hidden');
           applyFiltersAndRender(true);
         }
 
         document.getElementById('btn-reset-filters').addEventListener('click', resetAllFilters);
-        document.getElementById('btn-empty-reset').addEventListener('click', resetAllFilters);
-
-        /* Paginación de 24 en 24 */
-        document.getElementById('btn-load-more').addEventListener('click', () => {
-          state.visibleCount += PAGE_SIZE;
-          renderCards();
-        });
-
-        /* Delegación de clics globales para tarjetas, modales y acciones */
-        document.addEventListener('click', ev => {
-          const viewBtn = ev.target.closest('[data-view-detail]');
-          if (viewBtn) {
-            openDetailModal(viewBtn.getAttribute('data-view-detail'));
-            return;
-          }
-
-          const saveBtn = ev.target.closest('[data-toggle-save]');
-          if (saveBtn) {
-            toggleSelection(saveBtn.getAttribute('data-toggle-save'));
-            return;
-          }
-
-          const methBtn = ev.target.closest('[data-open-methodology]');
-          if (methBtn) {
-            openModal('modal-methodology');
-            return;
-          }
-
-          const closeBtn = ev.target.closest('[data-close-modal]');
-          if (closeBtn) {
-            closeModal(closeBtn.getAttribute('data-close-modal'));
-            return;
-          }
-
-          /* Cerrar al pulsar sobre el fondo oscuro del modal o panel */
-          if (ev.target.classList.contains('modal-backdrop') || ev.target.classList.contains('drawer-backdrop')) {
-            closeModal(ev.target.id);
-          }
-        });
-
-        /* Controles dentro de "Mi selección" (vaciar en 2 pasos) */
-        document.getElementById('clear-selection-controls').addEventListener('click', ev => {
-          if (ev.target.id === 'btn-ask-clear-all') {
-            state.confirmingClearSelection = true;
-            renderSelectionDrawer();
-          } else if (ev.target.id === 'btn-cancel-clear-all') {
-            state.confirmingClearSelection = false;
-            renderSelectionDrawer();
-          } else if (ev.target.id === 'btn-confirm-clear-all') {
-            state.selectedIds.clear();
-            state.confirmingClearSelection = false;
-            persistSelection();
-            updateSelectionBadge();
-            renderCards();
-            renderSelectionDrawer();
-            showToast('Se ha vaciado Mi selección.');
-          }
-        });
-
-        /* Navegación anterior/siguiente y guardado dentro de la ficha desplegada */
-        document.getElementById('btn-detail-save').addEventListener('click', () => {
-          if (state.activeDetailId) {
-            toggleSelection(state.activeDetailId);
-          }
-        });
-
-        document.getElementById('btn-detail-prev').addEventListener('click', () => {
-          const idx = state.filtered.findIndex(r => r.id === state.activeDetailId);
-          if (idx > 0) openDetailModal(state.filtered[idx - 1].id);
-        });
-
-        document.getElementById('btn-detail-next').addEventListener('click', () => {
-          const idx = state.filtered.findIndex(r => r.id === state.activeDetailId);
-          if (idx !== -1 && idx < state.filtered.length - 1) {
-            openDetailModal(state.filtered[idx + 1].id);
-          }
-        });
-
-        /* Disparadores fijos de modales */
-        ['btn-open-methodology-nav', 'btn-open-methodology-filter', 'btn-open-methodology-footer'].forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.addEventListener('click', () => openModal('modal-methodology'));
-        });
-
-        ['btn-open-diagnostics', 'btn-banner-diagnostics'].forEach(id => {
-          const el = document.getElementById(id);
-          if (el) {
-            el.addEventListener('click', () => {
-              renderDiagnosticsModal();
-              openModal('modal-diagnostics');
-            });
-          }
-        });
-
-        document.getElementById('btn-open-selection').addEventListener('click', () => {
-          renderSelectionDrawer();
-          openModal('drawer-selection');
-        });
-
-        /* Accesibilidad por teclado: Escape cierra el modal/panel activo */
-        document.addEventListener('keydown', ev => {
-          if (ev.key === 'Escape') {
-            closeTopmostModal();
-          }
-        });
-      }
-
+// ... existing code ... -->
       /* =======================================================================
          13. ARRANQUE DE LA APLICACIÓN
          ======================================================================= */
       function init() {
+        state.sessionPartyOrder = shuffleArrayOnce(CANONICAL_PARTIES);
         loadSavedSelection();
         updateSelectionBadge();
         bindEvents();
