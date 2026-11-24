@@ -8,7 +8,7 @@
   <style>
     /* =========================================================================
        1. VARIABLES DE DISEÑO EDITORIAL, NEUTRALIDAD Y ACCESIBILIDAD
-       Paleta neutra/progresiva inspirada en medios de periodismo de datos.
+       Paleta neutra/progresiva inspirada en periodismo de datos.
        Prohibido usar rojo o verde valorativo para juzgar medidas.
        ========================================================================= */
     :root {
@@ -35,22 +35,18 @@
       --lvl-bajo-bg: #eef2f6;
       --lvl-bajo-text: #2d4760;
       --lvl-bajo-border: #c6d4e1;
-      --lvl-bajo-dot: #5b7b9a;
 
       --lvl-medio-bg: #e1eaf3;
       --lvl-medio-text: #1e3a56;
       --lvl-medio-border: #9db4cb;
-      --lvl-medio-dot: #2f557a;
 
       --lvl-alto-bg: #f4ebd8;
       --lvl-alto-text: #624616;
       --lvl-alto-border: #d9bf89;
-      --lvl-alto-dot: #9e7528;
 
       --lvl-muyalto-bg: #ebe0d5;
       --lvl-muyalto-text: #4a301e;
       --lvl-muyalto-border: #c1a184;
-      --lvl-muyalto-dot: #6b452a;
 
       /* Acentos identificativos muy sutiles de partidos (nunca estética de campaña) */
       --party-pp: #467198;
@@ -64,7 +60,7 @@
       --notice-border: #d6be8a;
       --notice-text: #564015;
 
-      /* Paleta neutra y progresiva para gráfico apilado al 100 % (sin rojo/verde) */
+      /* Paleta neutra y progresiva para gráfico apilado al 100 % */
       --bar-bajo-bg: #d7e2ec;
       --bar-bajo-ink: #1b3147;
       --bar-medio-bg: #88a4be;
@@ -146,6 +142,10 @@
       outline-offset: 2px;
     }
 
+    .hidden {
+      display: none !important;
+    }
+
     .sr-only {
       position: absolute;
       width: 1px;
@@ -160,7 +160,7 @@
 
     .skip-link {
       position: absolute;
-      top: -48px;
+      top: -56px;
       left: 16px;
       z-index: 2000;
       background: var(--accent-primary);
@@ -183,13 +183,13 @@
     }
 
     /* =========================================================================
-       3. BARRA SUPERIOR DE NAVEGACIÓN
+       3. BARRA SUPERIOR COMPACTA
        ========================================================================= */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 500;
-      background: rgba(247, 246, 242, 0.94);
+      background: rgba(247, 246, 242, 0.95);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border-light);
     }
@@ -198,8 +198,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      min-height: 62px;
+      gap: 14px;
+      min-height: 60px;
       padding: 8px 0;
     }
 
@@ -209,6 +209,7 @@
       gap: 10px;
       text-decoration: none;
       color: var(--ink-primary);
+      min-width: 0;
     }
 
     .brand-mark {
@@ -225,16 +226,17 @@
 
     .brand-title {
       font-family: var(--font-serif);
-      font-size: 1.05rem;
+      font-size: 1.04rem;
       font-weight: 700;
       letter-spacing: 0.04em;
+      white-space: nowrap;
     }
 
     .topbar-nav {
       display: flex;
       align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
+      gap: 6px;
+      flex-wrap: nowrap;
     }
 
     .nav-link {
@@ -244,9 +246,13 @@
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 500;
-      padding: 8px 12px;
+      padding: 8px 11px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
       border-radius: var(--radius-sm);
       transition: background var(--transition-fast), color var(--transition-fast);
+      white-space: nowrap;
     }
 
     .nav-link:hover {
@@ -262,11 +268,12 @@
       color: var(--ink-inverse);
       border: 1px solid var(--accent-primary);
       padding: 8px 14px;
-      min-height: 40px;
+      min-height: 44px;
       border-radius: var(--radius-pill);
       font-size: 0.88rem;
       font-weight: 600;
-      transition: background var(--transition-fast), transform var(--transition-fast);
+      white-space: nowrap;
+      transition: background var(--transition-fast);
     }
 
     .selection-trigger:hover {
@@ -281,60 +288,14 @@
       height: 22px;
       padding: 0 6px;
       border-radius: var(--radius-pill);
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.22);
       font-size: 0.8rem;
       font-weight: 700;
     }
 
     /* =========================================================================
-       4. CABECERA EDITORIAL, EXPLICACIÓN RESUMIDA Y GUÍA RÁPIDA
+       4. BOTONES REUTILIZABLES (TAMAÑO TÁCTIL >= 44px)
        ========================================================================= */
-    .hero {
-      padding: 36px 0 26px;
-      border-bottom: 1px solid var(--border-light);
-      background: linear-gradient(180deg, #ffffff 0%, var(--bg-page) 100%);
-    }
-
-    .hero-kicker {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent-primary);
-      margin-bottom: 10px;
-    }
-
-    .hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.75rem, 4.2vw, 2.75rem);
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      margin-bottom: 10px;
-    }
-
-    .hero-tagline {
-      font-family: var(--font-serif);
-      font-size: clamp(1.04rem, 1.9vw, 1.24rem);
-      color: var(--ink-primary);
-      margin-bottom: 8px;
-      max-width: 740px;
-    }
-
-    .hero-subtitle {
-      font-size: 0.96rem;
-      color: var(--ink-secondary);
-      max-width: 720px;
-      margin-bottom: 20px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    /* Botones reutilizables */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -347,7 +308,7 @@
       font-size: 0.92rem;
       font-weight: 600;
       text-decoration: none;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), opacity var(--transition-fast);
     }
 
     .btn-primary {
@@ -372,15 +333,16 @@
       border-color: var(--border-strong);
     }
 
-    .btn-ghost {
+    .btn-subtle {
       background: transparent;
-      color: var(--accent-primary);
-      border-color: transparent;
-      padding: 8px 12px;
+      color: var(--ink-tertiary);
+      border-color: var(--border-light);
     }
 
-    .btn-ghost:hover {
-      background: var(--accent-primary-soft);
+    .btn-subtle:hover {
+      background: var(--bg-subtle);
+      color: var(--ink-primary);
+      border-color: var(--border-medium);
     }
 
     .btn-saved {
@@ -393,9 +355,85 @@
       background: #dce7f2;
     }
 
-    /* Sección didáctica resumida y desplegable */
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-tertiary);
+      margin-bottom: 6px;
+    }
+
+    .info-inline-btn {
+      background: transparent;
+      border: none;
+      color: var(--accent-primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 8px;
+      min-height: 36px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .info-inline-btn:hover {
+      background: var(--accent-primary-soft);
+    }
+
+    /* =========================================================================
+       5. BLOQUE 1 Y 2: INICIO BREVE + CONCEPTO EN UNA FRASE (EJEMPLO PLEGABLE)
+       ========================================================================= */
+    .hero {
+      padding: 30px 0 22px;
+      border-bottom: 1px solid var(--border-light);
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg-page) 100%);
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-primary);
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.7rem, 4vw, 2.55rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.02rem, 1.8vw, 1.2rem);
+      color: var(--ink-primary);
+      margin-bottom: 16px;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* Bloque de concepto en una frase con ejemplo plegable */
     .didactic-section {
-      padding: 20px 0 18px;
+      padding: 16px 0;
       border-bottom: 1px solid var(--border-light);
     }
 
@@ -403,7 +441,7 @@
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
-      padding: 18px 22px;
+      padding: 16px 20px;
       box-shadow: var(--shadow-xs);
     }
 
@@ -411,18 +449,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
     .concept-summary-copy {
       flex: 1 1 360px;
+      min-width: 0;
     }
 
     .concept-quote {
       border-left: 3px solid var(--accent-primary);
       padding: 2px 0 2px 14px;
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       color: var(--ink-primary);
       margin: 0;
     }
@@ -433,13 +472,14 @@
       justify-content: center;
       gap: 8px;
       min-height: 44px;
-      padding: 9px 15px;
+      padding: 8px 15px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border-medium);
       background: var(--bg-page);
       color: var(--accent-primary);
       font-size: 0.88rem;
       font-weight: 600;
+      white-space: nowrap;
       transition: background var(--transition-fast), border-color var(--transition-fast);
     }
 
@@ -448,62 +488,336 @@
       border-color: var(--accent-primary);
     }
 
-    .collapsible-toggle-btn .toggle-chevron {
+    .toggle-chevron {
       transition: transform var(--transition-fast);
       flex-shrink: 0;
     }
 
-    .collapsible-toggle-btn[aria-expanded="true"] .toggle-chevron {
+    .collapsible-toggle-btn[aria-expanded="true"] .toggle-chevron,
+    .refine-toggle-btn[aria-expanded="true"] .toggle-chevron,
+    .profile-accordion-trigger[aria-expanded="true"] .toggle-chevron {
       transform: rotate(180deg);
     }
 
     .didactic-expandable {
-      margin-top: 20px;
-      padding-top: 20px;
+      margin-top: 18px;
+      padding-top: 18px;
       border-top: 1px solid var(--border-light);
     }
 
     .didactic-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
-      gap: 24px;
+      gap: 20px;
       align-items: start;
     }
 
     .editorial-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      box-shadow: var(--shadow-xs);
-    }
-
-    .didactic-expandable .editorial-box {
       background: var(--bg-page);
-      box-shadow: none;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
     }
 
-    .section-eyebrow {
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-tertiary);
-      margin-bottom: 6px;
-    }
-
-    .editorial-box h2,
     .editorial-box h3 {
       font-family: var(--font-serif);
-      font-size: 1.28rem;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .resource-pillars {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pillar-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+
+    .pillar-title {
+      font-weight: 700;
+      font-size: 0.84rem;
+      color: var(--ink-primary);
+      margin-bottom: 2px;
+    }
+
+    .pillar-desc {
+      font-size: 0.81rem;
+      color: var(--ink-secondary);
+      line-height: 1.4;
+    }
+
+    /* Mini-experiencia cotidiana del solar municipal */
+    .scenario-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .scenario-time-tag {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      background: var(--accent-primary-soft);
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .scenario-prompt {
+      font-size: 0.91rem;
+      color: var(--ink-secondary);
+      margin-bottom: 14px;
+    }
+
+    .scenario-options {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .scenario-btn {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      min-height: 64px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      transition: all var(--transition-fast);
+    }
+
+    .scenario-btn:hover {
+      border-color: var(--accent-primary);
+      background: var(--accent-primary-soft);
+    }
+
+    .scenario-btn[aria-pressed="true"] {
+      border-color: var(--accent-primary);
+      background: var(--accent-primary);
+      color: var(--ink-inverse);
+    }
+
+    .scenario-btn-title {
+      font-weight: 700;
+      font-size: 0.88rem;
+      line-height: 1.25;
+    }
+
+    .scenario-btn-sub {
+      font-size: 0.78rem;
+      opacity: 0.85;
+      line-height: 1.3;
+    }
+
+    .scenario-result {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      min-height: 104px;
+    }
+
+    .scenario-placeholder {
+      font-size: 0.89rem;
+      color: var(--ink-tertiary);
+    }
+
+    .scenario-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .scenario-col {
+      background: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+
+    .scenario-col-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-primary);
+      margin-bottom: 4px;
+    }
+
+    .scenario-col p {
+      font-size: 0.86rem;
+      color: var(--ink-primary);
+      margin: 0;
+    }
+
+    .scenario-takeaway {
+      font-size: 0.84rem;
+      color: var(--ink-secondary);
+      border-top: 1px solid var(--border-light);
+      padding-top: 8px;
+      margin: 0;
+    }
+
+    /* =========================================================================
+       6. CARGADOR DE RESPALDO LOCAL (datos.txt) Y AVISO DE VALIDACIÓN
+       ========================================================================= */
+    .loader-section {
+      padding: 32px 0;
+    }
+
+    .loader-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--bg-surface);
+      border: 2px dashed var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .loader-card.is-dragover {
+      border-color: var(--accent-primary);
+      background: var(--accent-primary-soft);
+    }
+
+    .loader-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent-primary-soft);
+      color: var(--accent-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 12px;
     }
 
-    /* Guía rápida de 3 pasos (muy compacta antes del explorador) */
-    .quick-guide-section {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border-light);
-      background: var(--bg-page);
+    .loader-card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.32rem;
+      margin-bottom: 10px;
+    }
+
+    .loader-card p {
+      font-size: 0.93rem;
+      color: var(--ink-secondary);
+      margin-bottom: 16px;
+    }
+
+    .loader-file-input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader-note {
+      font-size: 0.81rem !important;
+      color: var(--ink-tertiary) !important;
+      margin-top: 12px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .loader-error {
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: var(--notice-bg);
+      border: 1px solid var(--notice-border);
+      border-radius: var(--radius-sm);
+      color: var(--notice-text);
+      font-size: 0.87rem;
+      text-align: left;
+    }
+
+    .validation-banner {
+      background: var(--notice-bg);
+      border: 1px solid var(--notice-border);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .validation-banner-content {
+      flex: 1 1 320px;
+      min-width: 0;
+    }
+
+    .validation-banner-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--notice-text);
+      margin-bottom: 4px;
+    }
+
+    .validation-banner-list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      font-size: 0.84rem;
+      color: var(--notice-text);
+    }
+
+    /* =========================================================================
+       7. BLOQUE 3: EXPLORADOR PROTAGONISTA (GUÍA 3 PASOS + TEMAS + FILTROS)
+       ========================================================================= */
+    .explorer-section {
+      padding: 24px 0 42px;
+    }
+
+    .explorer-header {
+      margin-bottom: 14px;
+    }
+
+    .explorer-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.38rem, 2.8vw, 1.78rem);
+    }
+
+    .explorer-sub {
+      color: var(--ink-secondary);
+      font-size: 0.92rem;
+      margin-top: 4px;
+    }
+
+    /* Franja discreta: Empieza en tres pasos */
+    .quick-guide-strip {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+
+    .quick-guide-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--ink-tertiary);
+      margin-bottom: 8px;
     }
 
     .quick-guide-list {
@@ -518,12 +832,8 @@
     .quick-guide-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 10px 12px;
-      font-size: 0.86rem;
+      gap: 9px;
+      font-size: 0.87rem;
       color: var(--ink-secondary);
       line-height: 1.35;
     }
@@ -547,128 +857,12 @@
       font-weight: 600;
     }
 
-    .resource-pillars {
-/* ... existing code ... -->
-    /* =========================================================================
-       5B. SECCIÓN COMPARATIVA OPCIONAL: PERFIL RELATIVO POR PARTIDO
-       ========================================================================= */
-    .profile-section {
-      padding: 32px 0 44px;
-      border-top: 1px solid var(--border-light);
-      background: var(--bg-page);
-    }
-
-    .profile-accordion-shell {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-xs);
-      overflow: hidden;
-    }
-
-    .profile-accordion-trigger {
-      width: 100%;
-      background: transparent;
-      border: none;
-      padding: 20px 24px;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      transition: background var(--transition-fast);
-    }
-
-    .profile-accordion-trigger:hover {
-      background: var(--bg-page);
-    }
-
-    .profile-accordion-heading h2 {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-      margin-bottom: 4px;
-    }
-
-    .profile-accordion-heading p {
-      font-size: 0.9rem;
-      color: var(--ink-secondary);
-      margin: 0;
-      max-width: 720px;
-    }
-
-    .profile-accordion-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 44px;
-      padding: 8px 14px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-medium);
-      background: var(--bg-page);
-      color: var(--accent-primary);
-      font-size: 0.86rem;
-      font-weight: 600;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .profile-accordion-trigger[aria-expanded="true"] .toggle-chevron {
-      transform: rotate(180deg);
-    }
-
-    .profile-collapsible-content {
-      padding: 20px 24px 24px;
-      border-top: 1px solid var(--border-light);
-      background: var(--bg-page);
-    }
-
-    .profile-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .profile-header h3 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-    }
-/* ... existing code ... -->
-    /* =========================================================================
-       6. EXPLORADOR: TEMÁTICAS RÁPIDAS Y BARRA DE FILTROS SIMPLIFICADA
-       ========================================================================= */
-    .explorer-section {
-      padding: 28px 0 48px;
-    }
-
-    .explorer-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .explorer-header h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.4rem, 2.8vw, 1.75rem);
-    }
-
-    .explorer-sub {
-      color: var(--ink-secondary);
-      font-size: 0.92rem;
-      margin-top: 4px;
-    }
-
-    /* Tarjetas de acceso rápido por temática */
+    /* Cinco temáticas muy visibles */
     .theme-cards {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 10px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .theme-card {
@@ -680,9 +874,9 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 6px;
+      gap: 5px;
       min-height: 76px;
-      transition: all var(--transition-fast);
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
       box-shadow: var(--shadow-xs);
     }
 
@@ -704,22 +898,22 @@
     }
 
     .theme-card-count {
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       color: var(--ink-tertiary);
       font-weight: 500;
     }
 
     .theme-card[aria-pressed="true"] .theme-card-count {
-      color: rgba(255, 255, 255, 0.84);
+      color: rgba(255, 255, 255, 0.85);
     }
 
-    /* Panel de filtros simplificado (Buscador visible + "Afinar búsqueda" plegable) */
+    /* Panel de filtros simplificado: Buscador visible + "Afinar búsqueda" plegable */
     .filters-panel {
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
       padding: 16px 18px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       box-shadow: var(--shadow-xs);
     }
 
@@ -730,8 +924,83 @@
       flex-wrap: wrap;
     }
 
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
     .filters-primary-row .filter-group--search {
       flex: 1 1 320px;
+    }
+
+    .filter-label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .filter-label {
+      font-size: 0.77rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-secondary);
+    }
+
+    .filter-control {
+      width: 100%;
+      min-height: 44px;
+      padding: 8px 12px;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      background: var(--bg-page);
+      color: var(--ink-primary);
+      font-size: 0.95rem;
+    }
+
+    .filter-control:focus {
+      background: var(--bg-surface);
+      border-color: var(--accent-primary);
+    }
+
+    .search-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input-wrap .filter-control {
+      padding-left: 36px;
+      padding-right: 44px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 11px;
+      color: var(--ink-tertiary);
+      pointer-events: none;
+    }
+
+    .search-clear-btn {
+      position: absolute;
+      right: 2px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--ink-tertiary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-clear-btn:hover {
+      background: var(--bg-muted);
+      color: var(--ink-primary);
     }
 
     .refine-toggle-btn {
@@ -745,7 +1014,7 @@
       border: 1px solid var(--border-medium);
       background: var(--bg-page);
       color: var(--ink-primary);
-      font-size: 0.88rem;
+      font-size: 0.89rem;
       font-weight: 600;
       white-space: nowrap;
       transition: background var(--transition-fast), border-color var(--transition-fast);
@@ -760,10 +1029,6 @@
       background: var(--accent-primary-soft);
       border-color: var(--accent-primary);
       color: var(--accent-primary);
-    }
-
-    .refine-toggle-btn[aria-expanded="true"] .toggle-chevron {
-      transform: rotate(180deg);
     }
 
     .refine-active-badge {
@@ -790,112 +1055,19 @@
       align-items: end;
     }
 
-    .filter-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .filter-label-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .filter-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--ink-secondary);
-    }
-
-    .info-inline-btn {
-      background: transparent;
-      border: none;
-      color: var(--accent-primary);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 4px 6px;
-      border-radius: var(--radius-sm);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    .info-inline-btn:hover {
-      background: var(--accent-primary-soft);
-    }
-
-    .filter-control {
-      width: 100%;
-      min-height: 44px;
-      padding: 8px 12px;
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-sm);
-      background: var(--bg-page);
-      color: var(--ink-primary);
-      font-size: 0.94rem;
-    }
-
-    .filter-control:focus {
-      background: var(--bg-surface);
-      border-color: var(--accent-primary);
-    }
-
-    .search-input-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .search-input-wrap .filter-control {
-      padding-left: 36px;
-      padding-right: 40px;
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 11px;
-      color: var(--ink-tertiary);
-      pointer-events: none;
-    }
-
-    .search-clear-btn {
-      position: absolute;
-      right: 4px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: none;
-      background: transparent;
-      color: var(--ink-tertiary);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .search-clear-btn:hover {
-      background: var(--bg-muted);
-      color: var(--ink-primary);
-    }
-
     .filters-footer {
-      margin-top: 14px;
+      margin-top: 12px;
       padding-top: 12px;
       border-top: 1px solid var(--border-light);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     .results-summary {
-      font-size: 0.92rem;
+      font-size: 0.91rem;
       color: var(--ink-secondary);
     }
 
@@ -903,29 +1075,22 @@
       color: var(--ink-primary);
     }
 
-    .filters-footer-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
     .alternation-note {
-      font-size: 0.83rem;
+      font-size: 0.82rem;
       color: var(--ink-tertiary);
       margin: 0 0 14px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 7px;
       line-height: 1.45;
     }
 
     /* =========================================================================
-       7. TARJETAS DE MEDIDAS (ALIGERADAS)
+       8. TARJETAS DE MEDIDAS SIMPLIFICADAS
        ========================================================================= */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 345px), 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
       gap: 16px;
     }
 
@@ -938,9 +1103,9 @@
       flex-direction: column;
       gap: 10px;
       box-shadow: var(--shadow-xs);
-      position: relative;
       border-left: 4px solid var(--party-default);
-      transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+      transition: box-shadow var(--transition-fast);
+      min-width: 0;
     }
 
     .measure-card:hover {
@@ -987,24 +1152,26 @@
     .party-dot[data-party="Frente Amplio"] { background: var(--party-fa); }
 
     .card-theme-page {
-      font-size: 0.79rem;
+      font-size: 0.8rem;
       color: var(--ink-tertiary);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 5px;
       flex-wrap: wrap;
     }
 
-    .card-id {
-      font-family: var(--font-mono);
-      font-size: 0.73rem;
-      color: var(--ink-tertiary);
-      background: var(--bg-subtle);
-      padding: 1px 6px;
-      border-radius: 4px;
+    .card-measure-text {
+      font-size: 0.99rem;
+      line-height: 1.48;
+      color: var(--ink-primary);
+      font-weight: 600;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      overflow-wrap: break-word;
     }
 
-    /* Fila de nivel cualitativo y etiquetas discretas */
     .card-badges-row {
       display: flex;
       align-items: center;
@@ -1070,14 +1237,14 @@
     .level-help-btn {
       background: transparent;
       border: none;
-      padding: 4px 5px;
-      min-height: 28px;
-      font-size: 0.74rem;
+      width: 32px;
+      height: 32px;
       color: var(--ink-tertiary);
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      border-radius: 4px;
+      justify-content: center;
+      border-radius: 50%;
+      padding: 0;
     }
 
     .level-help-btn:hover {
@@ -1089,7 +1256,7 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      font-size: 0.73rem;
+      font-size: 0.72rem;
       font-weight: 600;
       color: var(--ink-secondary);
       background: var(--bg-subtle);
@@ -1097,18 +1264,6 @@
       padding: 2px 7px;
       border-radius: var(--radius-sm);
       max-width: 100%;
-    }
-
-    .card-measure-text {
-      font-size: 0.99rem;
-      line-height: 1.48;
-      color: var(--ink-primary);
-      font-weight: 600;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      overflow-wrap: break-word;
     }
 
     .card-summary-box {
@@ -1121,7 +1276,7 @@
     }
 
     .card-summary-label {
-      font-size: 0.71rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -1158,14 +1313,931 @@
       white-space: nowrap;
     }
 
-    /* Paginación */
-/* ... existing code ... -->
+    .empty-state {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px 20px;
+      text-align: center;
+    }
+
+    .empty-state h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      color: var(--ink-secondary);
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+
+    .pagination-bar {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pagination-meta {
+      font-size: 0.85rem;
+      color: var(--ink-tertiary);
+    }
+
     /* =========================================================================
-       10. ADAPTACIÓN RESPONSIVA (TABLET Y MÓVIL: 360, 375, 390, 414, 430 px)
+       9. BLOQUE 5: COMPARACIÓN DE PERFILES DE PARTIDOS (OPCIONAL Y PLEGABLE)
+       ========================================================================= */
+    .profile-section {
+      padding: 28px 0 44px;
+      border-top: 1px solid var(--border-light);
+      background: var(--bg-page);
+    }
+
+    .profile-accordion-shell {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xs);
+      overflow: hidden;
+    }
+
+    .profile-accordion-trigger {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 20px 22px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: background var(--transition-fast);
+    }
+
+    .profile-accordion-trigger:hover {
+      background: var(--bg-page);
+    }
+
+    .profile-accordion-heading h2 {
+      font-family: var(--font-serif);
+      font-size: 1.32rem;
+      margin-bottom: 4px;
+    }
+
+    .profile-accordion-heading p {
+      font-size: 0.9rem;
+      color: var(--ink-secondary);
+      margin: 0;
+      max-width: 720px;
+    }
+
+    .profile-accordion-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-medium);
+      background: var(--bg-page);
+      color: var(--accent-primary);
+      font-size: 0.87rem;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .profile-collapsible-content {
+      padding: 20px 22px 24px;
+      border-top: 1px solid var(--border-light);
+      background: var(--bg-page);
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .profile-header h3 {
+      font-family: var(--font-serif);
+      font-size: 1.42rem;
+    }
+
+    .profile-sub {
+      color: var(--ink-secondary);
+      font-size: 0.91rem;
+      margin-top: 4px;
+      max-width: 760px;
+    }
+
+    .profile-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .profile-theme-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .profile-tab-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-pill);
+      padding: 8px 14px;
+      min-height: 44px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      transition: all var(--transition-fast);
+    }
+
+    .profile-tab-btn:hover {
+      border-color: var(--accent-primary);
+      color: var(--ink-primary);
+    }
+
+    .profile-tab-btn[aria-pressed="true"] {
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+      color: var(--ink-inverse);
+    }
+
+    .profile-chart-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-xs);
+      margin-bottom: 18px;
+    }
+
+    .profile-chart-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .profile-legend {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: var(--ink-secondary);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+
+    .legend-swatch {
+      width: 13px;
+      height: 13px;
+      border-radius: 3px;
+      border: 1px solid rgba(26, 29, 33, 0.14);
+      flex-shrink: 0;
+    }
+
+    .profile-bars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .profile-bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .profile-bar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .profile-bar-party {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .profile-bar-meta {
+      font-size: 0.82rem;
+      color: var(--ink-tertiary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .small-sample-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--notice-bg);
+      border: 1px solid var(--notice-border);
+      color: var(--notice-text);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+    }
+
+    .stacked-bar-track {
+      width: 100%;
+      height: 36px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      border: 1px solid var(--border-light);
+    }
+
+    .stacked-segment {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.76rem;
+      font-weight: 700;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0 4px;
+      border-right: 1px solid rgba(255, 255, 255, 0.45);
+      transition: width 220ms ease;
+    }
+
+    .stacked-segment:last-child {
+      border-right: none;
+    }
+
+    .seg--bajo { background: var(--bar-bajo-bg); color: var(--bar-bajo-ink); }
+    .seg--medio { background: var(--bar-medio-bg); color: var(--bar-medio-ink); }
+    .seg--alto { background: var(--bar-alto-bg); color: var(--bar-alto-ink); }
+    .seg--muy-alto { background: var(--bar-muyalto-bg); color: var(--bar-muyalto-ink); }
+    .seg--sin-clasificar { background: var(--bar-unclassified-bg); color: var(--bar-unclassified-ink); }
+
+    .profile-bar-breakdown {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      font-size: 0.8rem;
+      color: var(--ink-secondary);
+    }
+
+    .breakdown-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .breakdown-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .profile-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .profile-party-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--party-default);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .profile-party-card[data-party="Partido Popular"] { border-left-color: var(--party-pp); }
+    .profile-party-card[data-party="PSOE"] { border-left-color: var(--party-psoe); }
+    .profile-party-card[data-party="VOX"] { border-left-color: var(--party-vox); }
+    .profile-party-card[data-party="Frente Amplio"] { border-left-color: var(--party-fa); }
+
+    .profile-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .profile-card-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .profile-stat-box {
+      background: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+
+    .profile-stat-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-tertiary);
+      margin-bottom: 2px;
+    }
+
+    .profile-stat-val {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .profile-stat-sub {
+      font-size: 0.78rem;
+      color: var(--ink-secondary);
+    }
+
+    .profile-card-desc {
+      font-size: 0.87rem;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .profile-warnings-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+    }
+
+    .profile-warnings-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .profile-warnings-header h3 {
+      font-family: var(--font-serif);
+      font-size: 1.06rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .profile-warnings-grid {
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 22px;
+      font-size: 0.84rem;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    /* =========================================================================
+       10. PIE DE PÁGINA
+       ========================================================================= */
+    .site-footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-light);
+      padding: 32px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer-title {
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .footer-note {
+      font-size: 0.86rem;
+      color: var(--ink-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .footer-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-page);
+      border: 1px solid var(--border-medium);
+      color: var(--ink-primary);
+      padding: 9px 14px;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: background var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .footer-link-btn:hover {
+      background: var(--bg-subtle);
+      border-color: var(--accent-primary);
+    }
+
+    /* =========================================================================
+       11. MODALES Y PANEL LATERAL (MI SELECCIÓN)
+       ========================================================================= */
+    .modal-backdrop,
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(20, 25, 32, 0.56);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-fast);
+    }
+
+    .drawer-backdrop {
+      justify-content: flex-end;
+      padding: 0;
+    }
+
+    .modal-backdrop.is-open,
+    .drawer-backdrop.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-dialog {
+      width: 100%;
+      max-width: 780px;
+      max-height: 90vh;
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .drawer-panel {
+      width: 100%;
+      max-width: 520px;
+      height: 100%;
+      background: var(--bg-surface);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      background: var(--bg-page);
+    }
+
+    .modal-header h2 {
+      font-family: var(--font-serif);
+      font-size: 1.24rem;
+    }
+
+    .modal-close-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-medium);
+      background: var(--bg-surface);
+      color: var(--ink-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--bg-subtle);
+    }
+
+    .modal-body {
+      padding: 20px 22px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      flex: 1 1 auto;
+    }
+
+    .modal-footer {
+      padding: 14px 22px;
+      border-top: 1px solid var(--border-light);
+      background: var(--bg-page);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Detalle de ficha analítica */
+    .detail-meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .card-id {
+      font-family: var(--font-mono);
+      font-size: 0.77rem;
+      color: var(--ink-tertiary);
+      background: var(--bg-subtle);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .detail-alert-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--accent-primary);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      margin-bottom: 12px;
+      font-size: 0.86rem;
+      color: var(--ink-secondary);
+    }
+
+    .detail-related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .related-jump-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 6px 10px;
+      min-height: 36px;
+      font-size: 0.81rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+    }
+
+    .related-jump-btn:hover {
+      background: var(--accent-primary-soft);
+      border-color: var(--accent-primary);
+    }
+
+    .detail-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .detail-section {
+      background: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 15px 16px;
+    }
+
+    .detail-section--highlight {
+      background: var(--bg-surface);
+      border-color: var(--border-medium);
+      border-left: 4px solid var(--accent-primary);
+    }
+
+    .detail-section-kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--accent-primary);
+      margin-bottom: 3px;
+    }
+
+    .detail-section-q {
+      font-family: var(--font-serif);
+      font-size: 1.03rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin-bottom: 8px;
+    }
+
+    .detail-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--ink-primary);
+      white-space: pre-line;
+      overflow-wrap: break-word;
+    }
+
+    .detail-note {
+      margin-top: 10px;
+      padding: 9px 12px;
+      background: var(--notice-bg);
+      border: 1px solid var(--notice-border);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      color: var(--notice-text);
+      line-height: 1.45;
+    }
+
+    /* Metodología: 6 dimensiones */
+    .dimensions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 12px 0 16px;
+    }
+
+    .dimension-card {
+      background: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+
+    .dimension-card h4 {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
+    .dimension-card p {
+      font-size: 0.84rem;
+      color: var(--ink-secondary);
+      margin: 0;
+    }
+
+    /* Diagnóstico de datos */
+    .diag-status-card {
+      background: var(--bg-page);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+
+    .diag-status-card--warn {
+      background: var(--notice-bg);
+      border-color: var(--notice-border);
+      color: var(--notice-text);
+    }
+
+    .table-scroll {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 16px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+    }
+
+    .diag-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      background: var(--bg-surface);
+    }
+
+    .diag-table th,
+    .diag-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border-light);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .diag-table th {
+      background: var(--bg-page);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-secondary);
+    }
+
+    .diag-diff-pill {
+      display: inline-block;
+      padding: 1px 7px;
+      border-radius: var(--radius-pill);
+      font-size: 0.76rem;
+      font-weight: 700;
+      background: var(--bg-subtle);
+      color: var(--ink-primary);
+    }
+
+    .diag-diff-pill--mismatch {
+      background: var(--notice-bg);
+      color: var(--notice-text);
+      border: 1px solid var(--notice-border);
+    }
+
+    /* Mi selección de medidas */
+    .selection-notice {
+      background: var(--bg-page);
+      border: 1px solid var(--border-medium);
+      border-left: 4px solid var(--accent-primary);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.84rem;
+      color: var(--ink-secondary);
+      margin-bottom: 16px;
+    }
+
+    .selection-overlap-box {
+      background: var(--notice-bg);
+      border: 1px solid var(--notice-border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.84rem;
+      color: var(--notice-text);
+      margin-bottom: 16px;
+    }
+
+    .selection-overlap-box ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+
+    .planes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .plane-card {
+      background: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+
+    .plane-card-title {
+      font-size: 0.79rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin-bottom: 4px;
+    }
+
+    .plane-card-count {
+      font-size: 0.82rem;
+      color: var(--ink-secondary);
+    }
+
+    .selected-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .selected-item {
+      background: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--party-default);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .selected-item[data-party="Partido Popular"] { border-left-color: var(--party-pp); }
+    .selected-item[data-party="PSOE"] { border-left-color: var(--party-psoe); }
+    .selected-item[data-party="VOX"] { border-left-color: var(--party-vox); }
+    .selected-item[data-party="Frente Amplio"] { border-left-color: var(--party-fa); }
+
+    .selected-item-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--ink-tertiary);
+    }
+
+    .selected-item-measure {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      line-height: 1.4;
+    }
+
+    .selected-item-tradeoff {
+      font-size: 0.84rem;
+      color: var(--ink-secondary);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+    }
+
+    .selected-item-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Toast discreto */
+    .toast-region {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1500;
+      pointer-events: none;
+      width: calc(100% - 32px);
+      max-width: 440px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .toast-msg {
+      background: var(--ink-primary);
+      color: var(--ink-inverse);
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.86rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 180ms ease, transform 180ms ease;
+      text-align: center;
+    }
+
+    .toast-msg.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================================
+       12. ADAPTACIÓN RESPONSIVA REAL PARA TABLET Y MÓVILES PEQUEÑOS
        ========================================================================= */
     @media (max-width: 980px) {
       .didactic-grid {
         grid-template-columns: 1fr;
+      }
+
+      .theme-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .profile-cards-grid {
@@ -1174,10 +2246,6 @@
 
       .profile-warnings-grid {
         grid-template-columns: 1fr;
-      }
-
-      .theme-cards {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .dimensions-grid {
@@ -1226,25 +2294,14 @@
         padding: 0 14px;
       }
 
+      /* Cabecera compacta: solo título y Mi selección */
       .topbar-inner {
-        min-height: 56px;
+        min-height: 58px;
         gap: 10px;
-        flex-wrap: nowrap;
-      }
-
-      .topbar-nav {
-        flex-wrap: nowrap;
-        gap: 6px;
-        flex-shrink: 0;
       }
 
       .nav-link--hide-sm {
         display: none;
-      }
-
-      .brand {
-        min-width: 0;
-        gap: 8px;
       }
 
       .brand-mark {
@@ -1253,38 +2310,32 @@
       }
 
       .brand-title {
-        font-size: 0.93rem;
+        font-size: 0.94rem;
         letter-spacing: 0.03em;
-        white-space: nowrap;
       }
 
       .selection-trigger {
-        min-height: 44px;
         padding: 8px 12px;
-        font-size: 0.84rem;
-        gap: 6px;
-        white-space: nowrap;
+        font-size: 0.85rem;
+        min-height: 44px;
       }
 
       .hero {
-        padding: 24px 0 20px;
+        padding: 22px 0 18px;
       }
 
       .hero h1 {
-        font-size: 1.7rem;
+        font-size: 1.66rem;
       }
 
       .hero-tagline {
-        font-size: 1.02rem;
-      }
-
-      .hero-subtitle {
-        font-size: 0.92rem;
-        margin-bottom: 16px;
+        font-size: 1rem;
+        margin-bottom: 14px;
       }
 
       .hero-actions {
         flex-direction: column;
+        align-items: stretch;
       }
 
       .hero-actions .btn {
@@ -1292,7 +2343,7 @@
       }
 
       .concept-summary-card {
-        padding: 15px 14px;
+        padding: 14px;
       }
 
       .concept-summary-top {
@@ -1303,14 +2354,19 @@
 
       .collapsible-toggle-btn {
         width: 100%;
+        white-space: normal;
       }
 
       .editorial-box {
-        padding: 16px 14px;
+        padding: 15px 14px;
+      }
+
+      .resource-pillars {
+        grid-template-columns: 1fr;
       }
 
       .explorer-section {
-        padding: 22px 0 36px;
+        padding: 20px 0 34px;
       }
 
       .theme-cards {
@@ -1324,10 +2380,6 @@
 
       .theme-card-name {
         font-size: 0.86rem;
-      }
-
-      .theme-card-count {
-        font-size: 0.77rem;
       }
 
       .filters-panel {
@@ -1376,13 +2428,15 @@
 
       .profile-chart-card,
       .profile-warnings-box {
-        padding: 15px 14px;
+        padding: 14px;
       }
 
-      .profile-card-stats {
+      .profile-card-stats,
+      .planes-grid {
         grid-template-columns: 1fr;
       }
 
+      /* Modales adaptados como hoja inferior cómoda en móvil */
       .modal-backdrop {
         padding: 0;
         align-items: flex-end;
@@ -1394,18 +2448,11 @@
         border-radius: var(--radius-lg) var(--radius-lg) 0 0;
       }
 
-      .modal-header, .modal-body, .modal-footer {
+      .modal-header,
+      .modal-body,
+      .modal-footer {
         padding-left: 16px;
         padding-right: 16px;
-      }
-
-      .modal-close-btn {
-        width: 44px;
-        height: 44px;
-      }
-
-      .modal-footer .btn {
-        min-height: 44px;
       }
 
       .drawer-panel {
@@ -1413,13 +2460,13 @@
       }
     }
 
-    @media (max-width: 440px) {
+    @media (max-width: 400px) {
       .container {
         padding: 0 12px;
       }
 
       .brand-title {
-        font-size: 0.87rem;
+        font-size: 0.86rem;
       }
 
       .selection-trigger {
@@ -1427,23 +2474,12 @@
         font-size: 0.81rem;
       }
 
-      .resource-pillars {
-        grid-template-columns: 1fr;
-      }
-
       .detail-section {
-        padding: 14px 13px;
+        padding: 13px 12px;
       }
 
       .detail-text {
         font-size: 0.94rem;
-        overflow-wrap: break-word;
-      }
-
-      .profile-tab-btn {
-        font-size: 0.82rem;
-        padding: 7px 11px;
-        min-height: 40px;
       }
     }
 
@@ -1464,7 +2500,7 @@
   <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
   <!-- =======================================================================
-       BARRA SUPERIOR
+       BARRA SUPERIOR COMPACTA
        ======================================================================= -->
   <header class="topbar" role="banner">
     <div class="container topbar-inner">
@@ -1495,25 +2531,22 @@
 
   <main id="contenido-principal">
     <!-- =====================================================================
-         1. CABECERA Y PRESENTACIÓN BREVE
+         1. INICIO MUY BREVE
          ===================================================================== -->
     <section id="inicio" class="hero">
       <div class="container">
         <span class="hero-kicker">Herramienta pública de educación económica</span>
         <h1>EL COSTE DE ELEGIR</h1>
-        <p class="hero-tagline">«Cada decisión tiene un precio. Descubre qué se consigue y a qué se renuncia.»</p>
-        <p class="hero-subtitle">
-          Cada decisión económica implica renunciar a otra alternativa. Explora qué prometen los programas electorales y qué puede quedar fuera cuando se elige una política pública.
-        </p>
+        <p class="hero-tagline">«Cada decisión tiene un precio. Descubre qué prometen los programas electorales y a qué se renuncia al aplicarlo.»</p>
         <div class="hero-actions">
-          <a href="#explorador" class="btn btn-primary">Explorar medidas de los programas</a>
-          <button type="button" class="btn btn-secondary" id="btn-hero-example">Entenderlo con un ejemplo de 30 segundos</button>
+          <a href="#explorador" class="btn btn-primary">Explorar medidas</a>
+          <button type="button" class="btn btn-secondary" id="btn-hero-example">Ver un ejemplo de 30 segundos</button>
         </div>
       </div>
     </section>
 
     <!-- =====================================================================
-         2. EXPLICACIÓN RESUMIDA DEL COSTE DE OPORTUNIDAD (EJEMPLO PLEGABLE)
+         2. ENTIENDE EL CONCEPTO EN UNOS SEGUNDOS (EJEMPLO PLEGABLE)
          ===================================================================== -->
     <section id="que-es" class="didactic-section" aria-labelledby="heading-concepto">
       <div class="container">
@@ -1522,7 +2555,7 @@
             <div class="concept-summary-copy">
               <div class="section-eyebrow" id="heading-concepto">¿Qué es el coste de oportunidad?</div>
               <p class="concept-quote">
-                El coste de oportunidad es el valor de la mejor alternativa a la que renunciamos cuando elegimos una opción en lugar de otra.
+                El coste de oportunidad es el valor de la mejor alternativa a la que renunciamos cuando elegimos una opción en lugar de otra, ya sea en dinero, tiempo, suelo o capacidad administrativa.
               </p>
             </div>
             <button
@@ -1532,7 +2565,7 @@
               aria-expanded="false"
               aria-controls="didactic-expandable"
             >
-              <span>Entenderlo con un ejemplo de 30 segundos</span>
+              <span id="didactic-toggle-label">Ver un ejemplo de 30 segundos</span>
               <svg class="toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
@@ -1541,12 +2574,12 @@
 
           <div id="didactic-expandable" class="didactic-expandable hidden">
             <div class="didactic-grid">
-              <!-- Explicación ampliada y 4 pilares -->
+              <!-- Explicación breve de los 4 planos -->
               <article class="editorial-box">
                 <div class="section-eyebrow">Concepto clave</div>
                 <h3>Por qué toda decisión implica renuncias</h3>
-                <p style="font-size: 0.93rem; color: var(--ink-secondary);">
-                  El coste de oportunidad opera en dinero, tiempo, suelo o capacidad administrativa. No significa que una medida sea «buena» o «mala»: significa que los recursos públicos son limitados y toda política pública desplaza otros usos posibles o altera incentivos.
+                <p style="font-size: 0.91rem; color: var(--ink-secondary);">
+                  Analizar el coste de oportunidad no sirve para etiquetar una medida como «buena» o «mala»: ayuda a ver qué recursos públicos se comprometen y qué otras alternativas quedan desplazadas.
                 </p>
                 <div class="resource-pillars" aria-label="Planos de recursos limitados">
                   <div class="pillar-item">
@@ -1568,17 +2601,17 @@
                 </div>
               </article>
 
-              <!-- Mini-experiencia interactiva no política -->
+              <!-- Mini-experiencia cotidiana del solar municipal -->
               <article class="editorial-box" aria-labelledby="heading-mini-exp">
                 <div class="scenario-header">
                   <div>
                     <div class="section-eyebrow">Ejemplo cotidiano sin política</div>
                     <h3 id="heading-mini-exp">Un solar municipal, un presupuesto cerrado</h3>
                   </div>
-                  <span class="scenario-time-tag">Menos de 30 seg.</span>
+                  <span class="scenario-time-tag">30 seg.</span>
                 </div>
                 <p class="scenario-prompt">
-                  Imagina un pueblo pequeño que dispone de <strong>un único solar céntrico</strong> y <strong>un presupuesto cerrado</strong> para este año. Solo puede ejecutar un proyecto ahora mismo. Selecciona una opción para ver el coste de oportunidad inmediato:
+                  Imagina un pueblo pequeño con <strong>un único solar céntrico</strong> y <strong>un presupuesto cerrado</strong> este año. Solo puede ejecutar un proyecto ahora mismo. Elige una opción para ver qué queda sacrificado:
                 </p>
 
                 <div class="scenario-options" role="group" aria-label="Opciones del solar municipal">
@@ -1598,35 +2631,13 @@
 
                 <div class="scenario-result" id="scenario-result" aria-live="polite">
                   <div class="scenario-placeholder">
-                    Pulsa una de las tres opciones superiores para descubrir qué se consigue y qué alternativas quedan sacrificadas al instante.
+                    Pulsa una de las tres opciones superiores para ver qué se consigue y qué alternativas quedan sacrificadas al instante.
                   </div>
                 </div>
               </article>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         3. GUÍA RÁPIDA DE UTILIZACIÓN (3 PASOS BREVES)
-         ===================================================================== -->
-    <section id="guia-rapida" class="quick-guide-section" aria-label="Guía rápida de utilización">
-      <div class="container">
-        <ol class="quick-guide-list">
-          <li class="quick-guide-item">
-            <span class="quick-guide-step" aria-hidden="true">1</span>
-            <span><strong>Elige el tema</strong> que te interesa.</span>
-          </li>
-          <li class="quick-guide-item">
-            <span class="quick-guide-step" aria-hidden="true">2</span>
-            <span><strong>Abre una medida</strong> y descubre a qué se renuncia.</span>
-          </li>
-          <li class="quick-guide-item">
-            <span class="quick-guide-step" aria-hidden="true">3</span>
-            <span><strong>Guarda las que quieras</strong> revisar después.</span>
-          </li>
-        </ol>
       </div>
     </section>
 
@@ -1646,21 +2657,21 @@
           </div>
           <h2 id="heading-loader">Carga el archivo <code>datos.txt</code> para explorar las fichas</h2>
           <p>
-            No se ha podido leer automáticamente <code>./datos.txt</code> (algo habitual al abrir <code>index.html</code> directamente en local o en un entorno de previsualización aislado). Selecciona tu archivo <code>datos.txt</code> desde tu ordenador o arrástralo aquí para usar la aplicación al completo.
+            No se ha podido leer automáticamente <code>./datos.txt</code> (algo habitual al abrir <code>index.html</code> directamente en local o en una previsualización aislada). Selecciona tu archivo <code>datos.txt</code> desde tu ordenador o arrástralo aquí.
           </p>
           <input type="file" id="file-input-datos" class="loader-file-input" accept=".txt,text/plain" />
           <label for="file-input-datos" class="btn btn-primary" role="button" tabindex="0" id="btn-trigger-file">
             Seleccionar datos.txt desde mi ordenador
           </label>
           <p class="loader-note">
-            Procesamiento 100 % local en tu navegador mediante FileReader. El archivo no se envía a ningún servidor externo.
+            Procesamiento 100 % local en tu navegador mediante FileReader. El archivo no se envía a ningún servidor.
           </p>
           <div id="loader-error-box" class="loader-error hidden" role="alert"></div>
         </div>
       </div>
     </section>
 
-    <!-- Estado inicial de carga mientras fetch intenta leer ./datos.txt -->
+    <!-- Estado inicial mientras fetch intenta leer ./datos.txt -->
     <section id="loading-indicator" class="loader-section" aria-live="polite">
       <div class="container" style="text-align: center; color: var(--ink-secondary);">
         <p>Cargando archivo <code>datos.txt</code>...</p>
@@ -1668,7 +2679,7 @@
     </section>
 
     <!-- =====================================================================
-         4. EXPLORADOR DE MEDIDAS (PROTAGONISTA)
+         3. EXPLORA LAS MEDIDAS (PROTAGONISTA)
          ===================================================================== -->
     <section id="explorador" class="explorer-section hidden" aria-labelledby="heading-explorador">
       <div class="container">
@@ -1683,8 +2694,8 @@
               </svg>
               <span>Aviso técnico de integridad de datos</span>
             </div>
-            <p style="font-size: 0.87rem; margin: 0; color: var(--notice-text);">
-              Se han detectado diferencias respecto a los recuentos esperados o campos incompletos. Todas las fichas cargadas se muestran sin ocultar ni eliminar ninguna.
+            <p style="font-size: 0.86rem; margin: 0; color: var(--notice-text);">
+              Se han detectado diferencias respecto a los recuentos de referencia o campos incompletos. Todas las fichas cargadas se muestran sin ocultar ni eliminar ninguna.
             </p>
             <ul id="validation-banner-list" class="validation-banner-list"></ul>
           </div>
@@ -1692,19 +2703,36 @@
         </div>
 
         <div class="explorer-header">
-          <div>
-            <div class="section-eyebrow">Base documental</div>
-            <h2 id="heading-explorador">Explora las medidas y sus renuncias</h2>
-            <p class="explorer-sub">
-              Empieza eligiendo un tema o buscando una palabra clave. Sin puntuaciones globales ni rankings de partidos.
-            </p>
-          </div>
+          <div class="section-eyebrow">Base documental</div>
+          <h2 id="heading-explorador">Explora las medidas</h2>
+          <p class="explorer-sub">
+            Sin puntuaciones globales ni rankings de partidos. Consulta qué propone cada medida y qué alternativas quedan comprometidas.
+          </p>
         </div>
 
-        <!-- A. Acceso rápido a las 5 temáticas con contador real -->
+        <!-- Franja discreta de 3 pasos -->
+        <div class="quick-guide-strip" aria-label="Empieza en tres pasos">
+          <div class="quick-guide-label">Empieza en tres pasos</div>
+          <ol class="quick-guide-list">
+            <li class="quick-guide-item">
+              <span class="quick-guide-step" aria-hidden="true">1</span>
+              <span><strong>Elige el tema</strong> que te interesa.</span>
+            </li>
+            <li class="quick-guide-item">
+              <span class="quick-guide-step" aria-hidden="true">2</span>
+              <span><strong>Abre una medida</strong> y descubre a qué se renuncia.</span>
+            </li>
+            <li class="quick-guide-item">
+              <span class="quick-guide-step" aria-hidden="true">3</span>
+              <span><strong>Guarda las que quieras</strong> revisar después.</span>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Cinco temáticas como accesos rápidos muy visibles -->
         <div class="theme-cards" id="theme-quick-cards" role="group" aria-label="Acceso rápido por áreas temáticas"></div>
 
-        <!-- B y C. Buscador siempre visible + "Afinar búsqueda" plegable -->
+        <!-- Filtros simplificados: Buscador visible + "Afinar búsqueda" plegable -->
         <div class="filters-panel" aria-label="Filtros de búsqueda">
           <div class="filters-primary-row">
             <div class="filter-group filter-group--search">
@@ -1756,7 +2784,7 @@
             </button>
           </div>
 
-          <!-- Panel plegable: Partido y Nivel orientativo (y selector temático sincronizado para accesibilidad) -->
+          <!-- Desplegable "Afinar búsqueda": Partido y Nivel orientativo -->
           <div id="refine-panel" class="refine-panel hidden">
             <div class="filter-group">
               <label for="filter-party" class="filter-label">Partido</label>
@@ -1785,13 +2813,6 @@
                 <option value="Muy alto">Muy alto</option>
               </select>
             </div>
-
-            <div class="filter-group hidden" aria-hidden="true">
-              <label for="filter-theme" class="filter-label">Temática</label>
-              <select id="filter-theme" class="filter-control" tabindex="-1">
-                <option value="">Todas las temáticas</option>
-              </select>
-            </div>
           </div>
 
           <div class="filters-footer">
@@ -1799,28 +2820,32 @@
               Mostrando <strong>0</strong> de <strong>0</strong> fichas
             </div>
 
-            <div class="filters-footer-right">
-              <button type="button" id="btn-reset-filters" class="btn btn-secondary" style="min-height: 40px; padding: 6px 14px; font-size: 0.86rem;">
-                Borrar filtros
-              </button>
-            </div>
+            <button
+              type="button"
+              id="btn-reset-filters"
+              class="btn btn-subtle"
+              style="min-height: 44px; padding: 8px 14px; font-size: 0.86rem;"
+              disabled
+            >
+              Borrar filtros
+            </button>
           </div>
         </div>
 
-        <!-- Nota discreta de orden alternado equilibrado -->
+        <!-- Nota breve sobre el orden alternado equilibrado -->
         <p id="alternation-note" class="alternation-note hidden">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="flex-shrink: 0;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;">
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="12" y1="16" x2="12" y2="12"></line>
             <line x1="12" y1="8" x2="12.01" y2="8"></line>
           </svg>
-          <span>Las medidas se muestran alternando los partidos para facilitar una exploración equilibrada. El orden no constituye una clasificación.</span>
+          <span>Las medidas se intercalan por turnos entre los cuatro partidos (con orden inicial rotado en cada sesión) para una lectura equilibrada. El orden no constituye ninguna clasificación.</span>
         </p>
 
-        <!-- Rejilla de tarjetas -->
+        <!-- Rejilla de tarjetas simplificadas -->
         <div id="cards-grid" class="cards-grid" aria-live="polite"></div>
 
-        <!-- Estado vacío cuando ningún filtro coincide -->
+        <!-- Estado vacío -->
         <div id="empty-state" class="empty-state hidden">
           <h3>Ninguna ficha coincide con estos criterios</h3>
           <p>Prueba a ampliar la búsqueda, quitar alguno de los filtros activos o revisar la ortografía de los términos introducidos.</p>
@@ -1836,7 +2861,7 @@
     </section>
 
     <!-- =====================================================================
-         5. COMPARACIÓN RELATIVA DE PERFILES DE PARTIDOS (OPCIONAL Y PLEGABLE)
+         5. COMPARACIÓN DE LOS PARTIDOS (OPCIONAL Y CERRADA INICIALMENTE)
          ===================================================================== -->
     <section id="perfil-comparativo" class="profile-section hidden" aria-labelledby="heading-perfil-accordion">
       <div class="container">
@@ -1850,9 +2875,9 @@
           >
             <div class="profile-accordion-heading">
               <div class="section-eyebrow">Comparación relativa (en porcentajes)</div>
-              <h2 id="heading-perfil-accordion">Comparación de perfiles de los partidos (opcional)</h2>
+              <h2 id="heading-perfil-accordion">Comparación de los partidos (opcional)</h2>
               <p>
-                Consulta cómo se distribuyen los niveles orientativos de coste de oportunidad entre las medidas analizadas de cada partido.
+                Consulta qué proporción de las medidas analizadas de cada partido presenta un coste de oportunidad bajo, medio, alto o muy alto.
               </p>
             </div>
             <span class="profile-accordion-pill">
@@ -1871,7 +2896,7 @@
                   Compara qué proporción de las medidas analizadas de cada partido presenta un coste de oportunidad bajo, medio, alto o muy alto.
                 </p>
               </div>
-              <a href="#advertencias-comparacion" class="info-inline-btn" style="font-size: 0.85rem;">
+              <a href="#advertencias-comparacion" class="info-inline-btn">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="12" y1="16" x2="12" y2="12"></line>
@@ -1883,8 +2908,8 @@
 
             <div class="profile-controls">
               <div class="profile-theme-tabs" id="profile-theme-tabs" role="group" aria-label="Filtrar comparación relativa por temática"></div>
-              <a href="#explorador" class="btn btn-secondary" style="min-height: 40px; padding: 6px 12px; font-size: 0.86rem;">
-                Volver al explorador de medidas ↑
+              <a href="#explorador" class="btn btn-secondary" style="font-size: 0.86rem;">
+                Volver al explorador ↑
               </a>
             </div>
 
@@ -1922,366 +2947,7 @@
   </main>
 
   <!-- =======================================================================
-       6. PIE DE PÁGINA CON NOTA METODOLÓGICA TRANSPARENTE
-       ======================================================================= -->
-  <header class="topbar" role="banner">
-    <div class="container topbar-inner">
-      <a href="#inicio" class="brand" aria-label="El Coste de Elegir, inicio">
-        <span class="brand-mark" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3v18"></path>
-            <path d="M5 7h14"></path>
-            <path d="M4 14l3-7 3 7a3 3 0 0 1-6 0z"></path>
-            <path d="M14 14l3-7 3 7a3 3 0 0 1-6 0z"></path>
-          </svg>
-        </span>
-        <span class="brand-title">EL COSTE DE ELEGIR</span>
-      </a>
-
-      <nav class="topbar-nav" aria-label="Navegación principal">
-        <a href="#que-es" class="nav-link nav-link--hide-mobile">¿Qué es?</a>
-        <a href="#perfil-comparativo" class="nav-link nav-link--hide-mobile">Perfil por partido</a>
-        <a href="#explorador" class="nav-link nav-link--hide-mobile">Explorar medidas</a>
-        <button type="button" class="nav-link" id="btn-open-methodology-nav">Metodología</button>
-        <button type="button" class="selection-trigger" id="btn-open-selection" aria-haspopup="dialog" aria-controls="drawer-selection">
-          <span>Mi selección</span>
-          <span class="selection-badge" id="selection-count-badge">0</span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <main id="contenido-principal">
-    <!-- =====================================================================
-         A) CABECERA EDITORIAL
-         ===================================================================== -->
-    <section id="inicio" class="hero">
-      <div class="container">
-        <span class="hero-kicker">Herramienta pública de educación económica</span>
-        <h1>EL COSTE DE ELEGIR</h1>
-        <p class="hero-tagline">«Cada decisión tiene un precio. Descubre qué se consigue y a qué se renuncia.»</p>
-        <p class="hero-subtitle">
-          Cada decisión económica implica renunciar a otra alternativa. Explora qué prometen los programas electorales y qué puede quedar fuera cuando se elige una política pública.
-        </p>
-        <div class="hero-actions">
-          <a href="#explorador" class="btn btn-primary">Explorar medidas de los programas</a>
-          <a href="#que-es" class="btn btn-secondary">Entender el coste de oportunidad en 30 segundos</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         A2) BLOQUE DIDÁCTICO Y MINI-EXPERIENCIA COTIDIANA
-         ===================================================================== -->
-    <section id="que-es" class="didactic-section" aria-labelledby="heading-concepto">
-      <div class="container">
-        <div class="didactic-grid">
-          <!-- Explicación cotidiana -->
-          <article class="editorial-box">
-            <div class="section-eyebrow">Concepto clave</div>
-            <h2 id="heading-concepto">¿Qué es el coste de oportunidad?</h2>
-            <p class="concept-quote">
-              El coste de oportunidad es el valor de la mejor alternativa a la que renunciamos cuando elegimos una opción en lugar de otra, ya sea en dinero, tiempo, suelo o capacidad administrativa.
-            </p>
-            <p style="font-size: 0.92rem; color: var(--ink-secondary);">
-              No significa que una medida sea «buena» o «mala»: significa que los recursos públicos son limitados y toda política pública desplaza otros usos posibles o altera incentivos.
-            </p>
-            <div class="resource-pillars" aria-label="Planos de recursos limitados">
-              <div class="pillar-item">
-                <div class="pillar-title">Dinero y recaudación</div>
-                <div class="pillar-desc">Presupuesto gastado o impuestos que dejan de recaudarse.</div>
-              </div>
-              <div class="pillar-item">
-                <div class="pillar-title">Suelo y espacio</div>
-                <div class="pillar-desc">Parcelas públicas o usos urbanos que excluyen otros destinos.</div>
-              </div>
-              <div class="pillar-item">
-                <div class="pillar-title">Capacidad administrativa</div>
-                <div class="pillar-desc">Inspectores, juzgados, plazos de gestión y coordinación.</div>
-              </div>
-              <div class="pillar-item">
-                <div class="pillar-title">Reglas e incentivos</div>
-                <div class="pillar-desc">Cómo reaccionan familias, empresas y mercados ante una norma.</div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Mini-experiencia interactiva no política -->
-          <article class="editorial-box" aria-labelledby="heading-mini-exp">
-            <div class="scenario-header">
-              <div>
-                <div class="section-eyebrow">Ejemplo cotidiano sin política</div>
-                <h2 id="heading-mini-exp">Un solar municipal, un presupuesto cerrado</h2>
-              </div>
-              <span class="scenario-time-tag">Menos de 30 seg.</span>
-            </div>
-            <p class="scenario-prompt">
-              Imagina un pueblo pequeño que dispone de <strong>un único solar céntrico</strong> y <strong>un presupuesto cerrado</strong> para este año. Solo puede ejecutar un proyecto ahora mismo. Selecciona una opción para ver el coste de oportunidad inmediato:
-            </p>
-
-            <div class="scenario-options" role="group" aria-label="Opciones del solar municipal">
-              <button type="button" class="scenario-btn" data-scenario="salud" aria-pressed="false">
-                <span class="scenario-btn-title">Ampliar el centro de salud</span>
-                <span class="scenario-btn-sub">Más consultas médicas locales</span>
-              </button>
-              <button type="button" class="scenario-btn" data-scenario="escuela" aria-pressed="false">
-                <span class="scenario-btn-title">Escuela infantil (0–3 años)</span>
-                <span class="scenario-btn-sub">Plazas cercanas para familias</span>
-              </button>
-              <button type="button" class="scenario-btn" data-scenario="parque" aria-pressed="false">
-                <span class="scenario-btn-title">Parque con arbolado y deporte</span>
-                <span class="scenario-btn-sub">Espacio abierto para todas las edades</span>
-              </button>
-            </div>
-
-            <div class="scenario-result" id="scenario-result" aria-live="polite">
-              <div class="scenario-placeholder">
-                Pulsa una de las tres opciones superiores para descubrir qué se consigue y qué alternativas quedan sacrificadas al instante.
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         RESPALDO DE CARGA LOCAL DE datos.txt (SI fetch('./datos.txt') FALLA)
-         ===================================================================== -->
-    <section id="loader-fallback" class="loader-section hidden" aria-labelledby="heading-loader">
-      <div class="container">
-        <div class="loader-card" id="dropzone-card">
-          <div class="loader-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="12" y1="18" x2="12" y2="12"></line>
-              <polyline points="9 15 12 12 15 15"></polyline>
-            </svg>
-          </div>
-          <h2 id="heading-loader">Carga el archivo <code>datos.txt</code> para explorar las fichas</h2>
-          <p>
-            No se ha podido leer automáticamente <code>./datos.txt</code> (algo habitual al abrir <code>index.html</code> directamente en local o en un entorno de previsualización aislado). Selecciona tu archivo <code>datos.txt</code> desde tu ordenador o arrástralo aquí para usar la aplicación al completo.
-          </p>
-          <input type="file" id="file-input-datos" class="loader-file-input" accept=".txt,text/plain" />
-          <label for="file-input-datos" class="btn btn-primary" role="button" tabindex="0" id="btn-trigger-file">
-            Seleccionar datos.txt desde mi ordenador
-          </label>
-          <p class="loader-note">
-            Procesamiento 100 % local en tu navegador mediante FileReader. El archivo no se envía a ningún servidor externo.
-          </p>
-          <div id="loader-error-box" class="loader-error hidden" role="alert"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Estado inicial de carga mientras fetch intenta leer ./datos.txt -->
-    <section id="loading-indicator" class="loader-section" aria-live="polite">
-      <div class="container" style="text-align: center; color: var(--ink-secondary);">
-        <p>Cargando archivo <code>datos.txt</code>...</p>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         B0) NUEVA SECCIÓN: PERFIL RELATIVO DE COSTE DE OPORTUNIDAD POR PARTIDO
-         ===================================================================== -->
-    <section id="perfil-comparativo" class="profile-section hidden" aria-labelledby="heading-perfil">
-      <div class="container">
-        <div class="profile-header">
-          <div>
-            <div class="section-eyebrow">Comparación relativa (en porcentajes)</div>
-            <h2 id="heading-perfil">¿Qué perfil de coste de oportunidad tiene cada partido?</h2>
-            <p class="profile-sub">
-              Compara qué proporción de las medidas analizadas de cada partido presenta un coste de oportunidad bajo, medio, alto o muy alto.
-            </p>
-          </div>
-          <a href="#advertencias-comparacion" class="info-inline-btn" style="font-size: 0.85rem;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-            Cómo leer esta comparación
-          </a>
-        </div>
-
-        <div class="profile-controls">
-          <div class="profile-theme-tabs" id="profile-theme-tabs" role="group" aria-label="Filtrar comparación relativa por temática"></div>
-          <a href="#explorador" class="btn btn-secondary" style="min-height: 38px; padding: 6px 12px; font-size: 0.86rem;">
-            Ir al explorador de medidas ↓
-          </a>
-        </div>
-
-        <div class="profile-chart-card" id="profile-chart-card" aria-live="polite"></div>
-
-        <div class="profile-cards-grid" id="profile-party-cards" aria-live="polite"></div>
-
-        <aside id="advertencias-comparacion" class="profile-warnings-box" aria-labelledby="heading-advertencias-comparacion">
-          <div class="profile-warnings-header">
-            <h3 id="heading-advertencias-comparacion">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-              Advertencias metodológicas para interpretar esta comparación
-            </h3>
-            <button type="button" class="info-inline-btn" data-open-methodology="true">Ver las 6 dimensiones del nivel</button>
-          </div>
-          <ol class="profile-warnings-grid">
-            <li>Los porcentajes se calculan sobre el total de fichas analizadas de <strong>cada partido</strong>, evitando comparaciones engañosas basadas en números absolutos entre partidos con distinto volumen de fichas.</li>
-            <li>El análisis abarca exclusivamente <strong>cinco temáticas</strong> (Vivienda, Impuestos y Fiscalidad, Pensiones, Empleo y Salarios e Inmigración) y no representa necesariamente la totalidad de los programas electorales.</li>
-            <li>Una misma propuesta puede aparecer en varias fichas si se analiza desde perspectivas temáticas diferentes; por tanto, los porcentajes corresponden a <strong>fichas analíticas</strong> y no necesariamente a políticas únicas independientes.</li>
-            <li>Las categorías <em>Bajo</em>, <em>Medio</em>, <em>Alto</em> y <em>Muy alto</em> son <strong>valoraciones cualitativas orientativas</strong> de los análisis recopilados, no mediciones oficiales ni magnitudes económicas exactas.</li>
-            <li>Un coste de oportunidad <em>Alto</em> o <em>Muy alto</em> <strong>no significa</strong> que una medida sea utópica, inviable, negativa o indeseable.</li>
-            <li>Una medida con coste <em>Bajo</em> o <em>Medio</em> <strong>tampoco garantiza</strong> que sea fácil de implementar, legalmente viable o eficaz.</li>
-            <li>Una política puede tener un coste de oportunidad elevado y estar justificada si los beneficios sociales que genera compensan las alternativas sacrificadas.</li>
-            <li>El análisis de coste de oportunidad <strong>no equivale</strong> a un análisis completo de coste-beneficio, viabilidad jurídica, impacto presupuestario o probabilidad de ejecución.</li>
-          </ol>
-        </aside>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         B) EXPLORADOR DE MEDIDAS Y TEMÁTICAS RÁPIDAS
-         ===================================================================== -->
-    <section id="explorador" class="explorer-section hidden" aria-labelledby="heading-explorador">
-      <div class="container">
-        <!-- Aviso técnico automático solo si hay discrepancias de validación -->
-        <div id="validation-banner" class="validation-banner hidden" role="status">
-          <div class="validation-banner-content">
-            <div class="validation-banner-title">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-              <span>Aviso técnico de integridad de datos</span>
-            </div>
-            <p style="font-size: 0.87rem; margin: 0; color: var(--notice-text);">
-              Se han detectado diferencias respecto a los recuentos esperados o campos incompletos. Todas las fichas cargadas se muestran sin ocultar ni eliminar ninguna.
-            </p>
-            <ul id="validation-banner-list" class="validation-banner-list"></ul>
-          </div>
-          <button type="button" class="btn btn-secondary" id="btn-banner-diagnostics">Ver diagnóstico completo</button>
-        </div>
-
-        <div class="explorer-header">
-          <div>
-            <div class="section-eyebrow">Base documental</div>
-            <h2 id="heading-explorador">Explora las medidas y sus renuncias</h2>
-            <p class="explorer-sub">
-              Filtra por temática, partido, nivel orientativo de coste de oportunidad o palabras clave. Sin puntuaciones globales ni rankings de partidos.
-            </p>
-          </div>
-        </div>
-
-        <!-- Acceso rápido a las 5 temáticas con contador real -->
-        <div class="theme-cards" id="theme-quick-cards" role="group" aria-label="Acceso rápido por áreas temáticas"></div>
-
-        <!-- Barra de filtros combinables -->
-        <div class="filters-panel" aria-label="Filtros de búsqueda">
-          <div class="filters-grid">
-            <div class="filter-group">
-              <label for="filter-party" class="filter-label">Partido</label>
-              <select id="filter-party" class="filter-control">
-                <option value="">Todos los partidos</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <label for="filter-theme" class="filter-label">Temática</label>
-              <select id="filter-theme" class="filter-control">
-                <option value="">Todas las temáticas</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <div class="filter-label-row">
-                <label for="filter-level" class="filter-label">Nivel orientativo</label>
-                <button type="button" class="info-inline-btn" id="btn-open-methodology-filter">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                  </svg>
-                  ¿Qué mide?
-                </button>
-              </div>
-              <select id="filter-level" class="filter-control">
-                <option value="">Todos los niveles</option>
-                <option value="Bajo">Bajo</option>
-                <option value="Medio">Medio</option>
-                <option value="Alto">Alto</option>
-                <option value="Muy alto">Muy alto</option>
-              </select>
-            </div>
-
-            <div class="filter-group filter-group--search">
-              <label for="filter-search" class="filter-label">Buscar en medida, resumen, objetivo o coste</label>
-              <div class="search-input-wrap">
-                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input
-                  type="search"
-                  id="filter-search"
-                  class="filter-control"
-                  placeholder="Ej.: alquiler, IRPF, cotizaciones, suelo, autónomos..."
-                  autocomplete="off"
-                />
-                <button type="button" id="btn-clear-search" class="search-clear-btn hidden" aria-label="Limpiar búsqueda">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="filters-footer">
-            <div class="results-summary" id="results-counter" aria-live="polite">
-              Mostrando <strong>0</strong> de <strong>0</strong> fichas
-            </div>
-
-            <div class="filters-footer-right">
-              <label class="sort-wrap">
-                <span>Ordenación neutral:</span>
-                <select id="filter-sort" class="sort-select">
-                  <option value="document">Orden del documento</option>
-                  <option value="theme">Agrupación por temática</option>
-                  <option value="page">Por página del programa</option>
-                </select>
-              </label>
-              <button type="button" id="btn-reset-filters" class="btn btn-secondary" style="min-height: 38px; padding: 6px 12px; font-size: 0.86rem;">
-                Borrar filtros
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Rejilla de tarjetas -->
-        <div id="cards-grid" class="cards-grid" aria-live="polite"></div>
-
-        <!-- Estado vacío cuando ningún filtro coincide -->
-        <div id="empty-state" class="empty-state hidden">
-          <h3>Ninguna ficha coincide con estos criterios</h3>
-          <p>Prueba a ampliar la búsqueda, quitar alguno de los filtros activos o revisar la ortografía de los términos introducidos.</p>
-          <button type="button" class="btn btn-primary" id="btn-empty-reset">Borrar todos los filtros</button>
-        </div>
-
-        <!-- Paginación de 24 en 24 -->
-        <div id="pagination-bar" class="pagination-bar hidden">
-          <div id="pagination-meta" class="pagination-meta"></div>
-          <button type="button" id="btn-load-more" class="btn btn-secondary">Mostrar más fichas</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- =======================================================================
-       F) PIE DE PÁGINA CON NOTA METODOLÓGICA TRANSPARENTE
+       6. PIE DE PÁGINA: METODOLOGÍA Y TRANSPARENCIA
        ======================================================================= -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
@@ -2314,7 +2980,7 @@
   </footer>
 
   <!-- =======================================================================
-       C) MODAL DE FICHA DESPLEGADA DIDÁCTICA
+       MODAL DE FICHA DESPLEGADA DIDÁCTICA
        ======================================================================= -->
   <div class="modal-backdrop" id="modal-detail" role="dialog" aria-modal="true" aria-labelledby="detail-modal-title" aria-hidden="true">
     <div class="modal-dialog">
@@ -2333,11 +2999,11 @@
       <div class="modal-body" id="detail-modal-body"></div>
       <div class="modal-footer">
         <div style="display: flex; gap: 8px;">
-          <button type="button" class="btn btn-secondary" id="btn-detail-prev" style="min-height: 38px; padding: 6px 12px; font-size: 0.85rem;">← Anterior</button>
-          <button type="button" class="btn btn-secondary" id="btn-detail-next" style="min-height: 38px; padding: 6px 12px; font-size: 0.85rem;">Siguiente →</button>
+          <button type="button" class="btn btn-secondary" id="btn-detail-prev" style="padding: 8px 12px; font-size: 0.86rem;">← Anterior</button>
+          <button type="button" class="btn btn-secondary" id="btn-detail-next" style="padding: 8px 12px; font-size: 0.86rem;">Siguiente →</button>
         </div>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <button type="button" class="btn btn-primary" id="btn-detail-save">+ Guardar en mi selección</button>
+          <button type="button" class="btn btn-primary" id="btn-detail-save">Guardar en mi selección</button>
           <button type="button" class="btn btn-secondary" data-close-modal="modal-detail">Cerrar</button>
         </div>
       </div>
@@ -2345,7 +3011,7 @@
   </div>
 
   <!-- =======================================================================
-       D) MODAL DE METODOLOGÍA DEL NIVEL DE COSTE
+       MODAL DE METODOLOGÍA DEL NIVEL DE COSTE
        ======================================================================= -->
   <div class="modal-backdrop" id="modal-methodology" role="dialog" aria-modal="true" aria-labelledby="methodology-modal-title" aria-hidden="true">
     <div class="modal-dialog">
@@ -2369,7 +3035,7 @@
           Una medida con un coste de oportunidad «Alto» o «Muy alto» puede responder a un objetivo social que un ciudadano considere prioritario; la etiqueta indica únicamente la intensidad y amplitud de las alternativas, recursos o incentivos que quedan comprometidos al aplicarla.
         </p>
 
-        <h3 style="font-size: 1rem; margin-top: 18px; margin-bottom: 6px;">Seis dimensiones que determinan el nivel orientativo</h3>
+        <h3 style="font-size: 1rem; margin-top: 16px; margin-bottom: 6px;">Seis dimensiones que determinan el nivel orientativo</h3>
         <div class="dimensions-grid">
           <div class="dimension-card">
             <h4>1. Magnitud de recursos comprometidos</h4>
@@ -2398,7 +3064,7 @@
         </div>
 
         <div class="detail-note">
-          <strong>Regla de neutralidad:</strong> esta herramienta nunca recalcula los niveles originales del archivo <code>datos.txt</code>, no obtiene promedios por partido ni construye rankings o puntuaciones globales.
+          <strong>Regla de neutralidad:</strong> esta herramienta nunca recalcula los niveles originales del archivo <code>datos.txt</code>, no obtiene promedios aritméticos por partido ni construye rankings o puntuaciones globales.
         </div>
       </div>
       <div class="modal-footer">
@@ -2409,7 +3075,7 @@
   </div>
 
   <!-- =======================================================================
-       DIAGNÓSTICO DE DATOS (VALIDACIÓN AUTOMÁTICA)
+       MODAL DE DIAGNÓSTICO DE DATOS (VALIDACIÓN AUTOMÁTICA + MATRIZ 4x5)
        ======================================================================= -->
   <div class="modal-backdrop" id="modal-diagnostics" role="dialog" aria-modal="true" aria-labelledby="diagnostics-modal-title" aria-hidden="true">
     <div class="modal-dialog">
@@ -2429,7 +3095,7 @@
       <div class="modal-footer">
         <div>
           <input type="file" id="file-input-reload" class="loader-file-input" accept=".txt,text/plain" />
-          <label for="file-input-reload" class="btn btn-secondary" role="button" tabindex="0" style="min-height: 38px; padding: 6px 12px; font-size: 0.85rem;">
+          <label for="file-input-reload" class="btn btn-secondary" role="button" tabindex="0" style="font-size: 0.86rem;">
             Cargar otro datos.txt local
           </label>
         </div>
@@ -2439,7 +3105,7 @@
   </div>
 
   <!-- =======================================================================
-       E) PANEL LATERAL "MI SELECCIÓN DE MEDIDAS"
+       PANEL LATERAL "MI SELECCIÓN DE MEDIDAS"
        ======================================================================= -->
   <div class="drawer-backdrop" id="drawer-selection" role="dialog" aria-modal="true" aria-labelledby="selection-drawer-title" aria-hidden="true">
     <div class="drawer-panel">
@@ -2457,13 +3123,13 @@
       </div>
       <div class="modal-body" id="selection-drawer-body"></div>
       <div class="modal-footer" id="selection-drawer-footer">
-        <div id="clear-selection-controls" style="display: flex; gap: 8px; align-items: center;"></div>
+        <div id="clear-selection-controls" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;"></div>
         <button type="button" class="btn btn-primary" data-close-modal="drawer-selection">Seguir explorando</button>
       </div>
     </div>
   </div>
 
-  <!-- Región de notificaciones discretas (sin alert/confirm) -->
+  <!-- Notificaciones discretas (sin alert ni confirm) -->
   <div class="toast-region" aria-live="polite" aria-atomic="true">
     <div id="toast-msg" class="toast-msg"></div>
   </div>
@@ -2473,7 +3139,7 @@
       'use strict';
 
       /* =======================================================================
-         1. CONFIGURACIÓN, CONSTANTES Y ESTADO DE LA APLICACIÓN
+         1. CONFIGURACIÓN, RECUENTOS VERIFICADOS (421) Y ESTADO GLOBAL
          ======================================================================= */
       const EXPECTED_TOTAL = 421;
       const EXPECTED_PARTIES = {
@@ -2543,6 +3209,14 @@
         'Inmigración': 'INM'
       };
 
+      const THEME_SHORT_LABELS = {
+        'Vivienda': 'Vivienda',
+        'Impuestos y Fiscalidad': 'Fiscalidad',
+        'Pensiones': 'Pensiones',
+        'Empleo y Salarios': 'Empleo',
+        'Inmigración': 'Inmigración'
+      };
+
       const REQUIRED_FIELDS = [
         { key: 'partidoOriginal', label: 'PARTIDO' },
         { key: 'temaOriginal', label: 'TEMA' },
@@ -2556,7 +3230,6 @@
         { key: 'enResumen', label: 'EN RESUMEN' }
       ];
 
-      /* Mapa normalizado (sin acentos y en mayúsculas) de las 10 etiquetas */
       const FIELD_HEADER_MAP = {
         'PARTIDO': 'partidoOriginal',
         'TEMA': 'temaOriginal',
@@ -2572,29 +3245,28 @@
         'EN RESUMEN': 'enResumen'
       };
 
-      /* Datos de la mini-experiencia cotidiana (ajena a la política) */
+      /* Datos del ejemplo cotidiano (sin política) */
       const SCENARIOS = {
         salud: {
           title: 'Ampliar el centro de salud',
-          gain: 'Más consultas de atención primaria, menos listas de espera locales y menor necesidad de desplazarse a otro municipio para recibir atención básica.',
-          tradeoff: 'Se renuncia a construir la escuela infantil (0–3 años) y el parque público en ese solar durante este ejercicio. Además, compromete gasto corriente permanente en personal sanitario y mantenimiento cada año.',
-          takeaway: 'En los programas electorales sucede lo mismo a escala nacional: destinar presupuesto y suelo a una necesidad real implica aplazar otras prioridades igualmente legítimas.'
+          gain: 'Más consultas de atención primaria, menos listas de espera locales y menor necesidad de desplazarse a otro municipio.',
+          tradeoff: 'Se renuncia a construir la escuela infantil (0–3 años) y el parque público en ese solar este año, y se compromete gasto fijo anual en personal sanitario y mantenimiento.',
+          takeaway: 'En los programas electorales ocurre lo mismo a escala nacional: destinar presupuesto y suelo a una necesidad real implica aplazar otras prioridades legítimas.'
         },
         escuela: {
           title: 'Escuela infantil municipal (0–3 años)',
-          gain: 'Nuevas plazas públicas a pocos minutos de casa, facilitando la conciliación laboral de familias jóvenes y ayudando a fijar población en el municipio.',
-          tradeoff: 'Se renuncia a ampliar el centro de salud y a crear el parque con arbolado en esa parcela. También exige financiar plantilla docente y gastos operativos de forma continuada.',
+          gain: 'Nuevas plazas públicas a pocos minutos de casa, facilitando la conciliación laboral de familias jóvenes y ayudando a fijar población.',
+          tradeoff: 'Se renuncia a ampliar el centro de salud y a crear el parque con arbolado en esa parcela, y exige financiar plantilla docente de forma continuada.',
           takeaway: 'Incluso medidas con amplio retorno social conllevan un coste de oportunidad en suelo, presupuesto anual y capacidad de gestión.'
         },
         parque: {
           title: 'Parque con arbolado y zona deportiva',
-          gain: 'Un espacio gratuito y abierto para todas las edades, sombra frente a olas de calor y mejora ambiental urbana con un gasto de mantenimiento anual más moderado.',
-          tradeoff: 'Se renuncia a cubrir de inmediato la demanda de consultas médicas ampliadas o plazas de guardería en el centro del pueblo, que deberán esperar a futuros presupuestos o buscar otra ubicación.',
+          gain: 'Un espacio gratuito abierto a todas las edades, sombra frente a olas de calor y mejora ambiental urbana con un mantenimiento más moderado.',
+          tradeoff: 'Se renuncia a cubrir de inmediato la demanda de más consultas médicas o plazas de guardería en el centro del pueblo, que deberán esperar a futuros presupuestos.',
           takeaway: 'Elegir una opción menos costosa en presupuesto tampoco es «gratis»: su coste de oportunidad son los servicios públicos que no se construyen en ese espacio.'
         }
       };
 
-      /* Palabras vacías en español para similitud textual de posibles repeticiones */
       const STOPWORDS = new Set([
         'para', 'como', 'sobre', 'entre', 'desde', 'hasta', 'hacia', 'mediante', 'segun',
         'donde', 'cuando', 'quien', 'quienes', 'cual', 'cuales', 'cuyo', 'cuya', 'todo',
@@ -2610,7 +3282,6 @@
         'dentro', 'fuera', 'actual', 'actuales', 'nuevo', 'nueva', 'nuevos', 'nuevas'
       ]);
 
-      /* Planos orientativos de renuncia para "Mi selección de medidas" */
       const TRADEOFF_PLANES = [
         {
           id: 'fiscal',
@@ -2657,7 +3328,7 @@
         }
       ];
 
-      /* Estado global reactivo */
+      /* Estado global de la aplicación */
       const state = {
         records: [],
         recordsById: new Map(),
@@ -2683,12 +3354,8 @@
       };
 
       /* =======================================================================
-         2. UTILIDADES DE TEXTO, FORMATO Y ALMACENAMIENTO SEGURO
+         2. UTILIDADES DE TEXTO, FORMATO, ALTERNANCIA Y PERSISTENCIA
          ======================================================================= */
-      /**
-       * Baraja una copia de un array una sola vez por sesión (Fisher-Yates)
-       * para rotar el partido inicial de la alternancia sin crear rankings.
-       */
       function shuffleArrayOnce(items) {
         const arr = items.slice();
         for (let i = arr.length - 1; i > 0; i--) {
@@ -2701,9 +3368,10 @@
       }
 
       /**
-       * Intercala las fichas filtradas por turnos entre partidos respetando el
-       * orden original (docIndex) dentro de cada partido y el orden de inicio
-       * fijado para la sesión actual.
+       * Orden alternado equilibrado por turnos entre los 4 partidos:
+       * - Mantiene el orden original (docIndex) dentro de cada partido.
+       * - Comienza por el orden rotado una única vez al iniciar la sesión.
+       * - Se salta los partidos que ya no tengan más resultados.
        */
       function interleaveRecordsByParty(records) {
         const byParty = new Map();
@@ -2743,7 +3411,803 @@
       }
 
       function stripAccents(str) {
-// ... existing code ... -->
+        return String(str || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      }
+
+      function normalizeKey(str) {
+        return stripAccents(str).toUpperCase().replace(/\s+/g, ' ').trim();
+      }
+
+      function normalizeSearch(str) {
+        return stripAccents(str).toLowerCase().replace(/\s+/g, ' ').trim();
+      }
+
+      function escapeHtml(str) {
+        return String(str == null ? '' : str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      /**
+       * Formatea cursivas (*texto*) y expresiones matemáticas simples ($CO_2$, $\le 6$)
+       * presentes en datos.txt sin alterar ni reescribir el contenido original.
+       */
+      function formatEditorialText(str) {
+        let html = escapeHtml(str || '');
+        html = html.replace(/\$CO_2\$/g, 'CO<sub>2</sub>');
+        html = html.replace(/\$\\le\s*([0-9]+)\$/g, '&le;&nbsp;$1');
+        html = html.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+        return html;
+      }
+
+      function formatPercent(value) {
+        return value.toFixed(1).replace('.', ',') + ' %';
+      }
+
+      function normalizeParty(raw) {
+        const clean = normalizeKey(raw);
+        if (clean === 'PP' || clean === 'PARTIDO POPULAR') return 'Partido Popular';
+        if (clean === 'PSOE') return 'PSOE';
+        if (clean === 'VOX') return 'VOX';
+        if (clean === 'FRENTE AMPLIO') return 'Frente Amplio';
+        return String(raw || '').trim() || 'Sin partido';
+      }
+
+      function normalizeTheme(raw) {
+        const clean = normalizeKey(raw);
+        if (clean === 'VIVIENDA') return 'Vivienda';
+        if (clean === 'IMPUESTOS Y FISCALIDAD') return 'Impuestos y Fiscalidad';
+        if (clean === 'PENSIONES') return 'Pensiones';
+        if (clean === 'EMPLEO Y SALARIOS') return 'Empleo y Salarios';
+        if (clean === 'INMIGRACION') return 'Inmigración';
+        return String(raw || '').trim() || 'Sin temática';
+      }
+
+      function normalizeLevel(raw) {
+        const clean = stripAccents(String(raw || ''))
+          .toLowerCase()
+          .replace(/[.;:,\s]+$/g, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+        if (clean === 'bajo') return 'Bajo';
+        if (clean === 'medio') return 'Medio';
+        if (clean === 'alto') return 'Alto';
+        if (clean === 'muy alto') return 'Muy alto';
+        return UNCLASSIFIED_LEVEL;
+      }
+
+      function getLevelClass(level) {
+        if (level === 'Bajo') return 'level-pill--bajo';
+        if (level === 'Medio') return 'level-pill--medio';
+        if (level === 'Alto') return 'level-pill--alto';
+        if (level === 'Muy alto') return 'level-pill--muy-alto';
+        return '';
+      }
+
+      function getLevelScoreDots(level) {
+        if (level === 'Bajo') return 1;
+        if (level === 'Medio') return 2;
+        if (level === 'Alto') return 3;
+        if (level === 'Muy alto') return 4;
+        return 0;
+      }
+
+      function renderLevelPill(level, prefixText) {
+        const filled = getLevelScoreDots(level);
+        const cls = getLevelClass(level);
+        const dots = [1, 2, 3, 4]
+          .map(i => `<span class="level-dot${i <= filled ? ' filled' : ''}" aria-hidden="true"></span>`)
+          .join('');
+        const label = prefixText ? `${prefixText}: ${escapeHtml(level)}` : escapeHtml(level);
+        return `
+          <span class="level-pill ${cls}">
+            <span class="level-dots" aria-hidden="true">${dots}</span>
+            <span>${label}</span>
+          </span>
+        `;
+      }
+
+      let toastTimer = null;
+      function showToast(message) {
+        const el = document.getElementById('toast-msg');
+        if (!el) return;
+        el.textContent = message;
+        el.classList.add('is-visible');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          el.classList.remove('is-visible');
+        }, 2600);
+      }
+
+      function loadSavedSelection() {
+        try {
+          const raw = window.localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) {
+            state.selectedIds = new Set(parsed.filter(id => typeof id === 'string'));
+          }
+        } catch (err) {
+          /* Persistencia opcional: si el entorno restringe localStorage, funciona en memoria */
+        }
+      }
+
+      function persistSelection() {
+        try {
+          window.localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(state.selectedIds)));
+        } catch (err) {
+          /* Ignorar silenciosamente si el almacenamiento está restringido */
+        }
+      }
+
+      /* =======================================================================
+         3. PARSER ROBUSTO DE datos.txt (INTEGRIDAD ABSOLUTA)
+         ======================================================================= */
+      function detectFieldHeader(line) {
+        const match = line.match(/^\s*([^:]{3,42}?)\s*:\s*(.*)$/);
+        if (!match) return null;
+        const normalizedHeader = normalizeKey(match[1]);
+        const mappedKey = FIELD_HEADER_MAP[normalizedHeader];
+        if (!mappedKey) return null;
+        return { key: mappedKey, value: match[2] };
+      }
+
+      function parseDatosTxt(rawText) {
+        if (typeof rawText !== 'string') return [];
+
+        const cleaned = rawText
+          .replace(/^\uFEFF/, '')
+          .replace(/\r\n/g, '\n')
+          .replace(/\r/g, '\n');
+
+        const lines = cleaned.split('\n');
+        const rawRecords = [];
+        let current = null;
+        let currentFieldKey = null;
+
+        function pushCurrentIfNotEmpty() {
+          if (!current) return;
+          const hasAnyContent = Object.values(current).some(v => typeof v === 'string' && v.trim() !== '');
+          if (hasAnyContent) {
+            rawRecords.push(current);
+          }
+          current = null;
+          currentFieldKey = null;
+        }
+
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+
+          if (/^\s*-{3,}\s*$/.test(line)) {
+            pushCurrentIfNotEmpty();
+            continue;
+          }
+
+          const header = detectFieldHeader(line);
+          if (header) {
+            /* Salvaguarda: si aparece PARTIDO: estando ya abierta una ficha previa,
+               cerramos la anterior para evitar fusionar fichas cuando falta "---". */
+            if (header.key === 'partidoOriginal' && current && current.partidoOriginal) {
+              pushCurrentIfNotEmpty();
+            }
+            if (!current) current = {};
+            currentFieldKey = header.key;
+            current[currentFieldKey] = header.value.trim();
+          } else if (current && currentFieldKey) {
+            if (line.trim() !== '') {
+              current[currentFieldKey] = current[currentFieldKey]
+                ? current[currentFieldKey] + '\n' + line.trim()
+                : line.trim();
+            }
+          }
+        }
+        pushCurrentIfNotEmpty();
+
+        const idCounters = new Map();
+
+        return rawRecords.map((raw, idx) => {
+          const partido = normalizeParty(raw.partidoOriginal);
+          const tema = normalizeTheme(raw.temaOriginal);
+          const nivel = normalizeLevel(raw.nivelOriginal);
+
+          const pCode = PARTY_CODES[partido] || normalizeKey(partido).replace(/[^A-Z0-9]/g, '').slice(0, 4) || 'PAR';
+          const tCode = THEME_CODES[tema] || normalizeKey(tema).replace(/[^A-Z0-9]/g, '').slice(0, 3) || 'TEM';
+          const prefix = `${pCode}-${tCode}`;
+          const nextNum = (idCounters.get(prefix) || 0) + 1;
+          idCounters.set(prefix, nextNum);
+          const id = `${prefix}-${String(nextNum).padStart(3, '0')}`;
+
+          const missingFields = REQUIRED_FIELDS
+            .filter(f => !raw[f.key] || !String(raw[f.key]).trim())
+            .map(f => f.label);
+
+          const record = {
+            id,
+            docIndex: idx,
+            partido,
+            partidoOriginal: (raw.partidoOriginal || '').trim(),
+            tema,
+            temaOriginal: (raw.temaOriginal || '').trim(),
+            pagina: (raw.pagina || '').trim(),
+            medida: (raw.medida || '').trim(),
+            objetivo: (raw.objetivo || '').trim(),
+            costeOportunidad: (raw.costeOportunidad || '').trim(),
+            efectosSegundoOrden: (raw.efectosSegundoOrden || '').trim(),
+            evidenciaEmpirica: (raw.evidenciaEmpirica || '').trim(),
+            nivel,
+            nivelOriginal: (raw.nivelOriginal || '').trim(),
+            enResumen: (raw.enResumen || '').trim(),
+            missingFields,
+            esPaquete: false,
+            posiblesRepeticiones: [],
+            requiereVerificacionBiblio: false,
+            planosRenuncia: [],
+            searchBlob: ''
+          };
+
+          record.esPaquete = detectPackageMeasure(record.medida);
+          record.requiereVerificacionBiblio = needsBibliographicVerification(record.evidenciaEmpirica);
+          record.planosRenuncia = classifyTradeoffPlanes(record);
+          record.searchBlob = normalizeSearch(
+            `${record.medida} ${record.enResumen} ${record.objetivo} ${record.costeOportunidad} ${record.partido} ${record.tema} ${record.pagina} ${record.id}`
+          );
+
+          return record;
+        });
+      }
+
+      /* =======================================================================
+         4. DETECCIÓN NO DESTRUCTIVA DE PAQUETES, COINCIDENCIAS Y BIBLIOGRAFÍA
+         ======================================================================= */
+      function detectPackageMeasure(text) {
+        if (!text) return false;
+        const semicolons = (text.match(/;/g) || []).length;
+        if (semicolons >= 2) return true;
+
+        const sentences = text.split(/\.\s+(?=[A-ZÁÉÍÓÚÑ¿¡])/).filter(Boolean);
+        if (sentences.length >= 2) return true;
+
+        const commas = (text.match(/,/g) || []).length;
+        const norm = normalizeSearch(text);
+        const actionVerbs = (
+          norm.match(
+            /\b(aprobar|crear|establecer|reformar|modificar|eliminar|suprimir|reducir|ampliar|impulsar|garantizar|prohibir|eximir|bonificar|habilitar|implantar|fijar|aumentar|reforzar|crear|dotar|reconocer|vincular|extender|permitir|revisar|regular|derogar|limitar|actualizar|desarrollar|proteger|aplicar)\b/g
+          ) || []
+        ).length;
+
+        if (semicolons >= 1 && actionVerbs >= 2) return true;
+        if (commas >= 3 && text.length >= 165) return true;
+        if (actionVerbs >= 3 && text.length >= 145) return true;
+
+        return false;
+      }
+
+      function tokenizeForSimilarity(text) {
+        const clean = normalizeSearch(text).replace(/[^a-z0-9\s]/g, ' ');
+        const words = clean.split(/\s+/).filter(w => w.length >= 4 && !STOPWORDS.has(w));
+        return new Set(words);
+      }
+
+      function extractPageNumbers(pageStr) {
+        return new Set((String(pageStr || '').match(/\d+/g) || []));
+      }
+
+      function detectCrossThemeCoincidences(records) {
+        const tokenSets = records.map(r => tokenizeForSimilarity(r.medida));
+        const pageSets = records.map(r => extractPageNumbers(r.pagina));
+
+        for (let i = 0; i < records.length; i++) {
+          for (let j = i + 1; j < records.length; j++) {
+            const a = records[i];
+            const b = records[j];
+            if (a.partido !== b.partido) continue;
+            if (a.tema === b.tema) continue;
+
+            const setA = tokenSets[i];
+            const setB = tokenSets[j];
+            if (setA.size < 3 || setB.size < 3) continue;
+
+            let shared = 0;
+            setA.forEach(tok => {
+              if (setB.has(tok)) shared++;
+            });
+
+            const union = setA.size + setB.size - shared;
+            const jaccard = union > 0 ? shared / union : 0;
+            const containment = shared / Math.min(setA.size, setB.size);
+
+            let sharesPage = false;
+            pageSets[i].forEach(p => {
+              if (pageSets[j].has(p)) sharesPage = true;
+            });
+
+            const isMatch =
+              jaccard >= 0.42 ||
+              (sharesPage && containment >= 0.56 && shared >= 4) ||
+              (containment >= 0.72 && shared >= 5);
+
+            if (isMatch) {
+              a.posiblesRepeticiones.push({ id: b.id, tema: b.tema, pagina: b.pagina });
+              b.posiblesRepeticiones.push({ id: a.id, tema: a.tema, pagina: a.pagina });
+            }
+          }
+        }
+      }
+
+      function needsBibliographicVerification(evidenciaText) {
+        if (!evidenciaText) return false;
+        const hasUrl = /https?:\/\/|doi\.org|www\./i.test(evidenciaText);
+        if (hasUrl) return false;
+
+        const hasAuthorYear =
+          /\([A-ZÁÉÍÓÚÑ][a-zA-Záéíóúñ-]+(?:\s+(?:et al\.|y\s+[A-ZÁÉÍÓÚÑ][a-zA-Záéíóúñ-]+))?,?\s*(?:19|20)\d{2}\)/.test(evidenciaText) ||
+          /[A-ZÁÉÍÓÚÑ][a-zA-Záéíóúñ-]+\s+et al\.\s*\(?(?:19|20)\d{2}\)?/.test(evidenciaText);
+
+        if (hasAuthorYear) return false;
+
+        const mentionsGeneralSource =
+          /\b(ocde|banco de espana|airef|fedea|fmi|banco mundial|comision europea|eurostat|oit|oms|cnmc|unicef|frontex|seguridad social|ministerio|tribunal de cuentas|bce|estudios|informes|literatura|evaluaciones|analisis|datos oficiales|investigaciones)\b/i.test(
+            stripAccents(evidenciaText)
+          );
+
+        return mentionsGeneralSource;
+      }
+
+      function classifyTradeoffPlanes(record) {
+        const blob = normalizeSearch(`${record.costeOportunidad} ${record.enResumen}`);
+        const matched = [];
+        TRADEOFF_PLANES.forEach(plane => {
+          const hit = plane.keywords.some(kw => blob.includes(kw));
+          if (hit) matched.push(plane.id);
+        });
+        if (matched.length === 0) matched.push('administrativa');
+        return matched;
+      }
+
+      /* =======================================================================
+         5. VALIDACIÓN AUTOMÁTICA DE INTEGRIDAD (421 + MATRIZ 4x5)
+         ======================================================================= */
+      function validateDataset(records) {
+        const partyCounts = {};
+        const themeCounts = {};
+        const matrixCounts = {};
+
+        CANONICAL_PARTIES.forEach(p => {
+          partyCounts[p] = 0;
+          matrixCounts[p] = {};
+          CANONICAL_THEMES.forEach(t => {
+            matrixCounts[p][t] = 0;
+          });
+        });
+        CANONICAL_THEMES.forEach(t => {
+          themeCounts[t] = 0;
+        });
+
+        const incompleteRecords = [];
+        const unclassifiedLevelRecords = [];
+
+        records.forEach(rec => {
+          partyCounts[rec.partido] = (partyCounts[rec.partido] || 0) + 1;
+          themeCounts[rec.tema] = (themeCounts[rec.tema] || 0) + 1;
+          if (!matrixCounts[rec.partido]) matrixCounts[rec.partido] = {};
+          matrixCounts[rec.partido][rec.tema] = (matrixCounts[rec.partido][rec.tema] || 0) + 1;
+
+          if (rec.missingFields.length > 0) incompleteRecords.push(rec);
+          if (rec.nivel === UNCLASSIFIED_LEVEL) unclassifiedLevelRecords.push(rec);
+        });
+
+        const issues = [];
+        if (records.length !== EXPECTED_TOTAL) {
+          issues.push(`Total de fichas: ${records.length} cargadas frente a ${EXPECTED_TOTAL} esperadas.`);
+        }
+
+        Object.keys(partyCounts).forEach(p => {
+          const exp = EXPECTED_PARTIES[p] || 0;
+          if (partyCounts[p] !== exp) {
+            issues.push(`Partido «${p}»: ${partyCounts[p]} cargadas frente a ${exp} esperadas.`);
+          }
+        });
+
+        Object.keys(themeCounts).forEach(t => {
+          const exp = EXPECTED_THEMES[t] || 0;
+          if (themeCounts[t] !== exp) {
+            issues.push(`Temática «${t}»: ${themeCounts[t]} cargadas frente a ${exp} esperadas.`);
+          }
+        });
+
+        const matrixMismatches = [];
+        CANONICAL_PARTIES.forEach(p => {
+          CANONICAL_THEMES.forEach(t => {
+            const actual = (matrixCounts[p] && matrixCounts[p][t]) || 0;
+            const exp = (EXPECTED_MATRIX[p] && EXPECTED_MATRIX[p][t]) || 0;
+            if (actual !== exp) {
+              matrixMismatches.push({ partido: p, tema: t, actual, expected: exp });
+              issues.push(`Cruce ${p} × ${t}: ${actual} cargadas frente a ${exp} esperadas.`);
+            }
+          });
+        });
+
+        if (incompleteRecords.length > 0) {
+          issues.push(`${incompleteRecords.length} ficha(s) presentan algún campo obligatorio incompleto.`);
+        }
+        if (unclassifiedLevelRecords.length > 0) {
+          issues.push(`${unclassifiedLevelRecords.length} ficha(s) tienen un nivel de coste de oportunidad sin clasificar.`);
+        }
+
+        const packageCount = records.filter(r => r.esPaquete).length;
+        const coincidenceCount = records.filter(r => r.posiblesRepeticiones.length > 0).length;
+
+        return {
+          total: records.length,
+          partyCounts,
+          themeCounts,
+          matrixCounts,
+          matrixMismatches,
+          incompleteRecords,
+          unclassifiedLevelRecords,
+          packageCount,
+          coincidenceCount,
+          issues,
+          isExact: issues.length === 0
+        };
+      }
+
+      /* =======================================================================
+         6. PERFIL RELATIVO DE COSTE DE OPORTUNIDAD POR PARTIDO (%)
+         ======================================================================= */
+      function computeProfileStats(themeFilter) {
+        const subset = themeFilter
+          ? state.records.filter(r => r.tema === themeFilter)
+          : state.records;
+
+        let hasAnyUnclassified = false;
+
+        const byParty = CANONICAL_PARTIES.map(party => {
+          const partyRecords = subset.filter(r => r.partido === party);
+          const total = partyRecords.length;
+          const counts = {
+            'Bajo': 0,
+            'Medio': 0,
+            'Alto': 0,
+            'Muy alto': 0,
+            [UNCLASSIFIED_LEVEL]: 0
+          };
+
+          partyRecords.forEach(rec => {
+            if (Object.prototype.hasOwnProperty.call(counts, rec.nivel)) {
+              counts[rec.nivel]++;
+            } else {
+              counts[UNCLASSIFIED_LEVEL]++;
+            }
+          });
+
+          if (counts[UNCLASSIFIED_LEVEL] > 0) hasAnyUnclassified = true;
+
+          const pct = levelKey => (total > 0 ? (counts[levelKey] / total) * 100 : 0);
+          const lowerCount = counts['Bajo'] + counts['Medio'];
+          const higherCount = counts['Alto'] + counts['Muy alto'];
+          const lowerPct = total > 0 ? (lowerCount / total) * 100 : 0;
+          const higherPct = total > 0 ? (higherCount / total) * 100 : 0;
+
+          return {
+            party,
+            total,
+            counts,
+            pcts: {
+              'Bajo': pct('Bajo'),
+              'Medio': pct('Medio'),
+              'Alto': pct('Alto'),
+              'Muy alto': pct('Muy alto'),
+              [UNCLASSIFIED_LEVEL]: pct(UNCLASSIFIED_LEVEL)
+            },
+            lowerCount,
+            lowerPct,
+            higherCount,
+            higherPct,
+            isSmallSample: total > 0 && total < SMALL_SAMPLE_THRESHOLD
+          };
+        });
+
+        return {
+          themeLabel: themeFilter || 'Todas las temáticas',
+          totalInScope: subset.length,
+          hasAnyUnclassified,
+          byParty
+        };
+      }
+
+      function renderProfileComparison() {
+        const tabsContainer = document.getElementById('profile-theme-tabs');
+        const chartCard = document.getElementById('profile-chart-card');
+        const partyCardsContainer = document.getElementById('profile-party-cards');
+        if (!tabsContainer || !chartCard || !partyCardsContainer) return;
+
+        const themeOptions = [''].concat(CANONICAL_THEMES);
+        tabsContainer.innerHTML = themeOptions.map(theme => {
+          const label = theme || 'Todas las temáticas';
+          const count = theme
+            ? state.records.filter(r => r.tema === theme).length
+            : state.records.length;
+          const pressed = state.profileTheme === theme ? 'true' : 'false';
+          return `
+            <button type="button" class="profile-tab-btn" data-profile-theme="${escapeHtml(theme)}" aria-pressed="${pressed}">
+              ${escapeHtml(label)} (${count})
+            </button>
+          `;
+        }).join('');
+
+        const stats = computeProfileStats(state.profileTheme);
+        const levelsToDisplay = stats.hasAnyUnclassified
+          ? CANONICAL_LEVELS.concat([UNCLASSIFIED_LEVEL])
+          : CANONICAL_LEVELS;
+
+        const levelMeta = {
+          'Bajo': { segClass: 'seg--bajo', swatchColor: 'var(--bar-bajo-bg)' },
+          'Medio': { segClass: 'seg--medio', swatchColor: 'var(--bar-medio-bg)' },
+          'Alto': { segClass: 'seg--alto', swatchColor: 'var(--bar-alto-bg)' },
+          'Muy alto': { segClass: 'seg--muy-alto', swatchColor: 'var(--bar-muyalto-bg)' },
+          [UNCLASSIFIED_LEVEL]: { segClass: 'seg--sin-clasificar', swatchColor: 'var(--bar-unclassified-bg)' }
+        };
+
+        const legendHtml = levelsToDisplay.map(lvl => `
+          <span class="legend-item">
+            <span class="legend-swatch" style="background: ${levelMeta[lvl].swatchColor};" aria-hidden="true"></span>
+            <span>${escapeHtml(lvl)}</span>
+          </span>
+        `).join('');
+
+        const barsHtml = stats.byParty.map(row => {
+          const segmentsHtml = row.total === 0
+            ? `<div class="stacked-segment" style="width: 100%; background: var(--bg-subtle); color: var(--ink-tertiary);">Sin fichas en esta temática</div>`
+            : levelsToDisplay.map(lvl => {
+                const p = row.pcts[lvl];
+                const c = row.counts[lvl];
+                if (c === 0) return '';
+                const textInside = p >= 11 ? formatPercent(p) : '';
+                return `
+                  <div
+                    class="stacked-segment ${levelMeta[lvl].segClass}"
+                    style="width: ${p.toFixed(4)}%;"
+                    title="${escapeHtml(row.party)} · ${escapeHtml(lvl)}: ${c} de ${row.total} fichas (${formatPercent(p)})"
+                    aria-label="${escapeHtml(lvl)}: ${c} fichas, ${formatPercent(p)}"
+                  >
+                    ${textInside}
+                  </div>
+                `;
+              }).join('');
+
+          const breakdownHtml = levelsToDisplay.map(lvl => {
+            const c = row.counts[lvl];
+            const p = row.pcts[lvl];
+            return `
+              <span class="breakdown-chip">
+                <span class="breakdown-dot" style="background: ${levelMeta[lvl].swatchColor};" aria-hidden="true"></span>
+                <span><strong>${escapeHtml(lvl)}:</strong> ${formatPercent(p)} (${c})</span>
+              </span>
+            `;
+          }).join('');
+
+          return `
+            <div class="profile-bar-row">
+              <div class="profile-bar-header">
+                <span class="profile-bar-party">
+                  <span class="party-dot" data-party="${escapeHtml(row.party)}" aria-hidden="true"></span>
+                  <span>${escapeHtml(row.party)}</span>
+                </span>
+                <span class="profile-bar-meta">
+                  <span>Base: <strong>${row.total}</strong> ${row.total === 1 ? 'ficha' : 'fichas'}</span>
+                  ${row.isSmallSample ? `
+                    <span class="small-sample-badge" title="Menos de ${SMALL_SAMPLE_THRESHOLD} fichas en esta temática; los porcentajes cambian mucho con una sola ficha">
+                      Muestra pequeña: interpretar con cautela
+                    </span>
+                  ` : ''}
+                </span>
+              </div>
+
+              <div class="stacked-bar-track" role="img" aria-label="Distribución de ${escapeHtml(row.party)} en ${escapeHtml(stats.themeLabel)} sobre ${row.total} fichas">
+                ${segmentsHtml}
+              </div>
+
+              <div class="profile-bar-breakdown">
+                ${breakdownHtml}
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        chartCard.innerHTML = `
+          <div class="profile-chart-top">
+            <div>
+              <div style="font-weight: 700; font-size: 0.96rem;">Distribución porcentual (100 % por partido) · ${escapeHtml(stats.themeLabel)}</div>
+              <div style="font-size: 0.81rem; color: var(--ink-tertiary);">
+                Orden fijo neutral (sin ranking). Cada barra usa como denominador el número de fichas de ese partido en ${escapeHtml(stats.themeLabel.toLowerCase())}.
+              </div>
+            </div>
+            <div class="profile-legend" aria-label="Leyenda de niveles cualitativos">
+              ${legendHtml}
+            </div>
+          </div>
+          <div class="profile-bars-list">
+            ${barsHtml}
+          </div>
+        `;
+
+        partyCardsContainer.innerHTML = stats.byParty.map(row => {
+          const scopeText = state.profileTheme
+            ? `en <strong>${escapeHtml(state.profileTheme)}</strong>`
+            : 'en el conjunto de las <strong>cinco temáticas analizadas</strong>';
+
+          const summarySentence = row.total === 0
+            ? `No hay fichas registradas para este partido ${scopeText}.`
+            : `En las ${row.total} ${row.total === 1 ? 'ficha analizada' : 'fichas analizadas'} de este partido ${scopeText}, <strong>${formatPercent(row.higherPct)}</strong> (${row.higherCount} de ${row.total}) presenta una valoración de coste de oportunidad <strong>Alto o Muy alto</strong>, mientras que <strong>${formatPercent(row.lowerPct)}</strong> (${row.lowerCount} de ${row.total}) se sitúa en <strong>Bajo o Medio</strong>.`;
+
+          return `
+            <article class="profile-party-card" data-party="${escapeHtml(row.party)}">
+              <div class="profile-card-head">
+                <span class="party-tag">
+                  <span class="party-dot" data-party="${escapeHtml(row.party)}" aria-hidden="true"></span>
+                  <span>${escapeHtml(row.party)}</span>
+                </span>
+                <span style="font-size: 0.8rem; color: var(--ink-tertiary);">
+                  ${escapeHtml(stats.themeLabel)} · <strong>${row.total}</strong> ${row.total === 1 ? 'ficha' : 'fichas'}
+                </span>
+              </div>
+
+              ${row.isSmallSample ? `
+                <div>
+                  <span class="small-sample-badge">Muestra pequeña (${row.total} ${row.total === 1 ? 'ficha' : 'fichas'}): interpretar con cautela</span>
+                </div>
+              ` : ''}
+
+              <div class="profile-card-stats">
+                <div class="profile-stat-box">
+                  <div class="profile-stat-label">Menor coste (Bajo o Medio)</div>
+                  <div class="profile-stat-val">${formatPercent(row.lowerPct)}</div>
+                  <div class="profile-stat-sub">${row.lowerCount} de ${row.total} fichas</div>
+                </div>
+                <div class="profile-stat-box">
+                  <div class="profile-stat-label">Mayor coste (Alto o Muy alto)</div>
+                  <div class="profile-stat-val">${formatPercent(row.higherPct)}</div>
+                  <div class="profile-stat-sub">${row.higherCount} de ${row.total} fichas</div>
+                </div>
+              </div>
+
+              <p class="profile-card-desc">${summarySentence}</p>
+              <p class="profile-card-desc" style="font-size: 0.8rem; color: var(--ink-tertiary);">
+                Una mayor proporción de niveles Altos o Muy altos indica una mayor concentración relativa de fichas a las que los análisis atribuyen renuncias u oportunidades sacrificadas de mayor entidad.
+              </p>
+
+              <div>
+                <button
+                  type="button"
+                  class="info-inline-btn"
+                  data-jump-explorer-party="${escapeHtml(row.party)}"
+                  data-jump-explorer-theme="${escapeHtml(state.profileTheme)}"
+                  style="padding-left: 0;"
+                >
+                  Ver estas ${row.total} fichas en el explorador →
+                </button>
+              </div>
+            </article>
+          `;
+        }).join('');
+      }
+
+      /* =======================================================================
+         7. RENDERIZADO DEL EXPLORADOR, TARJETAS SIMPLIFICADAS Y FILTROS
+         ======================================================================= */
+      function populateSelectOptions() {
+        const partySelect = document.getElementById('filter-party');
+        const extraParties = Array.from(new Set(state.records.map(r => r.partido)))
+          .filter(p => !CANONICAL_PARTIES.includes(p));
+        const allParties = CANONICAL_PARTIES.concat(extraParties);
+
+        partySelect.innerHTML = '<option value="">Todos los partidos</option>' +
+          allParties.map(p => {
+            const count = state.records.filter(r => r.partido === p).length;
+            return `<option value="${escapeHtml(p)}">${escapeHtml(p)} (${count})</option>`;
+          }).join('');
+      }
+
+      function renderQuickThemeCards() {
+        const container = document.getElementById('theme-quick-cards');
+        const extraThemes = Array.from(new Set(state.records.map(r => r.tema)))
+          .filter(t => !CANONICAL_THEMES.includes(t));
+        const allThemes = CANONICAL_THEMES.concat(extraThemes);
+
+        container.innerHTML = allThemes.map(theme => {
+          const count = state.records.filter(r => r.tema === theme).length;
+          const isActive = state.filters.theme === theme;
+          return `
+            <button
+              type="button"
+              class="theme-card"
+              data-quick-theme="${escapeHtml(theme)}"
+              aria-pressed="${isActive ? 'true' : 'false'}"
+            >
+              <span class="theme-card-name">${escapeHtml(theme)}</span>
+              <span class="theme-card-count">${count} ${count === 1 ? 'ficha' : 'fichas'}</span>
+            </button>
+          `;
+        }).join('');
+      }
+
+      function renderValidationBanner() {
+        const banner = document.getElementById('validation-banner');
+        const list = document.getElementById('validation-banner-list');
+        const v = state.validation;
+        if (!v || v.isExact) {
+          banner.classList.add('hidden');
+          return;
+        }
+        list.innerHTML = v.issues.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+        banner.classList.remove('hidden');
+      }
+
+      function setDidacticExpanded(expanded) {
+        state.didacticExpanded = Boolean(expanded);
+        const btn = document.getElementById('btn-toggle-didactic');
+        const panel = document.getElementById('didactic-expandable');
+        const label = document.getElementById('didactic-toggle-label');
+        if (!btn || !panel) return;
+        btn.setAttribute('aria-expanded', state.didacticExpanded ? 'true' : 'false');
+        panel.classList.toggle('hidden', !state.didacticExpanded);
+        if (label) {
+          label.textContent = state.didacticExpanded
+            ? 'Ocultar ejemplo'
+            : 'Ver un ejemplo de 30 segundos';
+        }
+      }
+
+      function setRefineExpanded(expanded) {
+        state.refineExpanded = Boolean(expanded);
+        const btn = document.getElementById('btn-toggle-refine');
+        const panel = document.getElementById('refine-panel');
+        if (!btn || !panel) return;
+        btn.setAttribute('aria-expanded', state.refineExpanded ? 'true' : 'false');
+        panel.classList.toggle('hidden', !state.refineExpanded);
+      }
+
+      function setProfileExpanded(expanded) {
+        state.profileExpanded = Boolean(expanded);
+        const btn = document.getElementById('btn-toggle-profile');
+        const panel = document.getElementById('profile-collapsible-content');
+        const label = document.getElementById('profile-toggle-label');
+        if (!btn || !panel) return;
+        btn.setAttribute('aria-expanded', state.profileExpanded ? 'true' : 'false');
+        panel.classList.toggle('hidden', !state.profileExpanded);
+        if (label) {
+          label.textContent = state.profileExpanded ? 'Ocultar comparación' : 'Ver comparación';
+        }
+      }
+
+      function updateFilterControlsUI() {
+        const refineBadge = document.getElementById('refine-active-badge');
+        const resetBtn = document.getElementById('btn-reset-filters');
+
+        const refineCount = (state.filters.party ? 1 : 0) + (state.filters.level ? 1 : 0);
+        if (refineBadge) {
+          refineBadge.textContent = String(refineCount);
+          refineBadge.classList.toggle('hidden', refineCount === 0);
+        }
+
+        const hasAnyFilter = Boolean(
+          state.filters.party ||
+          state.filters.theme ||
+          state.filters.level ||
+          state.filters.search.trim()
+        );
+
+        if (resetBtn) {
+          resetBtn.disabled = !hasAnyFilter;
+          resetBtn.classList.toggle('btn-secondary', hasAnyFilter);
+          resetBtn.classList.toggle('btn-subtle', !hasAnyFilter);
+        }
+      }
+
       function applyFiltersAndRender(resetPagination) {
         if (resetPagination) {
           state.visibleCount = PAGE_SIZE;
@@ -2765,8 +4229,8 @@
           return true;
         });
 
-        /* Si hay un único partido filtrado, respetar su orden original (docIndex).
-           Si no hay filtro de partido, intercalar equitativamente los cuatro partidos. */
+        /* Ordenación: si el usuario filtra un partido concreto, respeta el orden del documento;
+           en caso contrario, alterna los 4 partidos por turnos respetando el orden interno. */
         if (party) {
           result = result.slice().sort((a, b) => a.docIndex - b.docIndex);
         } else {
@@ -2774,48 +4238,9 @@
         }
 
         state.filtered = result;
-        updateRefineToggleUI();
+        updateFilterControlsUI();
         renderQuickThemeCards();
         renderCards();
-      }
-
-      function setDidacticExpanded(expanded) {
-        state.didacticExpanded = Boolean(expanded);
-        const btn = document.getElementById('btn-toggle-didactic');
-        const panel = document.getElementById('didactic-expandable');
-        if (!btn || !panel) return;
-        btn.setAttribute('aria-expanded', state.didacticExpanded ? 'true' : 'false');
-        panel.classList.toggle('hidden', !state.didacticExpanded);
-      }
-
-      function setRefineExpanded(expanded) {
-        state.refineExpanded = Boolean(expanded);
-        const btn = document.getElementById('btn-toggle-refine');
-        const panel = document.getElementById('refine-panel');
-        if (!btn || !panel) return;
-        btn.setAttribute('aria-expanded', state.refineExpanded ? 'true' : 'false');
-        panel.classList.toggle('hidden', !state.refineExpanded);
-      }
-
-      function updateRefineToggleUI() {
-        const badge = document.getElementById('refine-active-badge');
-        if (!badge) return;
-        const activeCount = (state.filters.party ? 1 : 0) + (state.filters.level ? 1 : 0);
-        badge.textContent = String(activeCount);
-        badge.classList.toggle('hidden', activeCount === 0);
-      }
-
-      function setProfileExpanded(expanded) {
-        state.profileExpanded = Boolean(expanded);
-        const btn = document.getElementById('btn-toggle-profile');
-        const panel = document.getElementById('profile-collapsible-content');
-        const label = document.getElementById('profile-toggle-label');
-        if (!btn || !panel) return;
-        btn.setAttribute('aria-expanded', state.profileExpanded ? 'true' : 'false');
-        panel.classList.toggle('hidden', !state.profileExpanded);
-        if (label) {
-          label.textContent = state.profileExpanded ? 'Ocultar comparación' : 'Ver comparación';
-        }
       }
 
       function renderCards() {
@@ -2834,7 +4259,8 @@
         counter.innerHTML = `Mostrando <strong>${totalFiltered}</strong> de <strong>${totalAll}</strong> fichas`;
 
         if (altNote) {
-          altNote.classList.toggle('hidden', Boolean(state.filters.party) || totalFiltered === 0);
+          const showAltNote = !state.filters.party && totalFiltered > 1;
+          altNote.classList.toggle('hidden', !showAltNote);
         }
 
         if (totalFiltered === 0) {
@@ -2849,9 +4275,10 @@
         grid.innerHTML = slice.map(rec => {
           const isSaved = state.selectedIds.has(rec.id);
           const repThemes = Array.from(new Set(rec.posiblesRepeticiones.map(r => r.tema)));
-          const repShortLabel = repThemes.length === 1
-            ? `También en ${repThemes[0]}`
-            : `Coincidencia (${repThemes.length} temas)`;
+          const repCompactLabel = repThemes.length === 1
+            ? `También en ${THEME_SHORT_LABELS[repThemes[0]] || repThemes[0]}`
+            : `También en ${repThemes.length} temas`;
+
           const bookmarkIcon = isSaved
             ? `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>`
             : `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>`;
@@ -2873,22 +4300,22 @@
               <div class="card-measure-text">${formatEditorialText(rec.medida)}</div>
 
               <div class="card-badges-row">
-                ${renderLevelPill(rec.nivel)}
-                <button type="button" class="level-help-btn" data-open-methodology="true" aria-label="Qué significa la valoración orientativa">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                ${renderLevelPill(rec.nivel, 'Coste orientativo')}
+                <button type="button" class="level-help-btn" data-open-methodology="true" aria-label="Cómo interpretar el coste orientativo">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="12" y1="16" x2="12" y2="12"></line>
                     <line x1="12" y1="8" x2="12.01" y2="8"></line>
                   </svg>
                 </button>
                 ${rec.esPaquete ? `
-                  <span class="transparency-tag" title="Agrupa varias actuaciones diferenciadas con posibles costes de oportunidad distintos">
-                    Paquete de medidas
+                  <span class="transparency-tag" title="Paquete de medidas: agrupa varias actuaciones diferenciadas con posibles costes de oportunidad distintos">
+                    Paquete
                   </span>
                 ` : ''}
                 ${repThemes.length > 0 ? `
-                  <span class="transparency-tag" title="Esta propuesta también aparece analizada desde otra perspectiva temática (${escapeHtml(repThemes.join(', '))}). Los análisis pueden abordar dimensiones económicas diferentes.">
-                    ${escapeHtml(repShortLabel)}
+                  <span class="transparency-tag" title="Coincidencia con otra temática (${escapeHtml(repThemes.join(', '))}). Abre el análisis para ver el detalle.">
+                    ${escapeHtml(repCompactLabel)}
                   </span>
                 ` : ''}
               </div>
@@ -2927,40 +4354,560 @@
           paginationBar.classList.add('hidden');
         }
       }
-// ... existing code ... -->
+
+      /* =======================================================================
+         8. MODAL DE FICHA DESPLEGADA (CONSERVA ID TÉCNICO Y NOTAS COMPLETAS)
+         ======================================================================= */
+      function openDetailModal(recordId) {
+        const rec = state.recordsById.get(recordId);
+        if (!rec) return;
+
+        state.activeDetailId = recordId;
+        const body = document.getElementById('detail-modal-body');
+        const eyebrow = document.getElementById('detail-modal-eyebrow');
+        const saveBtn = document.getElementById('btn-detail-save');
+        const prevBtn = document.getElementById('btn-detail-prev');
+        const nextBtn = document.getElementById('btn-detail-next');
+
+        eyebrow.textContent = `${rec.partido} · ${rec.tema} · Pág. ${rec.pagina || 's/d'}`;
+
+        const currentIndex = state.filtered.findIndex(r => r.id === recordId);
+        prevBtn.disabled = currentIndex <= 0;
+        nextBtn.disabled = currentIndex === -1 || currentIndex >= state.filtered.length - 1;
+
+        updateDetailSaveButton(saveBtn, state.selectedIds.has(rec.id));
+
+        const relatedThemes = Array.from(new Set(rec.posiblesRepeticiones.map(r => r.tema)));
+
+        body.innerHTML = `
+          <div class="detail-meta-bar">
+            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+              <span class="party-tag">
+                <span class="party-dot" data-party="${escapeHtml(rec.partido)}" aria-hidden="true"></span>
+                <span>${escapeHtml(rec.partido)}</span>
+              </span>
+              <span class="card-id">Ref. ${escapeHtml(rec.id)}</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+              ${renderLevelPill(rec.nivel, 'Nivel orientativo')}
+              <button type="button" class="info-inline-btn" data-open-methodology="true">Cómo interpretar el nivel</button>
+            </div>
+          </div>
+
+          ${rec.esPaquete ? `
+            <div class="detail-alert-box">
+              <strong>Paquete de medidas:</strong> esta ficha agrupa varias actuaciones diferenciadas dentro de una misma propuesta programática; cada componente puede conllevar costes de oportunidad e incentivos distintos.
+            </div>
+          ` : ''}
+
+          ${rec.posiblesRepeticiones.length > 0 ? `
+            <div class="detail-alert-box">
+              <strong>Coincidencia con otra temática (${escapeHtml(relatedThemes.join(', '))}):</strong> esta propuesta también aparece analizada desde otra perspectiva temática. Los análisis pueden abordar dimensiones económicas diferentes.
+              <div class="detail-related-links">
+                ${rec.posiblesRepeticiones.map(rel => `
+                  <button type="button" class="related-jump-btn" data-jump-detail="${escapeHtml(rel.id)}">
+                    Abrir ficha en ${escapeHtml(rel.tema)} (pág. ${escapeHtml(rel.pagina || 's/d')}) →
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          <div class="detail-sections">
+            <section class="detail-section">
+              <div class="detail-section-kicker">1. Propuesta del programa · Pág. ${escapeHtml(rec.pagina || 's/d')}</div>
+              <h3 class="detail-section-q">¿Qué se quiere hacer?</h3>
+              <p class="detail-text">${formatEditorialText(rec.medida)}</p>
+            </section>
+
+            <section class="detail-section">
+              <div class="detail-section-kicker">2. Objetivo declarado</div>
+              <h3 class="detail-section-q">¿Qué se pretende conseguir?</h3>
+              <p class="detail-text">${formatEditorialText(rec.objetivo)}</p>
+            </section>
+
+            <section class="detail-section detail-section--highlight">
+              <div class="detail-section-kicker">3. Análisis económico (coste de oportunidad)</div>
+              <h3 class="detail-section-q">¿Qué dejamos de hacer o a qué renunciamos?</h3>
+              <p class="detail-text">${formatEditorialText(rec.costeOportunidad)}</p>
+            </section>
+
+            <section class="detail-section">
+              <div class="detail-section-kicker">4. Efectos posibles de segundo orden</div>
+              <h3 class="detail-section-q">¿Qué podría ocurrir después?</h3>
+              <p class="detail-text">${formatEditorialText(rec.efectosSegundoOrden)}</p>
+              <div class="detail-note">
+                <strong>Nota:</strong> los efectos de segundo orden describen consecuencias posibles y condicionales según cómo respondan hogares, empresas o administraciones; no son predicciones seguras.
+              </div>
+            </section>
+
+            <section class="detail-section">
+              <div class="detail-section-kicker">5. Evidencia y antecedentes citados</div>
+              <h3 class="detail-section-q">¿Qué antecedentes se mencionan?</h3>
+              <p class="detail-text">${formatEditorialText(rec.evidenciaEmpirica)}</p>
+              ${rec.requiereVerificacionBiblio ? `
+                <div class="detail-note">
+                  Referencia general mencionada en el análisis; requiere verificación bibliográfica completa.
+                </div>
+              ` : ''}
+            </section>
+          </div>
+        `;
+
+        openOverlay('modal-detail');
+      }
+
+      function updateDetailSaveButton(btn, isSaved) {
+        if (!btn) return;
+        btn.textContent = isSaved ? '✓ Guardada en mi selección' : '+ Guardar en mi selección';
+        btn.classList.toggle('btn-saved', isSaved);
+        btn.classList.toggle('btn-primary', !isSaved);
+      }
+
+      /* =======================================================================
+         9. MODAL DE DIAGNÓSTICO DE DATOS (TOTALES + PARTIDOS + TEMAS + MATRIZ)
+         ======================================================================= */
+      function renderDiagnosticsModal() {
+        const body = document.getElementById('diagnostics-modal-body');
+        const v = state.validation;
+        if (!v) {
+          body.innerHTML = `<p>Todavía no se ha cargado ningún archivo <code>datos.txt</code>.</p>`;
+          return;
+        }
+
+        const partyRows = CANONICAL_PARTIES.concat(
+          Object.keys(v.partyCounts).filter(p => !CANONICAL_PARTIES.includes(p))
+        ).map(p => {
+          const actual = v.partyCounts[p] || 0;
+          const exp = EXPECTED_PARTIES[p] || 0;
+          const diff = actual - exp;
+          const diffStr = diff === 0 ? 'Exacto' : (diff > 0 ? `+${diff}` : String(diff));
+          return `
+            <tr>
+              <td><strong>${escapeHtml(p)}</strong></td>
+              <td>${actual}</td>
+              <td>${exp}</td>
+              <td><span class="diag-diff-pill${diff !== 0 ? ' diag-diff-pill--mismatch' : ''}">${diffStr}</span></td>
+            </tr>
+          `;
+        }).join('');
+
+        const themeRows = CANONICAL_THEMES.concat(
+          Object.keys(v.themeCounts).filter(t => !CANONICAL_THEMES.includes(t))
+        ).map(t => {
+          const actual = v.themeCounts[t] || 0;
+          const exp = EXPECTED_THEMES[t] || 0;
+          const diff = actual - exp;
+          const diffStr = diff === 0 ? 'Exacto' : (diff > 0 ? `+${diff}` : String(diff));
+          return `
+            <tr>
+              <td><strong>${escapeHtml(t)}</strong></td>
+              <td>${actual}</td>
+              <td>${exp}</td>
+              <td><span class="diag-diff-pill${diff !== 0 ? ' diag-diff-pill--mismatch' : ''}">${diffStr}</span></td>
+            </tr>
+          `;
+        }).join('');
+
+        const matrixRows = CANONICAL_PARTIES.map(p => {
+          const cells = CANONICAL_THEMES.map(t => {
+            const actual = (v.matrixCounts[p] && v.matrixCounts[p][t]) || 0;
+            const exp = (EXPECTED_MATRIX[p] && EXPECTED_MATRIX[p][t]) || 0;
+            const mismatch = actual !== exp;
+            return `<td>${actual}${mismatch ? ` <span class="diag-diff-pill diag-diff-pill--mismatch">(esp. ${exp})</span>` : ''}</td>`;
+          }).join('');
+          const rowTotal = v.partyCounts[p] || 0;
+          return `<tr><td><strong>${escapeHtml(p)}</strong></td>${cells}<td><strong>${rowTotal}</strong></td></tr>`;
+        }).join('');
+
+        const themeTotalsCells = CANONICAL_THEMES.map(t => `<td><strong>${v.themeCounts[t] || 0}</strong></td>`).join('');
+
+        body.innerHTML = `
+          <div class="diag-status-card${v.isExact ? '' : ' diag-status-card--warn'}">
+            <strong>${v.isExact ? 'Integridad verificada: 421 fichas completas y matriz exacta' : 'Discrepancias detectadas (ninguna ficha ha sido ocultada)'}</strong>
+            <p style="font-size: 0.85rem; margin-top: 4px; margin-bottom: 0;">
+              Origen: ${escapeHtml(state.sourceInfo || 'Archivo local')} · Total cargado: <strong>${v.total}</strong> / ${EXPECTED_TOTAL} ·
+              Paquetes detectados: <strong>${v.packageCount}</strong> ·
+              Fichas con coincidencia temática: <strong>${v.coincidenceCount}</strong> ·
+              Incompletas: <strong>${v.incompleteRecords.length}</strong>.
+            </p>
+            ${v.issues.length > 0 ? `
+              <ul style="margin: 8px 0 0; padding-left: 18px; font-size: 0.83rem;">
+                ${v.issues.map(i => `<li>${escapeHtml(i)}</li>`).join('')}
+              </ul>
+            ` : ''}
+          </div>
+
+          <h3 style="font-size: 0.96rem; margin-bottom: 8px;">Recuento por partido</h3>
+          <div class="table-scroll">
+            <table class="diag-table">
+              <thead>
+                <tr><th>Partido</th><th>Cargadas</th><th>Esperadas</th><th>Estado</th></tr>
+              </thead>
+              <tbody>${partyRows}</tbody>
+            </table>
+          </div>
+
+          <h3 style="font-size: 0.96rem; margin-bottom: 8px;">Recuento por temática</h3>
+          <div class="table-scroll">
+            <table class="diag-table">
+              <thead>
+                <tr><th>Temática</th><th>Cargadas</th><th>Esperadas</th><th>Estado</th></tr>
+              </thead>
+              <tbody>${themeRows}</tbody>
+            </table>
+          </div>
+
+          <h3 style="font-size: 0.96rem; margin-bottom: 8px;">Control cruzado Partido × Temática</h3>
+          <div class="table-scroll">
+            <table class="diag-table">
+              <thead>
+                <tr>
+                  <th>Partido</th>
+                  ${CANONICAL_THEMES.map(t => `<th>${escapeHtml(THEME_SHORT_LABELS[t] || t)}</th>`).join('')}
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${matrixRows}
+                <tr>
+                  <td><strong>TOTAL</strong></td>
+                  ${themeTotalsCells}
+                  <td><strong>${v.total}</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          ${v.incompleteRecords.length > 0 ? `
+            <h3 style="font-size: 0.96rem; margin-bottom: 8px;">Fichas con campos incompletos</h3>
+            <ul style="font-size: 0.84rem; padding-left: 18px;">
+              ${v.incompleteRecords.map(r => `<li><code>${escapeHtml(r.id)}</code> (${escapeHtml(r.partido)}, ${escapeHtml(r.tema)}): faltan ${escapeHtml(r.missingFields.join(', '))}</li>`).join('')}
+            </ul>
+          ` : ''}
+        `;
+      }
+
+      /* =======================================================================
+         10. PANEL LATERAL "MI SELECCIÓN DE MEDIDAS"
+         ======================================================================= */
+      function updateSelectionBadge() {
+        const badge = document.getElementById('selection-count-badge');
+        if (badge) badge.textContent = String(state.selectedIds.size);
+      }
+
+      function toggleSaveRecord(recordId) {
+        if (!state.recordsById.has(recordId)) return;
+        const wasSaved = state.selectedIds.has(recordId);
+        if (wasSaved) {
+          state.selectedIds.delete(recordId);
+          showToast('Medida retirada de Mi selección');
+        } else {
+          state.selectedIds.add(recordId);
+          showToast('Medida guardada en Mi selección');
+        }
+        state.confirmingClearSelection = false;
+        persistSelection();
+        updateSelectionBadge();
+        renderCards();
+
+        if (state.activeDetailId === recordId) {
+          updateDetailSaveButton(document.getElementById('btn-detail-save'), !wasSaved);
+        }
+
+        const drawer = document.getElementById('drawer-selection');
+        if (drawer && drawer.classList.contains('is-open')) {
+          renderSelectionDrawer();
+        }
+      }
+
+      function renderSelectionDrawer() {
+        const body = document.getElementById('selection-drawer-body');
+        const clearControls = document.getElementById('clear-selection-controls');
+        const savedRecords = Array.from(state.selectedIds)
+          .map(id => state.recordsById.get(id))
+          .filter(Boolean);
+
+        if (savedRecords.length === 0) {
+          body.innerHTML = `
+            <div class="selection-notice">
+              <strong>Ejercicio de reflexión personal:</strong> aquí puedes reunir medidas de cualquier partido para observar juntas sus renuncias. Esta herramienta no suma niveles cualitativos ni calcula presupuestos ficticios.
+            </div>
+            <div class="empty-state" style="padding: 28px 16px;">
+              <h3>Tu selección está vacía</h3>
+              <p>Pulsa <strong>Guardar</strong> en cualquier tarjeta o dentro de su análisis completo para comparar renuncias aquí.</p>
+            </div>
+          `;
+          clearControls.innerHTML = '';
+          return;
+        }
+
+        /* Agrupación orientativa por naturaleza de renuncia */
+        const planeCounts = {};
+        TRADEOFF_PLANES.forEach(p => { planeCounts[p.id] = 0; });
+        savedRecords.forEach(rec => {
+          rec.planosRenuncia.forEach(pid => {
+            planeCounts[pid] = (planeCounts[pid] || 0) + 1;
+          });
+        });
+
+        /* Avisos de posible competencia por recursos o solapamiento temático */
+        const overlaps = [];
+        const byTheme = {};
+        savedRecords.forEach(rec => {
+          byTheme[rec.tema] = (byTheme[rec.tema] || 0) + 1;
+        });
+        Object.keys(byTheme).forEach(t => {
+          if (byTheme[t] >= 2) {
+            overlaps.push(`Has reunido <strong>${byTheme[t]} medidas de ${escapeHtml(t)}</strong>: comprueba si persiguen enfoques alternativos o si compiten entre sí dentro del mismo mercado o marco legal.`);
+          }
+        });
+        if (planeCounts.fiscal >= 3) {
+          overlaps.push(`<strong>${planeCounts.fiscal} medidas</strong> implican renuncias en el plano <strong>presupuestario o fiscal</strong> (más gasto público o menor recaudación), por lo que competirían por el mismo margen fiscal.`);
+        }
+        if (planeCounts.administrativa >= 3) {
+          overlaps.push(`<strong>${planeCounts.administrativa} medidas</strong> requieren reforzar capacidad <strong>administrativa, jurídica o de inspección</strong>.`);
+        }
+
+        body.innerHTML = `
+          <div class="selection-notice">
+            <strong>Aviso importante:</strong> esta vista es un ejercicio de reflexión sobre decisiones y renuncias heterogéneas, no un cálculo presupuestario oficial ni una suma aritmética de niveles de coste.
+          </div>
+
+          ${overlaps.length > 0 ? `
+            <div class="selection-overlap-box">
+              <strong>Posibles solapamientos o competencia por recursos:</strong>
+              <ul>${overlaps.map(o => `<li>${o}</li>`).join('')}</ul>
+            </div>
+          ` : ''}
+
+          <h3 style="font-size: 0.94rem; margin-bottom: 8px;">Planos en los que operan las renuncias</h3>
+          <div class="planes-grid">
+            ${TRADEOFF_PLANES.map(p => `
+              <div class="plane-card">
+                <div class="plane-card-title">${escapeHtml(p.label)}</div>
+                <div class="plane-card-count"><strong>${planeCounts[p.id] || 0}</strong> de ${savedRecords.length} medidas</div>
+              </div>
+            `).join('')}
+          </div>
+
+          <h3 style="font-size: 0.94rem; margin-bottom: 10px;">Medidas guardadas (${savedRecords.length})</h3>
+          <div class="selected-list">
+            ${savedRecords.map(rec => `
+              <article class="selected-item" data-party="${escapeHtml(rec.partido)}">
+                <div class="selected-item-head">
+                  <span><strong>${escapeHtml(rec.partido)}</strong> · ${escapeHtml(rec.tema)} · Pág. ${escapeHtml(rec.pagina || 's/d')}</span>
+                  ${renderLevelPill(rec.nivel)}
+                </div>
+                <div class="selected-item-measure">${formatEditorialText(rec.medida)}</div>
+                <div class="selected-item-tradeoff">
+                  <strong>Renuncia principal:</strong> ${formatEditorialText(rec.costeOportunidad)}
+                </div>
+                <div class="selected-item-actions">
+                  <button type="button" class="info-inline-btn" data-jump-detail="${escapeHtml(rec.id)}" style="padding-left: 0;">Ver análisis completo</button>
+                  <button type="button" class="btn btn-secondary" data-remove-selected="${escapeHtml(rec.id)}" style="min-height: 40px; padding: 6px 12px; font-size: 0.82rem;">Quitar</button>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        `;
+
+        if (state.confirmingClearSelection) {
+          clearControls.innerHTML = `
+            <span style="font-size: 0.82rem; color: var(--ink-secondary);">¿Vaciar lista?</span>
+            <button type="button" class="btn btn-secondary" id="btn-confirm-clear-selection" style="min-height: 40px; padding: 6px 12px; font-size: 0.82rem;">Sí, vaciar</button>
+            <button type="button" class="btn btn-subtle" id="btn-cancel-clear-selection" style="min-height: 40px; padding: 6px 10px; font-size: 0.82rem;">Cancelar</button>
+          `;
+        } else {
+          clearControls.innerHTML = `
+            <button type="button" class="btn btn-secondary" id="btn-ask-clear-selection" style="min-height: 40px; padding: 6px 12px; font-size: 0.84rem;">Vaciar selección</button>
+          `;
+        }
+      }
+
+      /* =======================================================================
+         11. GESTIÓN DE MODALES Y ACCESIBILIDAD POR TECLADO (ESCAPE)
+         ======================================================================= */
+      function openOverlay(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        state.lastFocusedElement = document.activeElement;
+        el.classList.add('is-open');
+        el.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        const closeBtn = el.querySelector('.modal-close-btn');
+        if (closeBtn) closeBtn.focus();
+      }
+
+      function closeOverlay(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.classList.remove('is-open');
+        el.setAttribute('aria-hidden', 'true');
+
+        const anyStillOpen = document.querySelector('.modal-backdrop.is-open, .drawer-backdrop.is-open');
+        if (!anyStillOpen) {
+          document.body.style.overflow = '';
+        }
+
+        if (state.lastFocusedElement && typeof state.lastFocusedElement.focus === 'function') {
+          state.lastFocusedElement.focus();
+        }
+      }
+
+      function closeTopOverlay() {
+        const openEls = Array.from(document.querySelectorAll('.modal-backdrop.is-open, .drawer-backdrop.is-open'));
+        if (openEls.length === 0) return;
+        closeOverlay(openEls[openEls.length - 1].id);
+      }
+
+      /* =======================================================================
+         12. CARGA DE DATOS (fetch('./datos.txt') + RESPALDO LOCAL FileReader)
+         ======================================================================= */
+      function loadDatasetFromText(rawText, sourceLabel) {
+        const records = parseDatosTxt(rawText);
+        const errorBox = document.getElementById('loader-error-box');
+
+        if (records.length === 0) {
+          if (errorBox) {
+            errorBox.textContent = 'No se han reconocido fichas válidas en el archivo seleccionado. Comprueba que sea el archivo datos.txt con etiquetas PARTIDO:, TEMA:, MEDIDA:, etc.';
+            errorBox.classList.remove('hidden');
+          }
+          return false;
+        }
+
+        if (errorBox) errorBox.classList.add('hidden');
+
+        detectCrossThemeCoincidences(records);
+
+        state.records = records;
+        state.recordsById = new Map(records.map(r => [r.id, r]));
+        state.sourceInfo = sourceLabel;
+        state.validation = validateDataset(records);
+
+        /* Limpiar IDs guardados que no existan en este archivo */
+        const validIds = new Set();
+        state.selectedIds.forEach(id => {
+          if (state.recordsById.has(id)) validIds.add(id);
+        });
+        state.selectedIds = validIds;
+        updateSelectionBadge();
+
+        document.getElementById('loading-indicator').classList.add('hidden');
+        document.getElementById('loader-fallback').classList.add('hidden');
+        document.getElementById('explorador').classList.remove('hidden');
+        document.getElementById('perfil-comparativo').classList.remove('hidden');
+
+        populateSelectOptions();
+        renderValidationBanner();
+        renderProfileComparison();
+        applyFiltersAndRender(true);
+        return true;
+      }
+
+      function handleFileUpload(file) {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (ev) {
+          const text = typeof ev.target.result === 'string' ? ev.target.result : '';
+          const ok = loadDatasetFromText(text, `Archivo local (${file.name})`);
+          if (ok) {
+            showToast(`Cargadas ${state.records.length} fichas desde ${file.name}`);
+          }
+        };
+        reader.onerror = function () {
+          const errorBox = document.getElementById('loader-error-box');
+          if (errorBox) {
+            errorBox.textContent = 'Error al leer el archivo local. Inténtalo de nuevo.';
+            errorBox.classList.remove('hidden');
+          }
+        };
+        reader.readAsText(file, 'UTF-8');
+      }
+
+      async function tryAutoFetchDatos() {
+        try {
+          const response = await fetch('./datos.txt', { cache: 'no-store' });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const text = await response.text();
+          const ok = loadDatasetFromText(text, 'Carga automática (./datos.txt)');
+          if (!ok) showFallbackLoader();
+        } catch (err) {
+          showFallbackLoader();
+        }
+      }
+
+      function showFallbackLoader() {
+        document.getElementById('loading-indicator').classList.add('hidden');
+        document.getElementById('loader-fallback').classList.remove('hidden');
+      }
+
+      /* =======================================================================
+         13. EVENTOS E INTERACCIÓN
+         ======================================================================= */
+      function renderScenarioResult(key) {
+        const sc = SCENARIOS[key];
+        const container = document.getElementById('scenario-result');
+        if (!sc || !container) return;
+
+        document.querySelectorAll('.scenario-btn').forEach(b => {
+          b.setAttribute('aria-pressed', b.getAttribute('data-scenario') === key ? 'true' : 'false');
+        });
+
+        container.innerHTML = `
+          <div class="scenario-columns">
+            <div class="scenario-col">
+              <div class="scenario-col-label">Qué se consigue</div>
+              <p>${escapeHtml(sc.gain)}</p>
+            </div>
+            <div class="scenario-col">
+              <div class="scenario-col-label">A qué se renuncia (coste de oportunidad)</div>
+              <p>${escapeHtml(sc.tradeoff)}</p>
+            </div>
+          </div>
+          <p class="scenario-takeaway">${escapeHtml(sc.takeaway)}</p>
+        `;
+      }
+
+      function resetAllFilters() {
+        state.filters = { party: '', theme: '', level: '', search: '' };
+        document.getElementById('filter-party').value = '';
+        document.getElementById('filter-level').value = '';
+        const searchInput = document.getElementById('filter-search');
+        searchInput.value = '';
+        document.getElementById('btn-clear-search').classList.add('hidden');
+        applyFiltersAndRender(true);
+      }
+
       function bindEvents() {
-        /* Desplegable de explicación y ejemplo cotidiano de 30 segundos */
-        const btnToggleDidactic = document.getElementById('btn-toggle-didactic');
-        if (btnToggleDidactic) {
-          btnToggleDidactic.addEventListener('click', () => {
-            setDidacticExpanded(!state.didacticExpanded);
-          });
-        }
+        /* Desplegable de ejemplo cotidiano (30 segundos) */
+        document.getElementById('btn-toggle-didactic').addEventListener('click', () => {
+          setDidacticExpanded(!state.didacticExpanded);
+        });
 
-        const btnHeroExample = document.getElementById('btn-hero-example');
-        if (btnHeroExample) {
-          btnHeroExample.addEventListener('click', () => {
-            setDidacticExpanded(true);
-            const sec = document.getElementById('que-es');
-            if (sec) sec.scrollIntoView({ behavior: 'smooth' });
-          });
-        }
+        document.getElementById('btn-hero-example').addEventListener('click', () => {
+          setDidacticExpanded(true);
+          const sec = document.getElementById('que-es');
+          if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+        });
 
-        /* Desplegable "Afinar búsqueda" (partido y nivel orientativo) */
-        const btnToggleRefine = document.getElementById('btn-toggle-refine');
-        if (btnToggleRefine) {
-          btnToggleRefine.addEventListener('click', () => {
-            setRefineExpanded(!state.refineExpanded);
+        /* Mini-experiencia del solar municipal */
+        document.querySelectorAll('.scenario-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            renderScenarioResult(btn.getAttribute('data-scenario'));
           });
-        }
+        });
 
-        /* Desplegable opcional de comparación de perfiles por partido */
-        const btnToggleProfile = document.getElementById('btn-toggle-profile');
-        if (btnToggleProfile) {
-          btnToggleProfile.addEventListener('click', () => {
-            setProfileExpanded(!state.profileExpanded);
-          });
-        }
+        /* Desplegable "Afinar búsqueda" */
+        document.getElementById('btn-toggle-refine').addEventListener('click', () => {
+          setRefineExpanded(!state.refineExpanded);
+        });
+
+        /* Desplegable opcional de comparación por partido */
+        document.getElementById('btn-toggle-profile').addEventListener('click', () => {
+          setProfileExpanded(!state.profileExpanded);
+        });
 
         const navLinkProfile = document.getElementById('nav-link-profile');
         if (navLinkProfile) {
@@ -2973,38 +4920,66 @@
           });
         }
 
-        /* Mini-experiencia cotidiana */
-        document.querySelectorAll('.scenario-btn').forEach(btn => {
-// ... existing code ... -->
-        /* Enlace directo desde tarjetas de perfil al explorador filtrado */
-        document.getElementById('profile-party-cards').addEventListener('click', ev => {
-          const btn = ev.target.closest('[data-jump-explorer-party]');
-          if (!btn) return;
-          const party = btn.getAttribute('data-jump-explorer-party') || '';
-          const theme = btn.getAttribute('data-jump-explorer-theme') || '';
-          state.filters.party = party;
-          state.filters.theme = theme;
-          state.filters.level = '';
-          state.filters.search = '';
-          document.getElementById('filter-party').value = party;
-          document.getElementById('filter-theme').value = theme;
-          document.getElementById('filter-level').value = '';
-          document.getElementById('filter-search').value = '';
-          document.getElementById('btn-clear-search').classList.add('hidden');
-          if (party) setRefineExpanded(true);
-          applyFiltersAndRender(true);
-          const explorerEl = document.getElementById('explorador');
-          if (explorerEl) explorerEl.scrollIntoView({ behavior: 'smooth' });
+        /* Carga local de datos.txt (botón + arrastrar y soltar) */
+        const fileInput = document.getElementById('file-input-datos');
+        const reloadInput = document.getElementById('file-input-reload');
+        const dropzone = document.getElementById('dropzone-card');
+
+        fileInput.addEventListener('change', ev => {
+          if (ev.target.files && ev.target.files[0]) {
+            handleFileUpload(ev.target.files[0]);
+          }
         });
 
-        /* Filtros combinables */
+        reloadInput.addEventListener('change', ev => {
+          if (ev.target.files && ev.target.files[0]) {
+            handleFileUpload(ev.target.files[0]);
+            closeOverlay('modal-diagnostics');
+          }
+        });
+
+        ['dragenter', 'dragover'].forEach(evName => {
+          dropzone.addEventListener(evName, ev => {
+            ev.preventDefault();
+            dropzone.classList.add('is-dragover');
+          });
+        });
+        ['dragleave', 'drop'].forEach(evName => {
+          dropzone.addEventListener(evName, ev => {
+            ev.preventDefault();
+            dropzone.classList.remove('is-dragover');
+          });
+        });
+        dropzone.addEventListener('drop', ev => {
+          if (ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0]) {
+            handleFileUpload(ev.dataTransfer.files[0]);
+          }
+        });
+
+        /* Accesibilidad teclado en labels que actúan como botones de archivo */
+        ['btn-trigger-file'].forEach(id => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.addEventListener('keydown', ev => {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+              ev.preventDefault();
+              fileInput.click();
+            }
+          });
+        });
+
+        /* Tarjetas rápidas de temática */
+        document.getElementById('theme-quick-cards').addEventListener('click', ev => {
+          const btn = ev.target.closest('[data-quick-theme]');
+          if (!btn) return;
+          const theme = btn.getAttribute('data-quick-theme');
+          state.filters.theme = state.filters.theme === theme ? '' : theme;
+          applyFiltersAndRender(true);
+        });
+
+        /* Filtros dentro de "Afinar búsqueda" y buscador libre */
         document.getElementById('filter-party').addEventListener('change', ev => {
           state.filters.party = ev.target.value;
-          applyFiltersAndRender(true);
-        });
-
-        document.getElementById('filter-theme').addEventListener('change', ev => {
-          state.filters.theme = ev.target.value;
           applyFiltersAndRender(true);
         });
 
@@ -3035,20 +5010,168 @@
           searchInput.focus();
         });
 
-        function resetAllFilters() {
-          state.filters = { party: '', theme: '', level: '', search: '' };
-          document.getElementById('filter-party').value = '';
-          document.getElementById('filter-theme').value = '';
+        document.getElementById('btn-reset-filters').addEventListener('click', resetAllFilters);
+        document.getElementById('btn-empty-reset').addEventListener('click', resetAllFilters);
+
+        /* Paginación de 24 en 24 */
+        document.getElementById('btn-load-more').addEventListener('click', () => {
+          state.visibleCount += PAGE_SIZE;
+          renderCards();
+        });
+
+        /* Acciones dentro de las tarjetas (Ver qué implica / Guardar / Metodología) */
+        document.getElementById('cards-grid').addEventListener('click', ev => {
+          const detailBtn = ev.target.closest('[data-view-detail]');
+          if (detailBtn) {
+            openDetailModal(detailBtn.getAttribute('data-view-detail'));
+            return;
+          }
+          const saveBtn = ev.target.closest('[data-toggle-save]');
+          if (saveBtn) {
+            toggleSaveRecord(saveBtn.getAttribute('data-toggle-save'));
+            return;
+          }
+          const methBtn = ev.target.closest('[data-open-methodology]');
+          if (methBtn) {
+            openOverlay('modal-methodology');
+          }
+        });
+
+        /* Selector temático de la comparación relativa */
+        document.getElementById('profile-theme-tabs').addEventListener('click', ev => {
+          const tab = ev.target.closest('[data-profile-theme]');
+          if (!tab) return;
+          state.profileTheme = tab.getAttribute('data-profile-theme') || '';
+          renderProfileComparison();
+        });
+
+        /* Enlace directo desde tarjetas de perfil al explorador filtrado */
+        document.getElementById('profile-party-cards').addEventListener('click', ev => {
+          const btn = ev.target.closest('[data-jump-explorer-party]');
+          if (!btn) return;
+          const party = btn.getAttribute('data-jump-explorer-party') || '';
+          const theme = btn.getAttribute('data-jump-explorer-theme') || '';
+          state.filters = { party, theme, level: '', search: '' };
+          document.getElementById('filter-party').value = party;
           document.getElementById('filter-level').value = '';
           searchInput.value = '';
           clearSearchBtn.classList.add('hidden');
+          if (party) setRefineExpanded(true);
           applyFiltersAndRender(true);
-        }
+          const explorerEl = document.getElementById('explorador');
+          if (explorerEl) explorerEl.scrollIntoView({ behavior: 'smooth' });
+        });
 
-        document.getElementById('btn-reset-filters').addEventListener('click', resetAllFilters);
-// ... existing code ... -->
+        /* Acciones dentro del modal de análisis completo */
+        document.getElementById('detail-modal-body').addEventListener('click', ev => {
+          const jumpBtn = ev.target.closest('[data-jump-detail]');
+          if (jumpBtn) {
+            openDetailModal(jumpBtn.getAttribute('data-jump-detail'));
+            return;
+          }
+          const methBtn = ev.target.closest('[data-open-methodology]');
+          if (methBtn) {
+            openOverlay('modal-methodology');
+          }
+        });
+
+        document.getElementById('btn-detail-save').addEventListener('click', () => {
+          if (state.activeDetailId) toggleSaveRecord(state.activeDetailId);
+        });
+
+        document.getElementById('btn-detail-prev').addEventListener('click', () => {
+          const idx = state.filtered.findIndex(r => r.id === state.activeDetailId);
+          if (idx > 0) openDetailModal(state.filtered[idx - 1].id);
+        });
+
+        document.getElementById('btn-detail-next').addEventListener('click', () => {
+          const idx = state.filtered.findIndex(r => r.id === state.activeDetailId);
+          if (idx !== -1 && idx < state.filtered.length - 1) {
+            openDetailModal(state.filtered[idx + 1].id);
+          }
+        });
+
+        /* Modales de metodología y diagnóstico */
+        ['btn-open-methodology-nav', 'btn-open-methodology-filter', 'btn-open-methodology-footer'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('click', () => openOverlay('modal-methodology'));
+        });
+
+        document.getElementById('perfil-comparativo').addEventListener('click', ev => {
+          if (ev.target.closest('[data-open-methodology]')) {
+            openOverlay('modal-methodology');
+          }
+        });
+
+        ['btn-open-diagnostics', 'btn-banner-diagnostics'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.addEventListener('click', () => {
+              renderDiagnosticsModal();
+              openOverlay('modal-diagnostics');
+            });
+          }
+        });
+
+        /* Drawer "Mi selección de medidas" */
+        document.getElementById('btn-open-selection').addEventListener('click', () => {
+          state.confirmingClearSelection = false;
+          renderSelectionDrawer();
+          openOverlay('drawer-selection');
+        });
+
+        document.getElementById('selection-drawer-body').addEventListener('click', ev => {
+          const removeBtn = ev.target.closest('[data-remove-selected]');
+          if (removeBtn) {
+            toggleSaveRecord(removeBtn.getAttribute('data-remove-selected'));
+            return;
+          }
+          const jumpBtn = ev.target.closest('[data-jump-detail]');
+          if (jumpBtn) {
+            const targetId = jumpBtn.getAttribute('data-jump-detail');
+            closeOverlay('drawer-selection');
+            openDetailModal(targetId);
+          }
+        });
+
+        document.getElementById('clear-selection-controls').addEventListener('click', ev => {
+          if (ev.target.closest('#btn-ask-clear-selection')) {
+            state.confirmingClearSelection = true;
+            renderSelectionDrawer();
+          } else if (ev.target.closest('#btn-cancel-clear-selection')) {
+            state.confirmingClearSelection = false;
+            renderSelectionDrawer();
+          } else if (ev.target.closest('#btn-confirm-clear-selection')) {
+            state.selectedIds.clear();
+            state.confirmingClearSelection = false;
+            persistSelection();
+            updateSelectionBadge();
+            renderCards();
+            renderSelectionDrawer();
+            showToast('Selección vaciada');
+          }
+        });
+
+        /* Cierre de modales/drawer (botón cerrar, clic fuera y tecla Escape) */
+        document.querySelectorAll('[data-close-modal]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            closeOverlay(btn.getAttribute('data-close-modal'));
+          });
+        });
+
+        document.querySelectorAll('.modal-backdrop, .drawer-backdrop').forEach(backdrop => {
+          backdrop.addEventListener('click', ev => {
+            if (ev.target === backdrop) closeOverlay(backdrop.id);
+          });
+        });
+
+        document.addEventListener('keydown', ev => {
+          if (ev.key === 'Escape') closeTopOverlay();
+        });
+      }
+
       /* =======================================================================
-         13. ARRANQUE DE LA APLICACIÓN
+         14. ARRANQUE DE LA APLICACIÓN
          ======================================================================= */
       function init() {
         state.sessionPartyOrder = shuffleArrayOnce(CANONICAL_PARTIES);
